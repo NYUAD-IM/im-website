@@ -15,31 +15,35 @@
     <!-- the template -->
     <script id="template" type="text/x-handlebars-template">
         {{#if PageStatus}}
-        <div class = "gridSections">
-            <h1 class = "pageTitle"> {{PageTitle}} </h1>
+        <h1 class = "pageTitle"> {{PageTitle}} </h1>
+        <div class = "galleryContainer"> 
             {{#each PageSections}}
-            <div class = "photoGridContainer">
-                    <h2 class = "SectionTitle">{{SectionTitle}}</h2>
+                    <h2 class = "sectionTitle">{{SectionTitle}}</h2>
                     {{#each Subsections}}
-                        <h2 class = "sectionTitle">{{SubsectionName}}</h2>
-                        <p class = "subsectionTitle">{{SubsectionTitles}}</p>
-                        <div class = "personDetailsContainer">
-                            <!-- <img src = "{{image}}"> -->
-                            <p class = "personBio">{{SubsectionBio}}</p>
-                            <p class = "personEmail">{{SubsectionEmail}}</p>
-                            {{#if SubsectionCourses}}
-                            <p class = "personBio">{{SubsectionCourses}}</p>
-                            {{/if}}
-                        </div>
+                    <div class = "personDetailsContainer">
+                        <!-- <img src = "{{image}}"> -->
+                        <p class = "bodyText">{{SubsectionBio}}</p>
+                        <p class = "bodyText">{{SubsectionEmail}}</p>
+                        {{#if SubsectionCourses}}
+                        <p class = "bodyText">{{SubsectionCourses}}</p>
+                        {{/if}}
+                    </div>
+                    <h2 class = "subsectionTitle">
+                        {{#if SubsectionLink}}
+                        <a href = "{{SubsectionLink}}">{{SubsectionName}}</a>
+                        {{else}}
+                        {{SubsectionName}}
+                        {{/if}}
+                    </h2>
+                    <p class = "subsectionSubtitle">{{SubsectionTitles}}</p>     
                     {{/each}}
-            </div>
             {{/each}}
         </div>
         {{/if}}
         
     </script>
 
-    <!-- including dependencies -->
+    <!-- including jquery, handlebars, and script.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
     <script type="text/javascript" src="script.js"></script>
