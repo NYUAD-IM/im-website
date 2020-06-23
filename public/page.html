@@ -11,7 +11,7 @@
     
     <!-- the template -->
     <script id="template" type="text/x-handlebars-template">
-        
+
         <!-- checking for people page -->
         {{#if_eq PageType 'People'}}
         <div class="{{PageType}} page">
@@ -21,6 +21,7 @@
                 <div class="{{SectionType}} section"> 
                     <h2 class="{{SectionType}} sectionTitle">{{SectionTitle}}</h2>
                     {{#each Subsections}}
+                        {{#if_eq SubsectionType 'Person'}}
                         <!-- person -->
                         <div class="{{SubsectionType}} subsection">
                             <img src="{{SubsectionImage}}">
@@ -38,7 +39,8 @@
                             </h2>
                             <p class="{{SubsectionType}} subsectionSubtitle">{{SubsectionTitle}}</p>
                         </div> 
-                        <!-- person -->     
+                        <!-- person --> 
+                        {{/if_eq}}    
                     {{/each}}
                 </div>
                 {{/if_eq}}
@@ -54,6 +56,7 @@
             {{#each PageSections}}
                 {{#if_eq SectionType 'Projects'}}
                 {{#each Subsections}}
+                    {{#if_eq SubsectionType 'Project'}}
                     <!-- project -->
                     <div class="{{SubsectionType}} subsection">
                         <img src="{{SubsectionImage}}">
@@ -78,6 +81,7 @@
                         {{/each}}
                     </div>
                     <!-- project -->
+                    {{/if_eq}}
                 {{/each}}
                 {{/if_eq}}
             {{/each}}
