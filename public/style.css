@@ -3,3 +3,10 @@ html, body{
     margin: 0px;
     background-color:white;
 }
+
+.People.pageTitle{
+    display:none;
+}
+
+
+

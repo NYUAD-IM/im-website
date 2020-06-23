@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>People</title>
+    <link rel="stylesheet" href="style.css">        
+</head>
+
+<body> 
+    
+    <!-- the template -->
+    <script id="template" type="text/x-handlebars-template">
+        <!-- checking for people page -->
+        {{#if_eq PageType 'People'}}
+        <h1 class="{{PageType}} pageTitle"> {{PageTitle}} </h1>
+        {{#each PageSections}}
+            {{#if_eq SectionType 'People'}}
+            <div class="{{SectionType}} section"> 
+                <h2 class="{{SectionType}} sectionTitle">{{SectionTitle}}</h2>
+                {{#each Subsections}}
+                    <div class="{{SubsectionType}} subsection">
+                        <img src="{{SubsectionImage}}">
+                        <p class="{{SubsectionType}} bodyText">{{SubsectionBio}}</p>
+                        <p class="{{SubsectionType}} bodyText">{{SubsectionEmail}}</p>
+                        {{#if SubsectionCourses}}
+                        <p class="{{SubsectionType}} bodyText">{{SubsectionCourses}}</p>
+                        {{/if}}
+                        <h2 class="{{SubsectionType}} subsectionTitle">
+                            {{#if SubsectionLink}}
+                            <a href="{{SubsectionLink}}">{{SubsectionName}}</a>
+                            {{else}}
+                            {{SubsectionName}}
+                            {{/if}}
+                        </h2>
+                        <p class="{{SubsectionType}} subsectionSubtitle">{{SubsectionTitle}}</p>
+                    </div>      
+                {{/each}}
+            </div>
+            {{/if_eq}}
+        {{/each}}
+        {{/if_eq}}
+    </script>
+
+    <!-- including jquery, handlebars, and script.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <script type="text/javascript" src="page.js"></script>
+</body>
+</html>
