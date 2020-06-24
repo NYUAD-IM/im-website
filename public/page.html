@@ -152,6 +152,66 @@
         {{/if_eq}}
         <!-- end of People page -->
 
+        <!-- Resources page -->
+        {{#if_eq PageType 'Resources'}}
+            {{#each PageSections}}
+
+                {{#if_eq SectionType 'Blocks'}}
+                    <div class="{{SectionType}} section">
+                        <h2 class="sectionTitle">{{SectionTitle}}</h2>
+                        {{#each Subsections}}
+                            <div class="{{SubsectionType}} subsection">
+
+                                {{#if_eq SubsectionType 'Block'}}
+                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                    {{#if SubsectionSubtitle}}
+                                        <p class="subsectionSubtitle">{{SubsectionSubtitle}}</p>
+                                    {{/if}}
+                                    {{#if SubsectionDescription}}
+                                        <p class="bodyText">{{SubsectionDescription}}</p>
+                                    {{/if}}
+                                    {{#each SubsectionItems}}
+                                        {{#if ItemName}}
+                                            {{#if_eq ItemType 'Button'}}
+                                                <a href="{{ItemLink}}" class="button">{{ItemName}}</a>
+                                            {{/if_eq}}
+                                            {{#if_eq ItemType 'Link'}}
+                                                <a href="{{ItemLink}}">{{ItemName}}</a>
+                                            {{/if_eq}}
+                                        {{/if}}
+                                    {{/each}}
+                                {{/if_eq}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/if_eq}}
+                    
+                {{#if_eq SectionType 'Events'}}
+                    <div class="{{SectionType}} section">
+                        <h2 class="sectionTitle">{{SectionTitle}}</h2>
+                    </div>
+                {{/if_eq}}
+
+                {{#if_eq SectionType 'Calendar'}}
+                    <div class="{{SectionType}} section">
+                        <h2 class="sectionTitle">{{SectionTitle}}</h2>
+                        <iframe src="{{SectionLink}}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                {{/if_eq}}
+
+                {{#if_eq SectionType 'Banner'}}
+                    <div class="{{SectionType}} section">
+                        <h2 class="sectionTitle">{{SectionTitle}}</h2>
+                        {{#each Subsections}}
+                            {{#if_eq SubsectionType 'Banner'}}
+                                <a href="{{BannerLink}}" class="button">{{BannerButtonText}}</a>
+                            {{/if_eq}}
+                        {{/each}}
+                    </div>
+                {{/if_eq}}
+            {{/each}}
+        {{/if_eq}}
+
         <!-- Gallery page -->
         {{#if_eq PageType 'Gallery'}}
             <h1 class="pageTitle"> {{PageTitle}} </h1> 
