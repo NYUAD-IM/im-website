@@ -15,42 +15,106 @@
         
         <div class="{{PageType}} page">
 
-        <!-- checking for home page -->
+        <!-- home page -->
         {{#if_eq PageType 'Home'}}
             {{#each PageSections}}
 
                 {{#if_eq SectionType 'Sketch'}}
-                <div class="{{SectionType}} section">
-                    {{#each Subsections}}
-                        {{#if_eq SubsectionType 'Sketch'}}
-                            <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
-                        {{/if_eq}}
-                    {{/each}}
-                </div>
+                    <div class="{{SectionType}} section">
+                        {{#each Subsections}}
+                            {{#if_eq SubsectionType 'Sketch'}}
+                                <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
+                            {{/if_eq}}
+                        {{/each}}
+                        {{#if SectionLink}}
+                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                        {{/if}}
+                    </div>
                 {{/if_eq}}
                 
 
                 {{#if_eq SectionType 'Slides'}}
+                    <div class="{{SectionType}} section">
+                        <h2 class="sectionTitle">{{SectionTitle}}</h2>
+                        <p class="bodyText">{{SectionSubtitle}}</p>
+                        {{#each Subsections}}
+                            <div class="{{SubsectionType}} subsection">
+                                {{#if_eq SubsectionType 'Slide'}}
+                                    <img src="{{SubsectionImage}}">
+                                    {{#if SubsectionTitle}}
+                                        <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                    {{/if}}
+                                    <p class="bodyText">{{SubsectionDescription}}</p>
+                                {{/if_eq}}
+                            </div>
+                        {{/each}} 
+                        {{#if SectionLink}}
+                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                        {{/if}}
+                    </div>
+                {{/if_eq}}
+
+                {{#if_eq SectionType 'Lists'}}
+                    <div class="{{SectionType}} section">
+                        <h2 class="sectionTitle">{{SectionTitle}}</h2>
+                        <p class="bodyText">{{SectionSubtitle}}</p>
+                        {{#each Subsections}}
+                            <div class="{{SubsectionType}} subsection">
+                                {{#if_eq SubsectionType 'List'}}
+                                    <h2 class="subsectionTitle">{{SubsectionListTitle}}</h2>
+                                    {{#if SubsectionListSubtitle}}
+                                        <p class="subsectionSubtitle">{{SubsectionListSubtitle}}</p>
+                                    {{/if}}
+                                    <ul>
+                                        {{#each SubsectionItems}}
+                                            <li><p class="bodyText">
+                                                {{#if ItemLink}}
+                                                    <a href="{{ItemLink}} target="_blank"">{{ItemName}}</a>
+                                                {{else}}
+                                                    {{ItemName}}
+                                                {{/if}}
+                                            </p></li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if_eq}}
+                            </div>
+                        {{/each}}
+                        {{#if SectionLink}}
+                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                        {{/if}}
+                    </div>
+                {{/if_eq}}
+
+                {{#if_eq SectionType 'Tiles'}}
                 <div class="{{SectionType}} section">
                     <h2 class="sectionTitle">{{SectionTitle}}</h2>
-                    <h3 class="sectionSubtitle">{{SectionSubtitle}}</h3>
+                    <p class="bodyText">{{SectionSubtitle}}</p>
                     {{#each Subsections}}
                         <div class="{{SubsectionType}} subsection">
-                            {{#if_eq SubsectionType 'Slide'}}
-                                <img src="{{SubsectionImage}}">
-                                <p>{{SubsectionDescription}}</p>
+                            {{#if_eq SubsectionType 'Tile'}}
+                                <div class="{{SubsectionType}} text">
+                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                    <p class="bodyText">{{SubsectionDescription}}</p>
+                                </div>
+                                <div class="{{SubsectionType}} image">
+                                    <img src="{{SubsectionImage}}">
+                                </div>
                             {{/if_eq}}
                         </div>
-                    {{/each}} 
+                    {{/each}}
+                    {{#if SectionLink}}
+                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                    {{/if}}
                 </div>
                 {{/if_eq}}
+
 
             {{/each}}
         {{/if_eq}}
 
-        <!-- checking for people page -->
+        <!-- people page -->
         {{#if_eq PageType 'People'}}
-            <h1 class="pageTitle"> {{PageTitle}} </h1> <!-- maybe delete later??-->
+            <h1 class="pageTitle"> {{PageTitle}} </h1> 
             {{#each PageSections}}
                 <div class="{{SectionType}} section">
                 {{#if_eq SectionType 'People'}}       
@@ -59,20 +123,24 @@
                         <div class="{{SubsectionType}} subsection">
                         {{#if_eq SubsectionType 'Person'}}
                         <!-- person --> 
-                            <img src="{{SubsectionImage}}">
-                            <p>{{SubsectionBio}}</p>
-                            <p>{{SubsectionEmail}}</p>
-                            {{#if SubsectionCourses}}
-                            <p>{{SubsectionCourses}}</p>
-                            {{/if}}
-                            <h2 class="subsectionTitle">
-                                {{#if SubsectionLink}}
-                                <a href="{{SubsectionLink}}">{{SubsectionName}}</a>
-                                {{else}}
-                                {{SubsectionName}}
+                            <div class="{{SubsectionType}} gridHoverContainer">
+                                <img src="{{SubsectionImage}}">
+                                <p class="hoverBody">{{SubsectionBio}}</p>
+                                <p class="hoverBody"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
+                                {{#if SubsectionCourses}}
+                                    <p class="hoverBody">{{SubsectionCourses}}</p>
                                 {{/if}}
-                            </h2>
-                            <p class="subsectionSubtitle">{{SubsectionTitle}}</p>
+                            </div>
+                            <div class="{{SubsectionType}} gridTextContainer">
+                                <h2 class="subsectionTitle">
+                                    {{#if SubsectionLink}}
+                                        <a href="{{SubsectionLink}}" target="_blank">{{SubsectionName}}</a>
+                                    {{else}}
+                                        {{SubsectionName}}
+                                    {{/if}}
+                                </h2>
+                                <p class="subsectionSubtitle">{{SubsectionPosition}}</p>
+                            </div>
                         <!-- person --> 
                         {{/if_eq}} 
                         </div>   
@@ -83,39 +151,43 @@
         {{/if_eq}}
         <!-- end of People page -->
 
-        <!-- checking for Gallery page -->
+        <!-- Gallery page -->
         {{#if_eq PageType 'Gallery'}}
-            <h1 class="pageTitle"> {{PageTitle}} </h1> <!-- maybe delete later??-->
+            <h1 class="pageTitle"> {{PageTitle}} </h1> 
             {{#each PageSections}}
                 {{#if_eq SectionType 'Projects'}}
-                {{#each Subsections}}
-                    <div class="{{SubsectionType}} subsection">
-                    {{#if_eq SubsectionType 'Project'}}
-                    <!-- project -->
-                        <img src="{{SubsectionImage}}">
-                        <p>{{SubsectionProjectDescription}}</p>
-                        <p>{{SubsectionProjectClass}}</p>
-                        <p>{{SubsectionProjectTerm}}</p>
-                        <h2 class="subsectionSubtitle">
-                            {{#if SubsectionProjectLink}}
-                            <a href="{{SubsectionProjectLink}}">{{SubsectionProjectName}}</a>
-                            {{else}}
-                            {{SubsectionProjectName}}
-                            {{/if}}
-                        </h2>
-                        {{#each SubsectionAuthors}}
-                            <h2 class="subsectionSubtitle">
-                                {{#if AuthorPortfolio}}
-                                <a href="{{AuthorPortfolio}}">{{AuthorName}}</a>
-                                {{else}}
-                                {{AuthorName}}
-                                {{/if}}
-                            </h2>
-                        {{/each}}
-                    <!-- project -->
-                    {{/if_eq}}
-                    </div>
-                {{/each}}
+                    {{#each Subsections}}
+                        <div class="{{SubsectionType}} subsection">
+                        {{#if_eq SubsectionType 'Project'}}
+                        <!-- project -->
+                            <div class="{{SubsectionType}} gridHoverContainer">
+                                <img src="{{SubsectionImage}}">
+                                <p class="hoverBody">{{SubsectionProjectDescription}}</p>
+                                <p class="hoverBody">{{SubsectionProjectClass}}</p>
+                                <p class="hoverBody">{{SubsectionProjectTerm}}</p>
+                            </div>
+                            <div class="{{SubsectionType}} gridTextContainer">
+                                <h2 class="subsectionTitle">
+                                    {{#if SubsectionProjectLink}}
+                                        <a href="{{SubsectionProjectLink}}" target="_blank">{{SubsectionProjectName}}</a>
+                                    {{else}}
+                                        {{SubsectionProjectName}}
+                                    {{/if}}
+                                </h2>
+                                {{#each SubsectionAuthors}}
+                                    <p class="subsectionSubtitle">
+                                        {{#if AuthorPortfolio}}
+                                            <a href="{{AuthorPortfolio}}" target="_blank">{{AuthorName}}</a>
+                                        {{else}}
+                                            {{AuthorName}}
+                                        {{/if}}
+                                    </p>
+                                {{/each}}
+                            </div>
+                        <!-- project -->
+                        {{/if_eq}}
+                        </div>
+                    {{/each}}
                 {{/if_eq}}
             {{/each}}
         {{/if_eq}}
