@@ -9,13 +9,13 @@
 
 <body> 
     
-    
+    <!-- navbar -->
+    <div class = "navbar"></div>
+
     <!-- the template -->
     <script id="template" type="text/x-handlebars-template">
 
-        
         <div class="{{PageType}} page">
-
         <!-- home page -->
         {{#if_eq PageType 'Home'}}
             {{#each PageSections}}
@@ -318,15 +318,34 @@
             {{/each}}
         {{/if_eq}}
         <!-- end of gallery page -->
-
         </div>
-    
+    </script>
 
+    <!-- navbar template -->
+    <script id="navbar-template" type="text/x-handlebars-template">
+        <nav>
+            {{#each Sections}}
+                {{#if_eq SectionType 'Navbar'}}
+                    {{#each Subsections}}
+                        {{#if_eq SubsectionType 'Navbar Main'}}
+                            {{#each SubsectionItems}}
+                                <a href="{{ItemLink}}" class="navMain">{{ItemName}}</a>
+                            {{/each}}
+                        {{/if_eq}}
+                        {{#if_eq SubsectionType 'Navbar Link'}}
+                            {{#each SubsectionItems}}
+                                <a href="{{ItemLink}}" class="navLink">{{ItemName}}</a>
+                            {{/each}}
+                        {{/if_eq}}
+                    {{/each}}
+                {{/if_eq}}
+            {{/each}}
+        </nav>
     </script>
 
     <!-- including jquery, handlebars, and script.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
-    <script type="text/javascript" src="page.js"></script>
+    <script type="text/javascript" src="multipletemplates.js"></script>
 </body>
 </html>
