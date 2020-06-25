@@ -28,7 +28,22 @@
                             {{/if_eq}}
                         {{/each}}
                         {{#if SectionLink}}
-                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                            {{#if_eq SectionLinkStyle 'Button'}}
+                                {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}" class="button">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" class="button" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
+                            {{#if_eq SectionLinkStyle 'Link'}}
+                                    {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
                         {{/if}}
                     </div>
                 {{/if_eq}}
@@ -41,7 +56,7 @@
                         {{#each Subsections}}
                             <div class="{{SubsectionType}} subsection">
                                 {{#if_eq SubsectionType 'Slide'}}
-                                    <img src="{{SubsectionImage}}">
+                                    <img src="{{SubsectionImageLink}}">
                                     {{#if SubsectionTitle}}
                                         <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
                                     {{/if}}
@@ -50,7 +65,22 @@
                             </div>
                         {{/each}} 
                         {{#if SectionLink}}
-                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                            {{#if_eq SectionLinkStyle 'Button'}}
+                                {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}" class="button">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" class="button" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
+                            {{#if_eq SectionLinkStyle 'Link'}}
+                                    {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
                         {{/if}}
                     </div>
                 {{/if_eq}}
@@ -81,7 +111,22 @@
                             </div>
                         {{/each}}
                         {{#if SectionLink}}
-                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
+                            {{#if_eq SectionLinkStyle 'Button'}}
+                                {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}" class="button">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" class="button" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
+                            {{#if_eq SectionLinkStyle 'Link'}}
+                                    {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
                         {{/if}}
                     </div>
                 {{/if_eq}}
@@ -98,14 +143,29 @@
                                     <p class="bodyText">{{SubsectionDescription}}</p>
                                 </div>
                                 <div class="{{SubsectionType}} image">
-                                    <img src="{{SubsectionImage}}">
+                                    <img src="{{SubsectionImageLink}}">
                                 </div>
                             {{/if_eq}}
                         </div>
                     {{/each}}
                     {{#if SectionLink}}
-                            <p><a href = "{{SectionLink}}" target="_blank">{{SectionLinkText}}</a></p>
-                    {{/if}}
+                            {{#if_eq SectionLinkStyle 'Button'}}
+                                {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}" class="button">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" class="button" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
+                            {{#if_eq SectionLinkStyle 'Link'}}
+                                    {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SectionLink}}">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SectionLink}}" target="_blank">{{SectionLinkText}}</a>
+                                {{/if_eq}}
+                            {{/if_eq}}
+                        {{/if}}
                 </div>
                 {{/if_eq}}
 
@@ -125,7 +185,7 @@
                         {{#if_eq SubsectionType 'Person'}}
                         <!-- person --> 
                             <div class="{{SubsectionType}} gridHoverContainer">
-                                <img src="{{SubsectionImage}}">
+                                <img src="{{SubsectionImageLink}}">
                                 <p class="hoverBody">{{SubsectionBio}}</p>
                                 <p class="hoverBody"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
                                 {{#if SubsectionCourses}}
@@ -204,7 +264,12 @@
                         <h2 class="sectionTitle">{{SectionTitle}}</h2>
                         {{#each Subsections}}
                             {{#if_eq SubsectionType 'Banner'}}
-                                <a href="{{BannerLink}}" class="button">{{BannerButtonText}}</a>
+                                {{#if_eq SectionLinkType 'Internal'}}
+                                    <a href="{{SubsectionButtonLink}}" class="button">{{SubsectionButtonText}}</a>
+                                {{/if_eq}}
+                                {{#if_eq SectionLinkType 'External'}}
+                                    <a href="{{SubsectionButtonLink}}" class="button" target="_blank">{{SubsectionButtonText}}</a>
+                                {{/if_eq}}
                             {{/if_eq}}
                         {{/each}}
                     </div>
@@ -222,7 +287,7 @@
                         {{#if_eq SubsectionType 'Project'}}
                         <!-- project -->
                             <div class="{{SubsectionType}} gridHoverContainer">
-                                <img src="{{SubsectionImage}}">
+                                <img src="{{SubsectionImageLink}}">
                                 <p class="hoverBody">{{SubsectionProjectDescription}}</p>
                                 <p class="hoverBody">{{SubsectionProjectClass}}</p>
                                 <p class="hoverBody">{{SubsectionProjectTerm}}</p>
