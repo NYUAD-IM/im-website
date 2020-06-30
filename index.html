@@ -119,8 +119,7 @@
                             {{/if_eq}}
 
                             {{#if_eq SubsectionType 'Project'}}
-                                <div class="{{SubsectionType}} gridHoverContainer">
-                                    <img src="{{SubsectionImageLink}}">
+                                <div class="{{SubsectionType}} gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
                                     <p class="hoverBody">{{SubsectionProjectDescription}}</p>
                                     <p class="hoverBody">{{SubsectionProjectClass}}</p>
                                     <p class="hoverBody">{{SubsectionProjectTerm}}</p>

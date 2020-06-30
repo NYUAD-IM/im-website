@@ -9,30 +9,82 @@ html, body {
     margin: 0px;
 }
 
-/* TEXT */
-p {
-    font-family: 'Open Sans', sans-serif;
+.page{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;  /* sticks footer at the bottom of the page */
+    margin-bottom:5%;
 }
 
-.subsectionSubtitle {
-    font-style: italic;
+/* grid container */
+.People.section{
+    display:flex;
+    justify-content: center;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    flex-direction:column;
+    align-items:center;
 }
 
-h2 {
-    font-family: 'Open Sans Condensed', sans-serif;
+.Projects.section{
+    display:flex;
+    justify-content: center;
+    max-width:80%;
+    margin:0;
+    padding:0;
+    flex-wrap:wrap;
 }
 
-.sectionTitle {
-    color: #655092; 
-    font-size: 2.5em; 
-    text-transform: uppercase;
+.People.gridContainer{
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    margin:0;
+    padding:0;
+    flex-wrap:wrap;
+    width:80%;
 }
 
+.Project.subsection, .Person.subsection{
+    flex:0 0 350px;  /* change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    margin:1%;
+    margin-left:0;
+    display:flex;
+    flex-direction:column;
+    height:438px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+ }
+
+.gridHoverContainer{
+    height:80%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hoverBody{
+    color:white;
+    font-size:0.75em;
+    padding:2%;
+}
+
+.Project .subsectionSubtitle{
+    display:inline;
+    margin-left:0;
+}
+
+.gridTextContainer{
+    height:20%;
+    width:100%;
+}
+
+
+/* BUTTONS/LINKS */
 a {
     color: black;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
@@ -40,8 +92,17 @@ a {
     transition: .3s;
 }
 
-a:hover {
+/* a.Link:hover, a.Main:hover {
     color:#655092;
+} */
+
+a:hover{
+    color:#655092;
+}
+
+a.Link{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
 }
 
 a.Navbar {
@@ -73,10 +134,56 @@ a.Footer:hover {
     color: white;
 }
 
+.Button{
+    font-family: 'Open Sans Condensed', sans-serif;
+    border: 2px solid #6A6893;
+    background-color: white;
+    color: #6A6893;
+    padding: 0.5% 2%;
+    cursor: pointer;
+    margin:2%;
+}
+
+.Button:hover{
+    background-color:#6A6893;
+    color:white;
+    border-color:#6A6893;
+}
+
+/* TEXT */
+p {
+    font-family: 'Open Sans', sans-serif;
+    margin:2%;
+}
+
+h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin:2%;
+}
+
+.sectionTitle {
+    color: #655092; 
+    font-size: 2.5em; 
+    text-transform: uppercase;
+    align-self:center;
+    width:80%;
+}
+
+.Project .subsectionTitle{
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-bottom:0;
+    margin-left:0;
+}
+
+.subsectionSubtitle {
+    font-style: italic;
+}
+
 /* FOOTER */
 footer{
     background-color:black;
     display:flex;
+    flex-shrink: 0;
 }
 
 div.Footer{
