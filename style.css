@@ -49,12 +49,12 @@ html, body {
 }
 
 .Project.subsection, .Person.subsection{
-    flex:0 0 350px;  /* change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    flex:0 0 392px;  /* change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
     margin:1%;
     margin-left:0;
     display:flex;
     flex-direction:column;
-    height:438px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    height:490px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
  }
 
 .gridHoverContainer{
