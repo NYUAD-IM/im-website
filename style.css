@@ -9,6 +9,11 @@ html, body {
     margin: 0px;
 }
 
+body{
+    display:flex;
+    flex-direction:column;
+}
+
 .page{
     display:flex;
     flex-direction:column;
@@ -18,7 +23,22 @@ html, body {
     margin-bottom:5%;
 }
 
-/* grid container */
+/****** General Sections ******/
+.section{
+    margin-bottom:3%;
+}
+
+/****** Section: Resources ******/
+.Resources .section{
+    width:80%; 
+}
+
+/****** Section: Calendar, Banner ******/
+.Calendar.section, .Banner.section{
+    text-align:center;
+}
+
+/****** Section: People ******/
 .People.section{
     display:flex;
     justify-content: center;
@@ -29,6 +49,7 @@ html, body {
     align-items:center;
 }
 
+/****** Section: Projects ******/
 .Projects.section{
     display:flex;
     justify-content: center;
@@ -38,7 +59,74 @@ html, body {
     flex-wrap:wrap;
 }
 
-.People.gridContainer{
+
+/****** Type ******/
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    /* margin:2%; */
+}
+
+.sectionTitle {
+    color: #655092; 
+    font-size: 2.5em; 
+    text-transform: uppercase;
+    margin:2% 0 2% 0;
+    text-align:left;
+}
+
+.subsectionTitle{
+    font-size:1.75em;
+    margin:0;
+}
+
+.subsectionSubtitle {
+    font-style: italic;
+}
+
+/****** Buttons/Links ******/
+a {
+    color: black;
+    text-decoration: none;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    transition: .3s;
+}
+
+.Link{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    margin-top:1%;
+    text-decoration: underline;
+}
+
+a:hover{
+    color:#655092;
+}
+
+.Button{
+    font-family: 'Open Sans Condensed', sans-serif;
+    border: 2px solid #6A6893;
+    background-color: white;
+    color: #6A6893;
+    padding: 1.5% 5%;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.Button:hover{
+    background-color:#6A6893;
+    color:white;
+    border-color:#6A6893;
+}
+
+/****** Subsection: Person & Project ******/
+.People.contentContainer{
     display:flex;
     justify-content: flex-start;
     align-items:center;
@@ -49,13 +137,29 @@ html, body {
 }
 
 .Project.subsection, .Person.subsection{
-    flex:0 0 392px;  /* change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    flex:0 0 350px;  /* change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
     margin:1%;
     margin-left:0;
     display:flex;
     flex-direction:column;
     height:490px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
  }
+
+ .Project .sectionTitle, .People .sectionTitle{
+    width:80%;
+    align-self:center;
+}
+
+.Project .subsectionTitle, .People .subsectionTitle{
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-bottom:0;
+    margin-left:0;
+}
+
+.Project .subsectionSubtitle, .People .subsectionSubtitle{
+    display:inline;
+    margin-left:0;
+}
 
 .gridHoverContainer{
     height:80%;
@@ -68,11 +172,19 @@ html, body {
     color:white;
     font-size:0.75em;
     padding:2%;
+    margin:1% 1% 0 1%;
 }
 
-.Project .subsectionSubtitle{
-    display:inline;
-    margin-left:0;
+.hoverBody a{
+    color:white;
+}
+
+.hoverBody a:hover{
+    color:white;
+}
+
+.top{
+    margin-top:15%;
 }
 
 .gridTextContainer{
@@ -80,106 +192,7 @@ html, body {
     width:100%;
 }
 
-
-/* BUTTONS/LINKS */
-a {
-    color: black;
-    text-decoration: none;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    -ms-transition: .3s;
-    transition: .3s;
-}
-
-/* a.Link:hover, a.Main:hover {
-    color:#655092;
-} */
-
-a:hover{
-    color:#655092;
-}
-
-a.Link{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-}
-
-a.Navbar {
-    font-family: 'Open Sans Condensed', sans-serif;
-    margin:3%;
-}
-
-a.Navbar.Main, a.Navbar.Logo {
-    font-size: 1.75em;
-    text-transform: uppercase;
-}
-
-a.Footer {
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-a.Footer.Main {
-    color: white;
-    font-size: 1.75em;
-    text-transform: uppercase;
-}
-
-a.Footer.Link {
-    color: #A2A2A2;
-    padding:5%;
-}
-
-a.Footer:hover {
-    color: white;
-}
-
-.Button{
-    font-family: 'Open Sans Condensed', sans-serif;
-    border: 2px solid #6A6893;
-    background-color: white;
-    color: #6A6893;
-    padding: 0.5% 2%;
-    cursor: pointer;
-    margin:2%;
-}
-
-.Button:hover{
-    background-color:#6A6893;
-    color:white;
-    border-color:#6A6893;
-}
-
-/* TEXT */
-p {
-    font-family: 'Open Sans', sans-serif;
-    margin:2%;
-}
-
-h2 {
-    font-family: 'Open Sans Condensed', sans-serif;
-    margin:2%;
-}
-
-.sectionTitle {
-    color: #655092; 
-    font-size: 2.5em; 
-    text-transform: uppercase;
-    align-self:center;
-    width:80%;
-}
-
-.Project .subsectionTitle{
-    font-family: 'Open Sans Condensed', sans-serif;
-    margin-bottom:0;
-    margin-left:0;
-}
-
-.subsectionSubtitle {
-    font-style: italic;
-}
-
-/* FOOTER */
+/****** Footer ******/
 footer{
     background-color:black;
     display:flex;
@@ -201,7 +214,27 @@ div.Footer.Links.subsection{
     flex-direction:column;
 }
 
-/* NAVBAR */
+a.Footer, a.Navbar {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration:none;
+}
+
+a.Footer.Main {
+    color: white;
+    font-size: 1.75em;
+    text-transform: uppercase;
+}
+
+a.Footer.Link {
+    color: #A2A2A2;
+    padding:5%;
+}
+
+a.Footer:hover {
+    color: white;
+}
+
+/****** Navbar ******/
 nav{
     display:flex;
     flex-direction:row;
@@ -223,19 +256,63 @@ div.Navbar.Logo.subsection {
     text-align:right;
 }
 
-
-/* OTHER */
-.People .pageTitle{
-    display:none;
+a.Navbar {
+    margin:3%;
 }
 
-
-.Gallery .pageTitle{
-    display:none;
+a.Navbar.Main, a.Navbar.Logo {
+    font-size: 1.75em; /* RESPONSIVE: CHANGE */
+    text-transform: uppercase;
 }
 
+/****** Page: Error ******/
+.Error .sectionTitle{
+    font-size:12em;
+} 
+
+/* OTHER CHANGE */ 
 .Home iframe{
     width:100%;
+}
+
+/****** Subsection: Block ******/
+.Blocks.contentContainer{
+    display:flex;
+    flex-flow:row wrap;
+}
+
+.Block.subsection {
+    flex: 1 100%;
+    margin-top:1%;
+}
+
+.Block.subsection.Wide{
+    /* border: 2px solid #6A6893; */
+    flex:3 45%;
+    margin-right:10%;
+    /* RESPONSIVE (MOBILE) ADD:   .wrapper > * {flex:1 100%;} */
+    /* RESPONSIVE: CHANGE MARGIN-RIGHT (POTENTIALLY 0) */
+}
+
+.Block.subsection.Narrow{
+    /* border: 2px solid #6A6893; */
+    flex:1 20%;
+   /* RESPONSIVE (MOBILE) ADD:   .wrapper > * {flex:1 100%;} */
+}
+
+.Block .Button{
+    margin:2% 2% 2% 0;
+}
+
+.Block .Link{
+    display:block;
+    margin:4% 0 4% 0;
+}
+
+/****** Subsection: Calendar ******/
+.Calendar iframe{
+    width:100%;
+    height:700px;
 }
 
 

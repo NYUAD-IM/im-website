@@ -23,7 +23,11 @@
                     {{#if SectionSubtitle}}<p class="bodyText">{{SectionSubtitle}}</p>{{/if}}
                 
                     {{#if_eq SectionType 'People'}}
-                        <div class="{{SectionType}} gridContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                        <div class="{{SectionType}} contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                    {{/if_eq}}
+
+                    {{#if_eq SectionType 'Blocks'}}
+                        <div class="{{SectionType}} contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
                     {{/if_eq}}
 
                     {{#each Subsections}}
@@ -78,7 +82,7 @@
 
                             {{#if_eq SubsectionType 'Person'}}
                                 <div class="{{SubsectionType}} gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                    <p class="hoverBody">{{SubsectionBio}}</p>
+                                    <p class="hoverBody top">{{SubsectionBio}}</p>
                                     <p class="hoverBody"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
                                     {{#if SubsectionCourses}}
                                         <p class="hoverBody">{{SubsectionCourses}}</p>
@@ -123,7 +127,7 @@
 
                             {{#if_eq SubsectionType 'Project'}}
                                 <div class="{{SubsectionType}} gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                    <p class="hoverBody">{{SubsectionProjectDescription}}</p>
+                                    <p class="hoverBody top">{{SubsectionProjectDescription}}</p>
                                     <p class="hoverBody">{{SubsectionProjectClass}}</p>
                                     <p class="hoverBody">{{SubsectionProjectTerm}}</p>
                                 </div>
@@ -148,6 +152,12 @@
                             {{/if_eq}}
 
                             {{#if_eq SubsectionType 'Links'}}
+                                {{#if SubsectionTitle}}
+                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                {{/if}}
+                                {{#if SubsectionDescription}}
+                                    <p class="bodyText">{{SubsectionDescription}}</p>
+                                {{/if}}
                                 {{#each SubsectionItems}}
                                     <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
                                 {{/each}}
@@ -156,6 +166,8 @@
                         </div>
                     {{/each}}  
                     
+                    {{#if_eq SectionType 'Blocks'}}</div>{{/if_eq}}
+
                     {{#if_eq SectionType 'People'}}</div>{{/if_eq}}
 
                 </div>
