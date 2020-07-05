@@ -6,12 +6,17 @@
 
 html, body {
     height: 100%;
+    width:100%;
     margin: 0px;
 }
 
 body{
     display:flex;
     flex-direction:column;
+}
+
+canvas { /* delete later */
+    display: block;
 }
 
 .page{
@@ -23,23 +28,24 @@ body{
     margin-bottom:5%;
 }
 
+ul{
+    padding:0;
+    list-style-type:none;
+  }
+
 /****** General Sections ******/
 .section{
     margin-bottom:3%;
+    width:80%;
 }
 
-/****** Section: Resources ******/
-.Resources .section{
-    width:80%; 
-}
-
-/****** Section: Calendar, Banner ******/
-.Calendar.section, .Banner.section{
+/****** Centered Sections/subsections ******/
+.Calendar.section, .Links.subsection{
     text-align:center;
 }
 
 /****** Section: People ******/
-.People.section{
+.People.section {
     display:flex;
     justify-content: center;
     max-width:100%;
@@ -53,12 +59,12 @@ body{
 .Projects.section{
     display:flex;
     justify-content: center;
-    max-width:80%;
+    max-width:100%;
     margin:0;
     padding:0;
-    flex-wrap:wrap;
+    flex-direction:column;
+    align-items:center;
 }
-
 
 /****** Type ******/
 p {
@@ -72,10 +78,15 @@ h2 {
 
 .sectionTitle {
     color: #655092; 
-    font-size: 2.5em; 
+    font-size: 2.75em; 
     text-transform: uppercase;
     margin:2% 0 2% 0;
     text-align:left;
+}
+
+.sectionSubtitle{
+    margin:0 0 3% 0;
+    width:35%;
 }
 
 .subsectionTitle{
@@ -85,6 +96,7 @@ h2 {
 
 .subsectionSubtitle {
     font-style: italic;
+    margin:0;
 }
 
 /****** Buttons/Links ******/
@@ -117,6 +129,7 @@ a:hover{
     padding: 1.5% 5%;
     cursor: pointer;
     display: inline-block;
+    margin:2% 2% 2% 2%;
 }
 
 .Button:hover{
@@ -126,28 +139,28 @@ a:hover{
 }
 
 /****** Subsection: Person & Project ******/
-.People.contentContainer{
+.People.contentContainer, .Projects.contentContainer {
     display:flex;
     justify-content: flex-start;
     align-items:center;
-    margin:0;
     padding:0;
-    flex-wrap:wrap;
-    width:80%;
+    flex-flow:row wrap;
+    width:100%;
 }
 
 .Project.subsection, .Person.subsection{
-    flex:0 0 350px;  /* change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    /*flex:0 0 350px;   change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    /* potential fix: do the same as the resources grid: set percentages, make them flex:1 100% as the screen goes smaller, make them smaller as the screen becomes smaller too (experiment) */
     margin:1%;
     margin-left:0;
     display:flex;
     flex-direction:column;
+    width:392px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
     height:490px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
  }
 
  .Project .sectionTitle, .People .sectionTitle{
-    width:80%;
-    align-self:center;
+    align-self:flex-start;
 }
 
 .Project .subsectionTitle, .People .subsectionTitle{
@@ -162,10 +175,25 @@ a:hover{
 }
 
 .gridHoverContainer{
-    height:80%;
+    height:80%; /*RESPONSIVE: MAX WIDTH*/
     width:100%;
     background-repeat: no-repeat;
     background-size: cover;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    transition: .3s;
+}
+
+.gridHoverContainer:hover .hoverBody{
+    opacity:1;
+}
+
+.gridHoverContainer:hover {
+    -moz-box-shadow:    inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
+    -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
+    box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
 }
 
 .hoverBody{
@@ -173,6 +201,12 @@ a:hover{
     font-size:0.75em;
     padding:2%;
     margin:1% 1% 0 1%;
+    opacity: 0;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    transition: .3s;
 }
 
 .hoverBody a{
@@ -214,6 +248,10 @@ div.Footer.Links.subsection{
     flex-direction:column;
 }
 
+a.Footer.Links{
+    text-align:left;
+}
+
 a.Footer, a.Navbar {
     font-family: 'Open Sans Condensed', sans-serif;
     text-decoration:none;
@@ -239,7 +277,7 @@ nav{
     display:flex;
     flex-direction:row;
     align-items:center;
-    margin:2%;
+    margin:1%;
 }
 
 div.Navbar.Links.subsection{
@@ -260,6 +298,10 @@ a.Navbar {
     margin:3%;
 }
 
+.Navbar.Links.subsection {
+    text-align:left;
+}
+
 a.Navbar.Main, a.Navbar.Logo {
     font-size: 1.75em; /* RESPONSIVE: CHANGE */
     text-transform: uppercase;
@@ -270,49 +312,290 @@ a.Navbar.Main, a.Navbar.Logo {
     font-size:12em;
 } 
 
-/* OTHER CHANGE */ 
-.Home iframe{
+/****** Subsection: Calendar ******/
+.Calendar iframe{
     width:100%;
+    height:700px; /*RESPONSIVE: REDUCE HEIGHT */
+}
+
+/****** Subsection: Banner ******/
+.Banner .sectionTitle{
+    text-align:center;
+}
+
+/****** Subsection: Event ******/
+.Events.contentContainer{
+    width:75%; /* RESPONSIVE: MAKE MAX WIDTH*/
+    flex:1 100%;
+}
+
+.Event.subsection {
+    flex: 1 100%;
+    margin-top:4%;
+    display:flex;
+}
+
+.Event .dateTime{
+    flex: 1 0%;   
+    margin: 0 1 0 0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.Event .day{
+    font-size:2.75em;
+}
+
+.Event .time{
+    margin:0;
+}
+
+.Event .month{
+    margin:0;
+    flex:1;
+    font-size:1.15em;
+}
+
+.Event .info{
+    flex:3 60%;
+}
+
+.Event p{
+    margin:0;
 }
 
 /****** Subsection: Block ******/
-.Blocks.contentContainer{
-    display:flex;
-    flex-flow:row wrap;
+.Blocks.contentContainer {
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .Block.subsection {
     flex: 1 100%;
+    margin-top: 1%;
+}
+
+.Block.subsection.Wide {
+    flex: 3 45%;
+    margin-right: 10%;
+}
+
+.Block.subsection.Narrow {
+    flex: 1 20%;
+}
+
+.Block .Link {
+    display: block;
+    margin: 4% 0 4% 0;
+}
+
+.Block .Button {
+    margin: 2% 2% 2% 0;
+}
+
+/****** Subsection: Sketch ******/
+.Sketch.section{
+    width:100%;
+}
+
+.Sketch iframe {
+    width:100%;
+    height:100%;
+}
+
+.Sketch .subsection {
+    height:100vh;
+    height: 100vm;
+    height: 100vmin;
+}
+
+.Sketch .authors{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.Sketch p{
+    margin:0.5%;
+    font-size:0.75em;
+}
+
+/****** Section: List ******/
+.Lists ul {
+    display: flex;
+    flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
     margin-top:1%;
 }
 
-.Block.subsection.Wide{
-    /* border: 2px solid #6A6893; */
-    flex:3 45%;
-    margin-right:10%;
-    /* RESPONSIVE (MOBILE) ADD:   .wrapper > * {flex:1 100%;} */
-    /* RESPONSIVE: CHANGE MARGIN-RIGHT (POTENTIALLY 0) */
+.Lists li {
+   background-color: #655092;
+   padding: 1.5%;
+   text-align: center;
+   margin: 0.25%;
+   color: white;
+   width:250px; /* RESPONSIVE: REDUCE SIZE. MOBILE: 100% */
+   height:50px;
+   display:flex;
+   align-items: center;
+   justify-content: center;
 }
 
-.Block.subsection.Narrow{
-    /* border: 2px solid #6A6893; */
-    flex:1 20%;
-   /* RESPONSIVE (MOBILE) ADD:   .wrapper > * {flex:1 100%;} */
+.Lists .Links.subsection{
+    display:flex;
+    justify-content: flex-end;
 }
 
-.Block .Button{
-    margin:2% 2% 2% 0;
+.List .subsectionTitle{
+    margin-top:1%;
 }
 
-.Block .Link{
-    display:block;
-    margin:4% 0 4% 0;
+/****** Subsection: Tiles ******/
+.Tiles.section {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/****** Subsection: Calendar ******/
-.Calendar iframe{
-    width:100%;
-    height:700px;
+.Tiles .sectionTitle, .Tiles .sectionSubtitle {
+    align-self:flex-start;
+}
+
+.Tiles.contentContainer {
+    width:80%; /* RESPONSIVE (MOBILE): width:100%*/
+    display:flex;
+    flex-flow:column;
+}
+
+.Tile.subsection {
+    display:flex;
+    flex-flow:row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
+    align-items:center;
+}
+
+.Tile img {
+    max-width: 100%; /* RESPONSIVE(large screens): images don't get larger*/
+}
+
+.Tile.image {
+    flex: 1; /* RESPONSIVE: flex: 1 100%*/
+    margin: 4%;
+}
+
+.Tile.text {
+    flex: 1;
+    text-align: right;
+    padding:3%;
+}
+
+.Tile.subsection:nth-of-type(2n) {
+    flex-direction: row-reverse;
+}
+
+.Tile.subsection:nth-of-type(2n) .text {
+    text-align: left;
+}
+
+/* CHANGE: find another way to identify last div */
+.Tile.subsection:nth-of-type(3) {
+    margin-bottom: 5%;
+}
+
+/****** Subsection: Links ******/
+.Links .Button{
+    font-size:1.5em;
+}
+
+/****** Subsection: Slide ******/
+.Slides.section{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-height:100vh; 
+}
+
+.Slides.contentContainer{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.Slide img{
+    max-width:100%;
+    height:auto;
+}
+
+.Slide.subsection{
+    width:65%;
+}
+
+.Slides .sectionTitle, .Slides .sectionSubtitle {
+    align-self:flex-start;
+}
+
+/****** Change: Home ******/
+.Home .sectionTitle{
+    margin-bottom:0;
+}
+
+/****** Responsive Layout ******/
+/* mobile/small screens */
+@media (max-width: 768px){
+    body{
+        /* background-color:lightcoral; */
+    }
+
+    .section{
+        width:90%;
+    }
+
+    /*Resources Page */
+    /* Block subsection */
+    .Block.subsection.Wide {
+        flex:1 100%;
+        margin-right:0;
+    }
+
+    .Block.subsection.Narrow {
+        flex:1 100%;
+    }
+
+    .Block .Button{
+        width:80%;
+        text-align: center;
+        margin:2%;
+    }
+
+}
+
+/* medium-sized screens */
+@media (min-width : 768px) and (max-width : 1280px){
+    body{
+        /* background-color:turquoise; */
+    }
+
+    /* Resources Page */
+    .Block.subsection.Wide {
+        margin-right:5%; 
+    }
+
+}
+
+/* large screens */
+@media (min-width : 1280px) and (max-width : 1600px) {
+    body{
+        /* background-color: lightskyblue; */
+    }
+}
+
+@media (min-width : 1600px) {
+    body{
+        /* background-color: lightpink; */
+    }
+    .section{ /*max content size: 1200px (subject to change)*/
+        /* background-color:gray; */
+        max-width:1200px;
+        
+    }
 }
 
 

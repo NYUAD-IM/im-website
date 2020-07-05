@@ -9,10 +9,9 @@
 </head>
 
 <body> 
-
     <!-- main content template -->
     <script id="template" type="text/x-handlebars-template">
-
+        
         <div class="{{PageType}} page">
 
             {{#each PageSections}} 
@@ -20,26 +19,22 @@
                 <div class="{{SectionType}} section" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                     {{#if SectionTitle}}<h2 class="sectionTitle">{{SectionTitle}}</h2>{{/if}}
-                    {{#if SectionSubtitle}}<p class="bodyText">{{SectionSubtitle}}</p>{{/if}}
-                
-                    {{#if_eq SectionType 'People'}}
-                        <div class="{{SectionType}} contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
-                    {{/if_eq}}
+                    {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
 
-                    {{#if_eq SectionType 'Blocks'}}
-                        <div class="{{SectionType}} contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
-                    {{/if_eq}}
+                    <div class="{{SectionType}} contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+
 
                     {{#each Subsections}}
                     
                         <div {{#if SubsectionStyle}}class="{{SubsectionType}} subsection {{SubsectionStyle}}"{{else}}class="{{SubsectionType}} subsection"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
                             {{#if_eq SubsectionType 'Sketch'}}
+                                
                                 <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
 
                                 <div class="authors">
                                     {{#each SubsectionAuthors}}
-                                        <p><a href="{{AuthorPortfolio}}">{{AuthorName}}</a></p>
+                                        <p><a href="{{AuthorPortfolio}}">Sketch credits: {{AuthorName}}</a></p>
                                     {{/each}}
                                 </div>
                             {{/if_eq}}
@@ -49,7 +44,7 @@
                                 {{#if SubsectionTitle}}
                                     <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
                                 {{/if}}
-                                <p class="bodyText">{{SubsectionDescription}}</p>
+                                <p>{{SubsectionDescription}}</p>
                             {{/if_eq}}
                                                        
                             {{#if_eq SubsectionType 'List'}}
@@ -59,7 +54,7 @@
                                 {{/if}}
                                 <ul>
                                     {{#each SubsectionItems}}
-                                        <li><p class="bodyText">
+                                        <li><p>
                                             {{#if ItemLink}}
                                                 <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} href="{{ItemLink}}">{{ItemName}}</a>
                                             {{else}}
@@ -73,7 +68,7 @@
                             {{#if_eq SubsectionType 'Tile'}}
                                 <div class="{{SubsectionType}} text">
                                     <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                    <p class="bodyText">{{SubsectionDescription}}</p>
+                                    <p>{{SubsectionDescription}}</p>
                                 </div>
                                 <div class="{{SubsectionType}} image">
                                     <img src="{{SubsectionImageLink}}">
@@ -106,13 +101,26 @@
                                     <p class="subsectionSubtitle">{{SubsectionSubtitle}}</p>
                                 {{/if}}
                                 {{#if SubsectionDescription}}
-                                    <p class="bodyText">{{SubsectionDescription}}</p>
+                                    <p>{{SubsectionDescription}}</p>
                                 {{/if}}
                                 {{#each SubsectionItems}}
                                     {{#if ItemName}}
                                         <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
                                     {{/if}}
                                 {{/each}}                      
+                            {{/if_eq}}
+
+                            {{#if_eq SubsectionType 'Event'}}
+                                <div class="{{SubsectionType}} dateTime"> 
+                                    <h2 class="subsectionTitle day">{{SubsectionDay}}</h2>
+                                    <p class="month">{{SubsectionMonth}}</p>
+                                    <p class="time">{{SubsectionTime}}</p>
+                                </div>
+                                <div class="{{SubsectionType}} info">
+                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                    <p class="subsectionSubtitle">{{SubsectionLocation}}</p>
+                                    <p>{{SubsectionDescription}}</p>
+                                </div>
                             {{/if_eq}}
 
                             {{#if_eq SubsectionType 'Calendar'}}
@@ -156,7 +164,7 @@
                                     <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
                                 {{/if}}
                                 {{#if SubsectionDescription}}
-                                    <p class="bodyText">{{SubsectionDescription}}</p>
+                                    <p>{{SubsectionDescription}}</p>
                                 {{/if}}
                                 {{#each SubsectionItems}}
                                     <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
@@ -166,9 +174,7 @@
                         </div>
                     {{/each}}  
                     
-                    {{#if_eq SectionType 'Blocks'}}</div>{{/if_eq}}
-
-                    {{#if_eq SectionType 'People'}}</div>{{/if_eq}}
+                    </div>
 
                 </div>
             {{/each}}
