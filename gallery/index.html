@@ -110,11 +110,6 @@
 
                                         {{#if_eq SubsectionType 'Person'}}
                                             <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                                <p class="hoverBody">{{SubsectionBio}}</p>
-                                                <p class="hoverBody"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
-                                                {{#if SubsectionCourses}}
-                                                    <p class="hoverBody">{{SubsectionCourses}}</p>
-                                                {{/if}}
                                             </div>
                                             <div class="gridTextContainer">
                                                 <h2 class="subsectionTitle">
@@ -125,6 +120,13 @@
                                                     {{/if}}
                                                 </h2>
                                                 <p class="subsectionSubtitle">{{SubsectionPosition}}</p>
+                                            </div>
+                                            <div class="gridHoverText">
+                                                <p class="hoverBody">{{SubsectionBio}}</p>
+                                                {{#if SubsectionCourses}}
+                                                    <p class="hoverBody">{{SubsectionCourses}}</p>
+                                                {{/if}}
+                                                <p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
                                             </div>
                                         {{/if_eq}} 
                 
@@ -168,9 +170,6 @@
 
                                         {{#if_eq SubsectionType 'Project'}}
                                             <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                                <p class="hoverBody">{{SubsectionProjectDescription}}</p>
-                                                <p class="hoverBody">{{SubsectionProjectClass}}</p>
-                                                <p class="hoverBody">{{SubsectionProjectTerm}}</p>
                                             </div>
                                             <div class="gridTextContainer">
                                                 <h2 class="subsectionTitle">
@@ -190,6 +189,11 @@
                                                             {{~/if}}
                                                     {{~/each~}}
                                                 </p>
+                                            </div>
+                                            <div class="gridHoverText">
+                                                <p class="hoverBody">{{SubsectionProjectDescription}}</p>
+                                                <p class="hoverBody">{{SubsectionProjectClass}}</p>
+                                                <p class="hoverBody semester">{{SubsectionProjectTerm}}</p>
                                             </div>
                                         {{/if_eq}}
 

@@ -8,7 +8,7 @@ html, body {
     height: 100%;
     width:100%;
     margin: 0px;
-    font-size:17px;
+    font-size:16px;
 }
 
 body{
@@ -45,27 +45,26 @@ h2 {
 ul {
     padding: 0;
     list-style-type: none;
-    margin: 10px;
 }
 
 .sectionTitle {
     color: #655092; 
     font-size: 2.75em; 
     text-transform: uppercase;
-    margin:10px;
+    margin: 1% 0 1% 0;
     text-align: left;
     align-self:flex-start;
 }
 
 .sectionSubtitle {
-    margin:10px;
+    margin: 0 0 3% 0;
     width: 35%;
     align-self:flex-start;
 }
 
 .subsectionTitle {
     font-size: 1.75em;
-    margin: 10px;
+    margin: 0;
 }
 
 .subsectionSubtitle {
@@ -115,7 +114,11 @@ a:hover {
 /****** Page: Home ******/
 .page.Home {
     margin-top: 0;
-} 
+}
+
+.page.Home .sectionTitle {
+    margin-bottom:0;
+}
 
 /****** Page: Error ******/
 .page.Error .sectionTitle {
@@ -228,11 +231,10 @@ a:hover {
     /*flex:0 0 350px;   change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
     /* potential fix: do the same as the resources grid: set percentages, make them flex:1 100% as the screen goes smaller, make them smaller as the screen becomes smaller too (experiment) */
     margin: 10px;
-    /* margin-left: 0; */
     display: flex;
-    flex-direction: column;
-    width: calc(33.3% - 20px); /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
-    /*height:490px;  RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    flex-direction: column-reverse;
+    width: calc(33.3% - 20px); 
+    position:relative;
  }
 
 .section.People .contentContainer, .section.Projects .contentContainer {
@@ -244,9 +246,13 @@ a:hover {
     width: 100%;
 }
 
+.section.Projects .sectionTitle, .section.People .sectionTitle {
+    margin-left: 10px
+}
+
 .section.Projects .subsectionTitle, .section.People .subsectionTitle {
     font-family: 'Open Sans Condensed', sans-serif;
-    margin:0;
+    margin: 2% 0 0 0;
 }
 
 .gridHoverContainer {
@@ -260,28 +266,38 @@ a:hover {
     -o-transition: .3s;
     -ms-transition: .3s;
     transition: .3s;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-.subsection.Project img{
-    width:100%;
-}
-
-.gridHoverContainer:hover .hoverBody {
+.gridHoverText:hover {
     opacity:1;
 }
 
-.subsection.Project img:hover {
+.gridHoverText {
+    opacity: 0;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    transition: .3s;
+    z-index: 10;
+    height: 0;
+    padding-bottom: 100%;
+}
+
+.gridHoverText:hover {
     -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
     -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
     box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
 }
 
 .hoverBody {
-    color: blue;
+    color: white;
     font-size: 0.8em;
     padding: 2%; /* RESPONSIVE: DELETE */
-    /* margin: 1% 1% 0 1%; */
-    opacity: 0;
+    margin: 1% 1% 0 1%;
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
@@ -289,17 +305,14 @@ a:hover {
     transition: .3s;
 }
 
-.hoverBody a {
-    color:white;
-}
-
-.hoverBody a:hover {
+.hoverBody a, .hoverBody a:hover {
     color:white;
 }
 
 .gridTextContainer {
     height: 20%;
     width: 100%;
+    z-index: 10;
 }
 
 /****** Section: List ******/
@@ -482,7 +495,6 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 1%;
 }
 
 nav .subsection {
@@ -533,11 +545,21 @@ body.People .subsection.Navbar .Link.People {
     color: #655092; 
 }
 
+/* FIX: works on responsive, maybe just overwrite the box shadow property and make it all transparent */
+@media (hover: hover) {
+
+}
+
 /****** Responsive Layout ******/
 /* mobile/small screens */
 @media (max-width: 600px){
-    body{
-        font-size: 14px;
+    body {
+        font-size: 16px;
+        /* background-color:lightgoldenrodyellow; */
+    }
+
+    .section {
+        width: 95%;
     }
 
     /*Resources Page */
@@ -551,31 +573,122 @@ body.People .subsection.Navbar .Link.People {
         flex:1 100%;
     }
 
+    /* fix! */
     .Block .Button{
-        width:80%;
+        width:100%;
         text-align: center;
         margin:2%;
     }
 
     /* Grids */
-    .Project.subsection, .Person.subsection {
+    .section.Projects .subsection.Project, .section.People .subsection.Person {
         width: calc(100% - 20px);
     }
+
+    .gridHoverText:hover {
+        -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+        -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+        box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+    }
+
+    .hoverBody, .hoverBody a, .hoverBody a:hover {
+        color: black;
+        padding: 2% 0;
+        margin: 1% 0;
+    }
+
+    .section.Projects .subsection.Project, .section.People .subsection.Person {
+        flex-direction: column;
+    }
+
+    .gridHoverContainer { 
+        position: static;
+    }
+
+    .gridHoverText {
+        opacity: 1;
+        height: 100%;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gridHoverText .email {
+        order: -1;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gridHoverText .semester {
+        order: -1;
+        margin: 0;
+        padding: 0;
+    }
+
 }
 
 /* tablets */
-@media (min-width : 600px) and (max-width : 1024px){
+@media (min-width : 600px) and (max-width : 1100px){
     body{
         /* background-color:turquoise; */
         font-size:14px;
+    }
+
+    .section {
+        width: 90%;
+    }
+
+    /* Grids */
+    .section.Projects .subsection.Project, .section.People .subsection.Person {
+        width: calc(50% - 20px);
+    }
+
+    .gridHoverText:hover {
+        -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+        -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+        box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+    }
+
+    .hoverBody, .hoverBody a, .hoverBody a:hover {
+        color: black;
+        padding: 2% 0;
+        margin: 1% 0;
+    }
+
+    .section.Projects .subsection.Project, .section.People .subsection.Person {
+        flex-direction: column;
+    }
+
+    .gridHoverContainer { 
+        position: static;
+    }
+
+    .gridHoverText {
+        opacity: 1;
+        height: 100%;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gridHoverText .email {
+        order: -1;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gridHoverText .semester {
+        order: -1;
+        margin: 0;
+        padding: 0;
     }
 }
 
 /* medium-sized screens */
-@media (min-width : 1024) and (max-width : 1280px){
+@media (min-width : 1100px) and (max-width : 1280px){
     body{
-        /* background-color:turquoise; */
-        font-size:14px;
+        /* background-color:lightcoral; */
+        font-size:13px;
     }
 
     /* Resources Page */
@@ -584,13 +697,14 @@ body.People .subsection.Navbar .Link.People {
     }
 }
 
-/* large screens */
+/* semi-large screens */
 @media (min-width : 1280px) and (max-width : 1600px) {
     body{
         /* background-color: lightskyblue; */
     }
 }
 
+/* large screen */
 @media (min-width : 1600px) {
     body{
         /* background-color: lightpink; */
