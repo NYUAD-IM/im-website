@@ -8,6 +8,7 @@ html, body {
     height: 100%;
     width:100%;
     margin: 0px;
+    font-size:17px;
 }
 
 body{
@@ -20,15 +21,16 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1 0 auto;  
-    margin: 3% 0 3% 0;
-    /* margin-bottom:5%;
-    margin-top: 2%; */
+    flex: 1 0 auto; 
 }
 
 .section {
-    margin-bottom: 3%;
+    margin: 10px;
     width: 80%;
+}
+
+.noTitle {
+    margin: 20px 10px;
 }
 
 /****** Type ******/
@@ -43,24 +45,27 @@ h2 {
 ul {
     padding: 0;
     list-style-type: none;
+    margin: 10px;
 }
 
 .sectionTitle {
     color: #655092; 
     font-size: 2.75em; 
     text-transform: uppercase;
-    margin: 2% 0 2% 0;
+    margin:10px;
     text-align: left;
+    align-self:flex-start;
 }
 
 .sectionSubtitle {
-    margin: 0 0 3% 0;
+    margin:10px;
     width: 35%;
+    align-self:flex-start;
 }
 
 .subsectionTitle {
     font-size: 1.75em;
-    margin: 0;
+    margin: 10px;
 }
 
 .subsectionSubtitle {
@@ -112,10 +117,6 @@ a:hover {
     margin-top: 0;
 } 
 
-.page.Home .sectionTitle {
-    margin-bottom: 0;
-}
-
 /****** Page: Error ******/
 .page.Error .sectionTitle {
     font-size: 12em;
@@ -124,6 +125,7 @@ a:hover {
 /****** Section: Sketches ******/
 .section.Sketches {
     width: 100%;
+    margin-top:0;
 }
 
 .section.Sketches iframe {
@@ -148,107 +150,92 @@ a:hover {
 }
 
 /****** Section: Tiles ******/
-.Tiles.section {
+.section.Tiles {
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Tiles .sectionTitle, .Tiles .sectionSubtitle {
-    align-self:flex-start;
-}
-
-.Tiles .contentContainer {
+.section.Tiles .contentContainer {
     width:80%; /* RESPONSIVE (MOBILE): width:100%*/
     display:flex;
     flex-flow:column;
 }
 
-.Tile.subsection {
+.subsection.Tile {
     display:flex;
     flex-flow:row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
     align-items:center;
 }
 
-.Tile img {
+.subsection.Tile img {
     max-width: 100%; /* RESPONSIVE(large screens): images don't get larger*/
 }
 
-.Tile .image {
+.subsection.Tile .image {
     flex: 1; /* RESPONSIVE: flex: 1 100%*/
     margin: 4%;
 }
 
-.Tile .text {
+.subsection.Tile .text {
     flex: 1;
     text-align: right;
     padding:3%;
 }
 
-.Tile.subsection:nth-of-type(2n) {
+.subsection.Tile:nth-of-type(2n) {
     flex-direction: row-reverse;
 }
 
-.Tile.subsection:nth-of-type(2n) .text {
+.subsection.Tile:nth-of-type(2n) .text {
     text-align: left;
 }
 
-/* CHANGE: find another way to identify last div */
-.Tile.subsection:nth-of-type(3) {
-    margin-bottom: 5%;
-}
-
 /****** Section: Slides ******/
-.Slides.section {
+.section.Slides {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh; 
 }
 
-.Slides .contentContainer {
+.section.Slides .contentContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Slide img {
+.section.Slides .subsection.Slide img {
     max-width: 100%;
     height: auto;
 }
 
-.Slide.subsection {
+.section.Slides .subsection.Slide {
     width: 65%;
 }
 
-.Slides .sectionTitle, .Slides .sectionSubtitle {
-    align-self: flex-start;
-}
-
 /****** Section: People, Projects ******/
-.People.section, .Projects.section {
+.section.People, .section.Projects {
     display: flex;
     justify-content: center;
     max-width: 100%;
-    margin: 0;
-    padding: 0;
     flex-direction: column;
     align-items: center;
 }
 
 /****** Subsection: Person & Project ******/
-.Project.subsection, .Person.subsection {
+.section.Projects .subsection.Project, .section.People .subsection.Person {
     /*flex:0 0 350px;   change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
     /* potential fix: do the same as the resources grid: set percentages, make them flex:1 100% as the screen goes smaller, make them smaller as the screen becomes smaller too (experiment) */
-    margin: 1%;
-    margin-left: 0;
+    margin: 10px;
+    /* margin-left: 0; */
     display: flex;
     flex-direction: column;
-    width: 31.333333%; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    width: calc(33.3% - 20px); /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
     /*height:490px;  RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
  }
 
-.People .contentContainer, .Projects .contentContainer {
+.section.People .contentContainer, .section.Projects .contentContainer {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -257,45 +244,44 @@ a:hover {
     width: 100%;
 }
 
-.Gallery .sectionTitle, .People .sectionTitle {
-    align-self: flex-start;
-}
-
-.Project .subsectionTitle, .People .subsectionTitle {
+.section.Projects .subsectionTitle, .section.People .subsectionTitle {
     font-family: 'Open Sans Condensed', sans-serif;
-    margin-bottom: 0;
-    margin-left: 0;
+    margin:0;
 }
 
 .gridHoverContainer {
-    height: 0;
-    width: 100%;
-    padding-bottom: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    -ms-transition: .3s;
-    transition: .3s;
+    /* height: 0; */
+    /* width: 100%; */
+    /* padding-bottom: 100%; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* -webkit-transition: .3s; */
+    /* -moz-transition: .3s; */
+    /* -o-transition: .3s; */
+    /* -ms-transition: .3s; */
+    /* transition: .3s; */
+}
+
+.subsection.Project img{
+    width:100%;
 }
 
 .gridHoverContainer:hover .hoverBody {
     opacity:1;
 }
 
-.gridHoverContainer:hover {
+.subsection.Project img:hover {
     -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
     -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
     box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
 }
 
 .hoverBody {
-    color: white;
+    color: blue;
     font-size: 0.8em;
-    padding: 2%;
-    margin: 1% 1% 0 1%;
-    opacity: 0;
+    padding: 2%; /* RESPONSIVE: DELETE */
+    /* margin: 1% 1% 0 1%; */
+    opacity: 1;
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
@@ -317,13 +303,13 @@ a:hover {
 }
 
 /****** Section: List ******/
-.Lists ul {
+.section.Lists ul {
     display: flex;
     flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
     margin-top:1%;
 }
 
-.Lists li {
+.section.Lists li {
    background-color: #655092;
    padding: 1.5%;
    text-align: center;
@@ -336,52 +322,38 @@ a:hover {
    justify-content: center;
 }
 
-.Lists .Links.subsection {
+.section.Lists .subsection.Links {
     display: flex;
     justify-content: flex-end;
 }
 
-.List .subsectionTitle {
+.section.Lists .subsection.List .subsectionTitle {
     margin-top: 1%;
 }
 
 /****** Section: Calendar ******/
-.Calendar.section {
+.section.Calendar {
     text-align: center;
 }
 
-.Calendar iframe {
+.section.Calendar iframe {
     width: 100%;
     height: 700px; /*RESPONSIVE: REDUCE HEIGHT */
 }
 
-/****** Subsection: Banner ******/
-.Banner .sectionTitle {
-    text-align: center;
-}
-
-/****** Subsection: Links ******/
-.Links.subsection {
-    text-align: center;
-}
-
-.Links .Button {
-    font-size: 1.5em;
-}
-
-/****** Subsection: Event ******/
-.Events .contentContainer {
+/****** Section: Event ******/
+.section.Events .contentContainer {
     width: 75%; /* RESPONSIVE: MAKE MAX WIDTH*/
     flex: 1 100%;
 }
 
-.Event.subsection {
+.section.Events .subsection.Event {
     flex: 1 100%;
     margin-top:4%;
     display: flex;
 }
 
-.Event .dateTime {
+.section.Events .subsection.Event .dateTime {
     flex: 1 0%;   
     margin: 0 1 0 0;
     display: flex;
@@ -389,66 +361,83 @@ a:hover {
     align-items: flex-start;
 }
 
-.Event .day {
+.section.Events .subsection.Event .day {
     font-size: 2.75em;
 }
 
-.Event .time {
+.section.Events .subsection.Event .time {
     margin: 0;
 }
 
-.Event .month {
+.section.Events .subsection.Event .month {
     margin: 0;
     flex: 1;
     font-size: 1.15em;
 }
 
-.Event .info {
+.section.Events .subsection.Event .info {
     flex: 3 60%;
 }
 
-.Event p {
+.section.Events .subsection.Event p {
     margin: 0;
 }
 
-/****** Subsection: Block ******/
-.Blocks .contentContainer {
+/****** Section: Banner ******/
+.section.Banner .sectionTitle {
+    text-align: center;
+}
+
+/****** Section: Block ******/
+.section.Blocks .contentContainer {
     display: flex;
     flex-flow: row wrap;
 }
 
-.Block.subsection {
+.subsection.Block {
     flex: 1 100%;
     margin-top: 1%;
 }
 
-.Block.subsection.Wide {
+.subsection.Block.Wide {
     flex: 3 45%;
     margin-right: 10%;
 }
 
-.Block.subsection.Narrow {
+.subsection.Block.Narrow {
     flex: 1 20%;
 }
 
-.Block .Link {
+.subsection.Block .Link {
     display: block;
     margin: 4% 0 4% 0;
 }
 
-.Block .Button {
+.subsection.Block .Button {
     margin: 2% 2% 2% 0;
 }
+
+/****** Subsection: Links ******/
+.subsection.Links {
+    text-align: center;
+}
+
+.subsection.Links .Button {
+    font-size: 1.5em;
+}
+
 
 /****** Footer ******/
 footer {
     background-color: black;
     display: flex;
     flex-shrink: 0;
+    padding:2%;
+    margin-top:4%;
 }
 
 .Footer {
-    margin: 4%;
+    margin: 2%;
 }
 
 .Footer.Main.subsection {
@@ -510,35 +499,45 @@ nav .subsection {
     text-transform: uppercase;
 }
 
-.Navbar.Links.subsection {
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-}
-
-.Navbar.Links.subsection a {
+.Navbar.subsection.Links a {
     margin: 15px;
 }
 
-.Navbar.Logo.subsection {
+a.CurrentPage {
+    color: #655092;
+}
+
+.Navbar.subsection.Logo {
     text-align: right;
     flex: 1;
 }
 
-a.Navbar.Main, a.Navbar.Logo {
+.Navbar.Main a, .Navbar.Logo a {
     font-size: 1.75em; /* RESPONSIVE: CHANGE */
     text-transform: uppercase;
 }
 
+body.Home .subsection.Navbar .Link.Home {
+    color: #655092; 
+}
+
+body.Gallery .subsection.Navbar .Link.Gallery {
+    color: #655092; 
+}
+
+body.Resources .subsection.Navbar .Link.Resources {
+    color: #655092; 
+}
+
+body.People .subsection.Navbar .Link.People {
+    color: #655092; 
+}
+
 /****** Responsive Layout ******/
 /* mobile/small screens */
-@media (max-width: 768px){
+@media (max-width: 600px){
     body{
-        /* background-color:lightcoral; */
-    }
-
-    .section{
-        width:90%;
+        font-size: 14px;
     }
 
     /*Resources Page */
@@ -558,19 +557,31 @@ a.Navbar.Main, a.Navbar.Logo {
         margin:2%;
     }
 
+    /* Grids */
+    .Project.subsection, .Person.subsection {
+        width: calc(100% - 20px);
+    }
+}
+
+/* tablets */
+@media (min-width : 600px) and (max-width : 1024px){
+    body{
+        /* background-color:turquoise; */
+        font-size:14px;
+    }
 }
 
 /* medium-sized screens */
-@media (min-width : 768px) and (max-width : 1280px){
+@media (min-width : 1024) and (max-width : 1280px){
     body{
         /* background-color:turquoise; */
+        font-size:14px;
     }
 
     /* Resources Page */
     .Block.subsection.Wide {
         margin-right:5%; 
     }
-
 }
 
 /* large screens */

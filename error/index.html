@@ -16,7 +16,7 @@
 
                 <div class="page {{PageTitle}}"> 
                     {{#each PageSections}} 
-                        <div class="section {{SectionType}}" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                        <div {{#if SectionTitle}}class="section {{SectionType}}"{{else}}class="section noTitle {{SectionType}}"{{/if}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
                             {{#if SectionTitle}}<h2 class="sectionTitle">{{SectionTitle}}</h2>{{/if}}
                             {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
                             <div class="contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>

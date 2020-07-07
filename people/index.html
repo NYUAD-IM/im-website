@@ -16,7 +16,7 @@
 
                 <div class="page {{PageTitle}}"> 
                     {{#each PageSections}} 
-                        <div class="section {{SectionType}}" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                        <div {{#if SectionTitle}}class="section {{SectionType}}"{{else}}class="section noTitle {{SectionType}}"{{/if}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
                             {{#if SectionTitle}}<h2 class="sectionTitle">{{SectionTitle}}</h2>{{/if}}
                             {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
                             <div class="contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
@@ -136,7 +136,7 @@
 
                                     {{#if_eq SubsectionType 'Project'}}
                                         <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                            <p class="hoverBody top">{{SubsectionProjectDescription}}</p>
+                                            <p class="hoverBody">{{SubsectionProjectDescription}}</p>
                                             <p class="hoverBody">{{SubsectionProjectClass}}</p>
                                             <p class="hoverBody">{{SubsectionProjectTerm}}</p>
                                         </div>
@@ -189,7 +189,7 @@
                             {{#each Subsections}}
                                 <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
                                     {{#each SubsectionItems}}
-                                        <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                        <a href="{{ItemLink}}" {{#if_eq ../SubsectionType 'Navbar Links'}}class="{{ItemStyle}} {{ItemName}}"{{else}}class="{{ItemStyle}}"{{/if_eq}} {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
                                     {{/each}}
                                     </div>
                             {{/each}}
