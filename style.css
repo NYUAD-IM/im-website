@@ -250,16 +250,16 @@ a:hover {
 }
 
 .gridHoverContainer {
-    /* height: 0; */
-    /* width: 100%; */
-    /* padding-bottom: 100%; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* -webkit-transition: .3s; */
-    /* -moz-transition: .3s; */
-    /* -o-transition: .3s; */
-    /* -ms-transition: .3s; */
-    /* transition: .3s; */
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    -ms-transition: .3s;
+    transition: .3s;
 }
 
 .subsection.Project img{
@@ -281,7 +281,7 @@ a:hover {
     font-size: 0.8em;
     padding: 2%; /* RESPONSIVE: DELETE */
     /* margin: 1% 1% 0 1%; */
-    opacity: 1;
+    opacity: 0;
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
