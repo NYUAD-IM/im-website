@@ -11,59 +11,24 @@ html, body {
 }
 
 body{
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 }
 
-canvas { /* delete later */
-    display: block;
-}
-
-.page{
-    display:flex;
-    flex-direction:column;
+.page {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1 0 auto;  /* sticks footer at the bottom of the page */
-    margin-bottom:5%;
+    flex: 1 0 auto;  
+    margin: 3% 0 3% 0;
+    /* margin-bottom:5%;
+    margin-top: 2%; */
 }
 
-ul{
-    padding:0;
-    list-style-type:none;
-  }
-
-/****** General Sections ******/
-.section{
-    margin-bottom:3%;
-    width:80%;
-}
-
-/****** Centered Sections/subsections ******/
-.Calendar.section, .Links.subsection{
-    text-align:center;
-}
-
-/****** Section: People ******/
-.People.section {
-    display:flex;
-    justify-content: center;
-    max-width:100%;
-    margin:0;
-    padding:0;
-    flex-direction:column;
-    align-items:center;
-}
-
-/****** Section: Projects ******/
-.Projects.section{
-    display:flex;
-    justify-content: center;
-    max-width:100%;
-    margin:0;
-    padding:0;
-    flex-direction:column;
-    align-items:center;
+.section {
+    margin-bottom: 3%;
+    width: 80%;
 }
 
 /****** Type ******/
@@ -73,30 +38,34 @@ p {
 
 h2 {
     font-family: 'Open Sans Condensed', sans-serif;
-    /* margin:2%; */
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
 }
 
 .sectionTitle {
     color: #655092; 
     font-size: 2.75em; 
     text-transform: uppercase;
-    margin:2% 0 2% 0;
-    text-align:left;
+    margin: 2% 0 2% 0;
+    text-align: left;
 }
 
-.sectionSubtitle{
-    margin:0 0 3% 0;
-    width:35%;
+.sectionSubtitle {
+    margin: 0 0 3% 0;
+    width: 35%;
 }
 
-.subsectionTitle{
-    font-size:1.75em;
-    margin:0;
+.subsectionTitle {
+    font-size: 1.75em;
+    margin: 0;
 }
 
 .subsectionSubtitle {
     font-style: italic;
-    margin:0;
+    margin: 0;
 }
 
 /****** Buttons/Links ******/
@@ -110,18 +79,18 @@ a {
     transition: .3s;
 }
 
-.Link{
+.Link {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
-    margin-top:1%;
+    /* margin-top: 1%; */
     text-decoration: underline;
 }
 
-a:hover{
+a:hover {
     color:#655092;
 }
 
-.Button{
+.Button {
     font-family: 'Open Sans Condensed', sans-serif;
     border: 2px solid #6A6893;
     background-color: white;
@@ -132,51 +101,176 @@ a:hover{
     margin:2% 2% 2% 2%;
 }
 
-.Button:hover{
+.Button:hover {
     background-color:#6A6893;
     color:white;
     border-color:#6A6893;
 }
 
-/****** Subsection: Person & Project ******/
-.People.contentContainer, .Projects.contentContainer {
-    display:flex;
-    justify-content: flex-start;
-    align-items:center;
-    padding:0;
-    flex-flow:row wrap;
-    width:100%;
+/****** Page: Home ******/
+.page.Home {
+    margin-top: 0;
+} 
+
+.page.Home .sectionTitle {
+    margin-bottom: 0;
 }
 
-.Project.subsection, .Person.subsection{
-    /*flex:0 0 350px;   change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
-    /* potential fix: do the same as the resources grid: set percentages, make them flex:1 100% as the screen goes smaller, make them smaller as the screen becomes smaller too (experiment) */
-    margin:1%;
-    margin-left:0;
-    display:flex;
-    flex-direction:column;
-    width:392px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
-    height:490px; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
- }
+/****** Page: Error ******/
+.page.Error .sectionTitle {
+    font-size: 12em;
+} 
 
- .Project .sectionTitle, .People .sectionTitle{
+/****** Section: Sketches ******/
+.section.Sketches {
+    width: 100%;
+}
+
+.section.Sketches iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.section.Sketches .subsection.Sketch {
+    height: 100vh;
+    height: 100vm;
+    height: 100vmin;
+}
+
+.section.Sketches .subsection.Sketch .authors {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.section.Sketches .subsection.Sketch p {
+    margin: 0.5%;
+    font-size: 0.75em;
+}
+
+/****** Section: Tiles ******/
+.Tiles.section {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Tiles .sectionTitle, .Tiles .sectionSubtitle {
     align-self:flex-start;
 }
 
-.Project .subsectionTitle, .People .subsectionTitle{
+.Tiles .contentContainer {
+    width:80%; /* RESPONSIVE (MOBILE): width:100%*/
+    display:flex;
+    flex-flow:column;
+}
+
+.Tile.subsection {
+    display:flex;
+    flex-flow:row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
+    align-items:center;
+}
+
+.Tile img {
+    max-width: 100%; /* RESPONSIVE(large screens): images don't get larger*/
+}
+
+.Tile .image {
+    flex: 1; /* RESPONSIVE: flex: 1 100%*/
+    margin: 4%;
+}
+
+.Tile .text {
+    flex: 1;
+    text-align: right;
+    padding:3%;
+}
+
+.Tile.subsection:nth-of-type(2n) {
+    flex-direction: row-reverse;
+}
+
+.Tile.subsection:nth-of-type(2n) .text {
+    text-align: left;
+}
+
+/* CHANGE: find another way to identify last div */
+.Tile.subsection:nth-of-type(3) {
+    margin-bottom: 5%;
+}
+
+/****** Section: Slides ******/
+.Slides.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+.Slides .contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Slide img {
+    max-width: 100%;
+    height: auto;
+}
+
+.Slide.subsection {
+    width: 65%;
+}
+
+.Slides .sectionTitle, .Slides .sectionSubtitle {
+    align-self: flex-start;
+}
+
+/****** Section: People, Projects ******/
+.People.section, .Projects.section {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+/****** Subsection: Person & Project ******/
+.Project.subsection, .Person.subsection {
+    /*flex:0 0 350px;   change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    /* potential fix: do the same as the resources grid: set percentages, make them flex:1 100% as the screen goes smaller, make them smaller as the screen becomes smaller too (experiment) */
+    margin: 1%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 31.333333%; /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+    /*height:490px;  RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
+ }
+
+.People .contentContainer, .Projects .contentContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.Gallery .sectionTitle, .People .sectionTitle {
+    align-self: flex-start;
+}
+
+.Project .subsectionTitle, .People .subsectionTitle {
     font-family: 'Open Sans Condensed', sans-serif;
-    margin-bottom:0;
-    margin-left:0;
+    margin-bottom: 0;
+    margin-left: 0;
 }
 
-.Project .subsectionSubtitle, .People .subsectionSubtitle{
-    display:inline;
-    margin-left:0;
-}
-
-.gridHoverContainer{
-    height:80%; /*RESPONSIVE: MAX WIDTH*/
-    width:100%;
+.gridHoverContainer {
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-transition: .3s;
@@ -186,21 +280,21 @@ a:hover{
     transition: .3s;
 }
 
-.gridHoverContainer:hover .hoverBody{
+.gridHoverContainer:hover .hoverBody {
     opacity:1;
 }
 
 .gridHoverContainer:hover {
-    -moz-box-shadow:    inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
+    -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
     -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
     box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0.77);
 }
 
-.hoverBody{
-    color:white;
-    font-size:0.75em;
-    padding:2%;
-    margin:1% 1% 0 1%;
+.hoverBody {
+    color: white;
+    font-size: 0.8em;
+    padding: 2%;
+    margin: 1% 1% 0 1%;
     opacity: 0;
     -webkit-transition: .3s;
     -moz-transition: .3s;
@@ -209,164 +303,116 @@ a:hover{
     transition: .3s;
 }
 
-.hoverBody a{
+.hoverBody a {
     color:white;
 }
 
-.hoverBody a:hover{
+.hoverBody a:hover {
     color:white;
 }
 
-.top{
-    margin-top:15%;
+.gridTextContainer {
+    height: 20%;
+    width: 100%;
 }
 
-.gridTextContainer{
-    height:20%;
-    width:100%;
+/****** Section: List ******/
+.Lists ul {
+    display: flex;
+    flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
+    margin-top:1%;
 }
 
-/****** Footer ******/
-footer{
-    background-color:black;
-    display:flex;
-    flex-shrink: 0;
+.Lists li {
+   background-color: #655092;
+   padding: 1.5%;
+   text-align: center;
+   margin: 0.25%;
+   color: white;
+   width: 250px; /* RESPONSIVE: REDUCE SIZE. MOBILE: 100% */
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
-div.Footer{
-    margin:4%;
+.Lists .Links.subsection {
+    display: flex;
+    justify-content: flex-end;
 }
 
-div.Footer.Main.subsection{
-    flex-grow:1; /* RESPONSIVE: CHANGE */
-    display:flex;
-    flex-direction:column;
+.List .subsectionTitle {
+    margin-top: 1%;
 }
 
-div.Footer.Links.subsection{
-    display:flex;
-    flex-direction:column;
+/****** Section: Calendar ******/
+.Calendar.section {
+    text-align: center;
 }
 
-a.Footer.Links{
-    text-align:left;
-}
-
-a.Footer, a.Navbar {
-    font-family: 'Open Sans Condensed', sans-serif;
-    text-decoration:none;
-}
-
-a.Footer.Main {
-    color: white;
-    font-size: 1.75em;
-    text-transform: uppercase;
-}
-
-a.Footer.Link {
-    color: #A2A2A2;
-    padding:5%;
-}
-
-a.Footer:hover {
-    color: white;
-}
-
-/****** Navbar ******/
-nav{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    margin:1%;
-}
-
-div.Navbar.Links.subsection{
-    flex-grow:1; /* RESPONSIVE: CHANGE */
-}
-
-div.Navbar.Main.subsection {
-    width:20%; /* RESPONSIVE: CHANGE */
-    
-}
-
-div.Navbar.Logo.subsection {
-    width:20%; /* RESPONSIVE: CHANGE */
-    text-align:right;
-}
-
-a.Navbar {
-    margin:3%;
-}
-
-.Navbar.Links.subsection {
-    text-align:left;
-}
-
-a.Navbar.Main, a.Navbar.Logo {
-    font-size: 1.75em; /* RESPONSIVE: CHANGE */
-    text-transform: uppercase;
-}
-
-/****** Page: Error ******/
-.Error .sectionTitle{
-    font-size:12em;
-} 
-
-/****** Subsection: Calendar ******/
-.Calendar iframe{
-    width:100%;
-    height:700px; /*RESPONSIVE: REDUCE HEIGHT */
+.Calendar iframe {
+    width: 100%;
+    height: 700px; /*RESPONSIVE: REDUCE HEIGHT */
 }
 
 /****** Subsection: Banner ******/
-.Banner .sectionTitle{
-    text-align:center;
+.Banner .sectionTitle {
+    text-align: center;
+}
+
+/****** Subsection: Links ******/
+.Links.subsection {
+    text-align: center;
+}
+
+.Links .Button {
+    font-size: 1.5em;
 }
 
 /****** Subsection: Event ******/
-.Events.contentContainer{
-    width:75%; /* RESPONSIVE: MAKE MAX WIDTH*/
-    flex:1 100%;
+.Events .contentContainer {
+    width: 75%; /* RESPONSIVE: MAKE MAX WIDTH*/
+    flex: 1 100%;
 }
 
 .Event.subsection {
     flex: 1 100%;
     margin-top:4%;
-    display:flex;
+    display: flex;
 }
 
-.Event .dateTime{
+.Event .dateTime {
     flex: 1 0%;   
     margin: 0 1 0 0;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.Event .day{
-    font-size:2.75em;
+.Event .day {
+    font-size: 2.75em;
 }
 
-.Event .time{
-    margin:0;
+.Event .time {
+    margin: 0;
 }
 
-.Event .month{
-    margin:0;
-    flex:1;
-    font-size:1.15em;
+.Event .month {
+    margin: 0;
+    flex: 1;
+    font-size: 1.15em;
 }
 
-.Event .info{
-    flex:3 60%;
+.Event .info {
+    flex: 3 60%;
 }
 
-.Event p{
-    margin:0;
+.Event p {
+    margin: 0;
 }
 
 /****** Subsection: Block ******/
-.Blocks.contentContainer {
+.Blocks .contentContainer {
     display: flex;
     flex-flow: row wrap;
 }
@@ -394,147 +440,94 @@ a.Navbar.Main, a.Navbar.Logo {
     margin: 2% 2% 2% 0;
 }
 
-/****** Subsection: Sketch ******/
-.Sketch.section{
-    width:100%;
-}
-
-.Sketch iframe {
-    width:100%;
-    height:100%;
-}
-
-.Sketch .subsection {
-    height:100vh;
-    height: 100vm;
-    height: 100vmin;
-}
-
-.Sketch .authors{
-    display:flex;
-    justify-content: flex-end;
-}
-
-.Sketch p{
-    margin:0.5%;
-    font-size:0.75em;
-}
-
-/****** Section: List ******/
-.Lists ul {
+/****** Footer ******/
+footer {
+    background-color: black;
     display: flex;
-    flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
-    margin-top:1%;
+    flex-shrink: 0;
 }
 
-.Lists li {
-   background-color: #655092;
-   padding: 1.5%;
-   text-align: center;
-   margin: 0.25%;
-   color: white;
-   width:250px; /* RESPONSIVE: REDUCE SIZE. MOBILE: 100% */
-   height:50px;
-   display:flex;
-   align-items: center;
-   justify-content: center;
-}
-
-.Lists .Links.subsection{
-    display:flex;
-    justify-content: flex-end;
-}
-
-.List .subsectionTitle{
-    margin-top:1%;
-}
-
-/****** Subsection: Tiles ******/
-.Tiles.section {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.Tiles .sectionTitle, .Tiles .sectionSubtitle {
-    align-self:flex-start;
-}
-
-.Tiles.contentContainer {
-    width:80%; /* RESPONSIVE (MOBILE): width:100%*/
-    display:flex;
-    flex-flow:column;
-}
-
-.Tile.subsection {
-    display:flex;
-    flex-flow:row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
-    align-items:center;
-}
-
-.Tile img {
-    max-width: 100%; /* RESPONSIVE(large screens): images don't get larger*/
-}
-
-.Tile.image {
-    flex: 1; /* RESPONSIVE: flex: 1 100%*/
+.Footer {
     margin: 4%;
 }
 
-.Tile.text {
-    flex: 1;
-    text-align: right;
-    padding:3%;
+.Footer.Main.subsection {
+    flex-grow: 1; /* RESPONSIVE: CHANGE */
+    display: flex;
+    flex-direction: column;
 }
 
-.Tile.subsection:nth-of-type(2n) {
-    flex-direction: row-reverse;
+.Footer.Links.subsection {
+    display: flex;
+    flex-direction: column;
 }
 
-.Tile.subsection:nth-of-type(2n) .text {
+.Footer a {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
+}
+
+.Footer .Main {
+    color: white;
+    font-size: 1.75em;
+    text-transform: uppercase;
+    padding: 0.5%;
+}
+
+.Footer .Image {
+    padding: 0.5%
+}
+
+.Footer .Link {
+    color: #A2A2A2;
+    padding: 5%;
     text-align: left;
 }
 
-/* CHANGE: find another way to identify last div */
-.Tile.subsection:nth-of-type(3) {
-    margin-bottom: 5%;
+.Footer a:hover {
+    color: white;
 }
 
-/****** Subsection: Links ******/
-.Links .Button{
-    font-size:1.5em;
-}
-
-/****** Subsection: Slide ******/
-.Slides.section{
-    display:flex;
-    flex-direction: column;
+/****** Navbar ******/
+nav {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    min-height:100vh; 
+    margin: 1%;
 }
 
-.Slides.contentContainer{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
+nav .subsection {
+    margin: 1%;
 }
 
-.Slide img{
-    max-width:100%;
-    height:auto;
+.Navbar a{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
 }
 
-.Slide.subsection{
-    width:65%;
+.Navbar .Main {
+    font-size: 1.75em; /* RESPONSIVE: CHANGE */
+    text-transform: uppercase;
 }
 
-.Slides .sectionTitle, .Slides .sectionSubtitle {
-    align-self:flex-start;
+.Navbar.Links.subsection {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
 }
 
-/****** Change: Home ******/
-.Home .sectionTitle{
-    margin-bottom:0;
+.Navbar.Links.subsection a {
+    margin: 15px;
+}
+
+.Navbar.Logo.subsection {
+    text-align: right;
+    flex: 1;
+}
+
+a.Navbar.Main, a.Navbar.Logo {
+    font-size: 1.75em; /* RESPONSIVE: CHANGE */
+    text-transform: uppercase;
 }
 
 /****** Responsive Layout ******/

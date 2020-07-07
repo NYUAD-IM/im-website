@@ -9,219 +9,224 @@
 </head>
 
 <body> 
-    <!-- main content template -->
     <script id="template" type="text/x-handlebars-template">
-        
-        <div class="{{PageType}} page">
+        {{#each objects}}
 
-            {{#each PageSections}} 
+            {{#if_eq PageType 'MainPage'}}
 
-                <div class="{{SectionType}} section" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                <div class="page {{PageTitle}}"> 
+                    {{#each PageSections}} 
+                        <div class="section {{SectionType}}" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                            {{#if SectionTitle}}<h2 class="sectionTitle">{{SectionTitle}}</h2>{{/if}}
+                            {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
+                            <div class="contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
-                    {{#if SectionTitle}}<h2 class="sectionTitle">{{SectionTitle}}</h2>{{/if}}
-                    {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
+                            {{#each Subsections}}
+                                <div {{#if SubsectionStyle}}class="subsection {{SubsectionType}} {{SubsectionStyle}}"{{else}}class="subsection {{SubsectionType}}"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
-                    <div class="{{SectionType}} contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
-
-
-                    {{#each Subsections}}
-                    
-                        <div {{#if SubsectionStyle}}class="{{SubsectionType}} subsection {{SubsectionStyle}}"{{else}}class="{{SubsectionType}} subsection"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
-
-                            {{#if_eq SubsectionType 'Sketch'}}
-                                
-                                <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
-
-                                <div class="authors">
-                                    {{#each SubsectionAuthors}}
-                                        <p><a href="{{AuthorPortfolio}}">Sketch credits: {{AuthorName}}</a></p>
-                                    {{/each}}
-                                </div>
-                            {{/if_eq}}
-                            
-                            {{#if_eq SubsectionType 'Slide'}}
-                                <img src="{{SubsectionImageLink}}">
-                                {{#if SubsectionTitle}}
-                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                {{/if}}
-                                <p>{{SubsectionDescription}}</p>
-                            {{/if_eq}}
-                                                       
-                            {{#if_eq SubsectionType 'List'}}
-                                <h2 class="subsectionTitle">{{SubsectionListTitle}}</h2>
-                                {{#if SubsectionListSubtitle}}
-                                    <p class="subsectionSubtitle">{{SubsectionListSubtitle}}</p>
-                                {{/if}}
-                                <ul>
-                                    {{#each SubsectionItems}}
-                                        <li><p>
-                                            {{#if ItemLink}}
-                                                <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} href="{{ItemLink}}">{{ItemName}}</a>
-                                            {{else}}
-                                                {{ItemName}}
-                                            {{/if}}
-                                        </p></li>
-                                    {{/each}}
-                                </ul>
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Tile'}}
-                                <div class="{{SubsectionType}} text">
-                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                    <p>{{SubsectionDescription}}</p>
-                                </div>
-                                <div class="{{SubsectionType}} image">
-                                    <img src="{{SubsectionImageLink}}">
-                                </div>
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Person'}}
-                                <div class="{{SubsectionType}} gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                    <p class="hoverBody top">{{SubsectionBio}}</p>
-                                    <p class="hoverBody"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
-                                    {{#if SubsectionCourses}}
-                                        <p class="hoverBody">{{SubsectionCourses}}</p>
-                                    {{/if}}
-                                </div>
-                                <div class="{{SubsectionType}} gridTextContainer">
-                                    <h2 class="subsectionTitle">
-                                        {{#if SubsectionLink}}
-                                            <a href="{{SubsectionLink}}" target="_blank">{{SubsectionName}}</a>
-                                        {{else}}
-                                            {{SubsectionName}}
+                                    {{#if_eq SubsectionType 'Sketch'}}
+                                        <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
+                                        <div class="authors">
+                                            <p> Sketch credits: 
+                                                {{~#each SubsectionAuthors~}}
+                                                    {{#if @index}},{{/if}}
+                                                    {{#if AuthorPortfolio~}}
+                                                        <span><a href="{{AuthorPortfolio}}" target="_blank">{{AuthorName}}</a></span>
+                                                    {{~else~}}
+                                                        <span>{{AuthorName}}</span>
+                                                    {{~/if}}
+                                                {{~/each~}}
+                                            </p>
+                                        </div>
+                                    {{/if_eq}}
+                                    
+                                    {{#if_eq SubsectionType 'Slide'}}
+                                        <img src="{{SubsectionImageLink}}">
+                                        {{#if SubsectionTitle}}
+                                            <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
                                         {{/if}}
-                                    </h2>
-                                    <p class="subsectionSubtitle">{{SubsectionPosition}}</p>
-                                </div>
-                            {{/if_eq}} 
-
-                            {{#if_eq SubsectionType 'Block'}}
-                                <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                {{#if SubsectionSubtitle}}
-                                    <p class="subsectionSubtitle">{{SubsectionSubtitle}}</p>
-                                {{/if}}
-                                {{#if SubsectionDescription}}
-                                    <p>{{SubsectionDescription}}</p>
-                                {{/if}}
-                                {{#each SubsectionItems}}
-                                    {{#if ItemName}}
-                                        <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
-                                    {{/if}}
-                                {{/each}}                      
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Event'}}
-                                <div class="{{SubsectionType}} dateTime"> 
-                                    <h2 class="subsectionTitle day">{{SubsectionDay}}</h2>
-                                    <p class="month">{{SubsectionMonth}}</p>
-                                    <p class="time">{{SubsectionTime}}</p>
-                                </div>
-                                <div class="{{SubsectionType}} info">
-                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                    <p class="subsectionSubtitle">{{SubsectionLocation}}</p>
-                                    <p>{{SubsectionDescription}}</p>
-                                </div>
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Calendar'}}
-                                <iframe src="{{SubsectionLink}}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Banner'}}
-                                {{#each SubsectionItems}}
-                                    <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
-                                {{/each}}
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Project'}}
-                                <div class="{{SubsectionType}} gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
-                                    <p class="hoverBody top">{{SubsectionProjectDescription}}</p>
-                                    <p class="hoverBody">{{SubsectionProjectClass}}</p>
-                                    <p class="hoverBody">{{SubsectionProjectTerm}}</p>
-                                </div>
-                                <div class="{{SubsectionType}} gridTextContainer">
-                                    <h2 class="subsectionTitle">
-                                        {{#if SubsectionProjectLink}}
-                                            <a href="{{SubsectionProjectLink}}" target="_blank">{{SubsectionProjectName}}</a>
-                                        {{else}}
-                                            {{SubsectionProjectName}}
+                                        <p>{{SubsectionDescription}}</p>
+                                    {{/if_eq}}
+                                                            
+                                    {{#if_eq SubsectionType 'List'}}
+                                        <h2 class="subsectionTitle">{{SubsectionListTitle}}</h2>
+                                        {{#if SubsectionListSubtitle}}
+                                            <p class="subsectionSubtitle">{{SubsectionListSubtitle}}</p>
                                         {{/if}}
-                                    </h2>
-                                    {{#each SubsectionAuthors}}
-                                        <p class="subsectionSubtitle">
-                                            {{#if AuthorPortfolio}}
-                                                <a href="{{AuthorPortfolio}}" target="_blank">{{AuthorName}}</a>
-                                            {{else}}
-                                                {{AuthorName}}
+                                        <ul>
+                                            {{#each SubsectionItems}}
+                                                <li><p>
+                                                    {{#if ItemLink}}
+                                                        <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} href="{{ItemLink}}">{{ItemName}}</a>
+                                                    {{else}}
+                                                        {{ItemName}}
+                                                    {{/if}}
+                                                </p></li>
+                                            {{/each}}
+                                        </ul>
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Tile'}}
+                                        <div class="text">
+                                            <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                            <p>{{SubsectionDescription}}</p>
+                                        </div>
+                                        <div class="image">
+                                            <img src="{{SubsectionImageLink}}">
+                                        </div>
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Person'}}
+                                        <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
+                                            <p class="hoverBody">{{SubsectionBio}}</p>
+                                            <p class="hoverBody"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
+                                            {{#if SubsectionCourses}}
+                                                <p class="hoverBody">{{SubsectionCourses}}</p>
                                             {{/if}}
-                                        </p>
-                                    {{/each}}
+                                        </div>
+                                        <div class="gridTextContainer">
+                                            <h2 class="subsectionTitle">
+                                                {{#if SubsectionLink}}
+                                                    <a href="{{SubsectionLink}}" target="_blank">{{SubsectionName}}</a>
+                                                {{else}}
+                                                    {{SubsectionName}}
+                                                {{/if}}
+                                            </h2>
+                                            <p class="subsectionSubtitle">{{SubsectionPosition}}</p>
+                                        </div>
+                                    {{/if_eq}} 
+            
+                                    {{#if_eq SubsectionType 'Block'}}
+                                        <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                        {{#if SubsectionSubtitle}}
+                                            <p class="subsectionSubtitle">{{SubsectionSubtitle}}</p>
+                                        {{/if}}
+                                        {{#if SubsectionDescription}}
+                                            <p>{{SubsectionDescription}}</p>
+                                        {{/if}}
+                                        {{#each SubsectionItems}}
+                                            {{#if ItemName}}
+                                                <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
+                                            {{/if}}
+                                        {{/each}}                      
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Event'}}
+                                        <div class="dateTime"> 
+                                            <h2 class="subsectionTitle day">{{SubsectionDay}}</h2>
+                                            <p class="month">{{SubsectionMonth}}</p>
+                                            <p class="time">{{SubsectionTime}}</p>
+                                        </div>
+                                        <div class="info">
+                                            <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                            <p class="subsectionSubtitle">{{SubsectionLocation}}</p>
+                                            <p>{{SubsectionDescription}}</p>
+                                        </div>
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Calendar'}}
+                                        <iframe src="{{SubsectionLink}}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Banner'}}
+                                        {{#each SubsectionItems}}
+                                            <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
+                                        {{/each}}
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Project'}}
+                                        <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
+                                            <p class="hoverBody top">{{SubsectionProjectDescription}}</p>
+                                            <p class="hoverBody">{{SubsectionProjectClass}}</p>
+                                            <p class="hoverBody">{{SubsectionProjectTerm}}</p>
+                                        </div>
+                                        <div class="gridTextContainer">
+                                            <h2 class="subsectionTitle">
+                                                {{#if SubsectionProjectLink}}
+                                                    <a href="{{SubsectionProjectLink}}" target="_blank">{{SubsectionProjectName}}</a>
+                                                {{else}}
+                                                    {{SubsectionProjectName}}
+                                                {{/if}}
+                                            </h2>
+                                            <p class="subsectionSubtitle">
+                                                {{~#each SubsectionAuthors~}}
+                                                        {{#if @index}},{{/if}}
+                                                        {{#if AuthorPortfolio~}}
+                                                            <span><a href="{{AuthorPortfolio}}" target="_blank">{{AuthorName}}</a></span>
+                                                        {{~else~}}
+                                                            <span>{{AuthorName}}</span>
+                                                        {{~/if}}
+                                                {{~/each~}}
+                                            </p>
+                                        </div>
+                                    {{/if_eq}}
+
+                                    {{#if_eq SubsectionType 'Links'}}
+                                        {{#if SubsectionTitle}}
+                                            <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                        {{/if}}
+                                        {{#if SubsectionDescription}}
+                                            <p>{{SubsectionDescription}}</p>
+                                        {{/if}}
+                                        {{#each SubsectionItems}}
+                                            <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
+                                        {{/each}}
+                                    {{/if_eq}}
+
                                 </div>
-                            {{/if_eq}}
-
-                            {{#if_eq SubsectionType 'Links'}}
-                                {{#if SubsectionTitle}}
-                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                {{/if}}
-                                {{#if SubsectionDescription}}
-                                    <p>{{SubsectionDescription}}</p>
-                                {{/if}}
-                                {{#each SubsectionItems}}
-                                    <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
-                                {{/each}}
-                            {{/if_eq}}
-
+                            {{/each}}  
+                            </div>
                         </div>
-                    {{/each}}  
-                    
-                    </div>
-
+                    {{/each}}
                 </div>
-            {{/each}}
-        </div>
-    </script>
 
-    <!-- navbar template -->
-    <script id="navbar-template" type="text/x-handlebars-template">
-        <nav>
-            {{#each PageSections}}
-                {{#if_eq SectionType 'Navbar'}}
-                    {{#each Subsections}}
-                        <div class="{{SubsectionType}} subsection" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
-                            {{#each SubsectionItems}}
-                                <a href="{{ItemLink}}" class="{{../SubsectionType}} {{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+            {{else}}
+
+                {{#if_eq PageType 'Navbar'}}
+                    {{#each PageSections}}
+                        {{#if_eq SectionType 'Navbar'}}
+                        <nav>
+                            {{#each Subsections}}
+                                <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                                    {{#each SubsectionItems}}
+                                        <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                    {{/each}}
+                                    </div>
                             {{/each}}
-                        </div>
+                        </nav>
+                        {{/if_eq}}
                     {{/each}}
                 {{/if_eq}}
-            {{/each}}
-        </nav>
-    </script>
 
-    <!-- footer template -->
-    <script id="footer-template" type="text/x-handlebars-template">
-        <footer>
-            {{#each PageSections}}
-                {{#if_eq SectionType 'Footer'}}
-                    {{#each Subsections}}
-                        <div class="{{SubsectionType}} subsection" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
-                            {{#each SubsectionItems}}
-                                <a href="{{ItemLink}}" class="{{../SubsectionType}} {{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
-                            {{/each}}
-                        </div>
-                    {{/each}}
+                {{#if_eq PageType 'Footer'}}
+                    <footer>
+                        {{#each PageSections}}
+                            {{#if_eq SectionType 'Footer'}}
+                                {{#each Subsections}}
+                                    <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                                        {{#each SubsectionItems}}
+                                            <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                        {{/each}}
+                                    </div>
+                                {{/each}}
+                            {{/if_eq}}
+                        {{/each}}
+                    </footer>
                 {{/if_eq}}
-            {{/each}}
-        </footer>
+
+            {{/if_eq}}
+        {{/each}}
     </script>
 
     <!-- including jquery, handlebars, and script.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+
     <!-- setting the current page -->
     <script>
         var currentPage = "Resources";
     </script>
+    
     <script type="text/javascript" src="../script.js"></script>
 </body>
 </html>
