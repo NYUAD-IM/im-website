@@ -102,7 +102,8 @@ a:hover {
     padding: 1.5% 5%;
     cursor: pointer;
     display: inline-block;
-    margin:2% 2% 2% 2%;
+    margin: 2%;
+    text-align: center;
 }
 
 .Button:hover {
@@ -573,13 +574,15 @@ body.People .subsection.Navbar .Link.People {
         font-size: 1em;
     }
 
-    /*Resources Page */
-    /* Block subsection */
+    /*Resources: Subsection: Block */
+    .subsection.Block {
+        margin-top: 3%;
+    }
+    
     .subsection.Block.Wide {
         display: flex;
-        /* flex:1 100%; */
         flex-direction: column;
-        margin: 0;
+        margin-right: 0;
         align-items: center;
     }
 
@@ -591,10 +594,8 @@ body.People .subsection.Navbar .Link.People {
         flex:1 100%;
     }
 
-    /* fix! */
-    .Block .Button{
-        text-align: center;
-        margin:2%;
+    .subsection.Block .Button{
+        margin: 2%;
     }
 
     /* Grids: 1 column */
@@ -724,8 +725,12 @@ body.People .subsection.Navbar .Link.People {
 /* tablets */
 @media (min-width : 736px) and (max-width : 1100px){
     body{
-        /* background-color:turquoise; */
+        background-color:turquoise;
         font-size:14px;
+    }
+
+    .Button {
+        padding: 4% 5%;
     }
 
     /* Grids: 2 columns */
@@ -783,12 +788,37 @@ body.People .subsection.Navbar .Link.People {
    .section.Lists li {
         width: calc(100% * 1/4 - 40px);
     }
+
+    /* Reources: Section: Block */
+    .section.Blocks .subsection.Block .Button {
+        width: 33%;
+    }
+
+    /* Resources: Section: Calendar */
+    .section.Calendar iframe {
+        width: 100%;
+        height: 400px; /*RESPONSIVE: REDUCE HEIGHT */
+    }
+
+    /* Resources: Section: Events */
+    .section.Events .contentContainer {
+        width: 100%;
+    }
+
+    .section.Events .subsection.Event .dateTime {
+        flex: 1;   
+    }
+
+    .section.Events .subsection.Event .month {
+        flex: 0;
+    }
+
 }
 
 /* medium-sized screens */
 @media (min-width : 1100px) and (max-width : 1420px){
     body{
-        /* background-color:lightcoral; */
+        background-color:lightcoral;
         font-size:14px;
     }
 
@@ -806,7 +836,7 @@ body.People .subsection.Navbar .Link.People {
 /* semi-large screens */
 @media (min-width : 1420px) and (max-width : 1600px) {
     body{
-        /* background-color: lightskyblue; */
+        background-color: lightskyblue;
         font-size:16px;
     }
 
@@ -820,7 +850,7 @@ body.People .subsection.Navbar .Link.People {
 /* large screen */
 @media (min-width : 1600px) {
     body{
-        /* background-color: lightpink; */
+        background-color: lightpink;
         font-size:16px;
     }
     .section{ /*max content size: 1200px (subject to change)*/
