@@ -22,6 +22,7 @@ body{
     justify-content: center;
     align-items: center;
     flex: 1 0 auto; 
+    z-index: -1;
 }
 
 .section {
@@ -453,7 +454,7 @@ footer {
 }
 
 .Footer {
-    margin: 2%;
+    margin: 20px;
 }
 
 .Footer.Main.subsection {
@@ -501,7 +502,33 @@ nav {
 }
 
 nav .subsection {
-    margin: 1%;
+    margin: 10px;
+}
+
+nav .subsection.Toggle img {
+    width: 27px;
+}
+
+nav .subsection.Toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-overlay {
+    position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	z-index:1;
+	opacity:0;
+	visibility:hidden;
+}
+
+.nav-overlay.active{
+	opacity:1;
+	visibility:visible;
 }
 
 .Navbar a{
@@ -551,9 +578,46 @@ body.People .subsection.Navbar .Link.People {
 /****** Responsive Layout ******/
 /* mobile/small screens */
 @media (max-width: 736px){
+    nav .subsection.Toggle {
+        display: block;
+        flex: 1;
+        text-align: right;
+    }
+
+    nav .subsection.Links {
+        position: absolute;
+		top: 50px;
+		width: 100%;
+		height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    nav .subsection.Links.active {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: white;
+        font-size: 3em;
+    }
+
+    nav .Navbar.subsection.Links a {
+        margin: 15px;
+        -webkit-transition-duration: 0s;
+        -o-transition-duration: 0s;
+        transition-duration: 0s;
+    }
+
+    nav .subsection.Logo {
+        display:none;
+    }
+
     body {
         font-size: 16px;
-        background-color:lightgoldenrodyellow;
+        /* background-color:lightgoldenrodyellow; */
     }
 
     .section {
@@ -578,7 +642,7 @@ body.People .subsection.Navbar .Link.People {
     .subsection.Block {
         margin-top: 3%;
     }
-    
+
     .subsection.Block.Wide {
         display: flex;
         flex-direction: column;
@@ -725,7 +789,7 @@ body.People .subsection.Navbar .Link.People {
 /* tablets */
 @media (min-width : 736px) and (max-width : 1100px){
     body{
-        background-color:turquoise;
+        /* background-color:turquoise; */
         font-size:14px;
     }
 
@@ -818,7 +882,7 @@ body.People .subsection.Navbar .Link.People {
 /* medium-sized screens */
 @media (min-width : 1100px) and (max-width : 1420px){
     body{
-        background-color:lightcoral;
+        /* background-color:lightcoral; */
         font-size:14px;
     }
 
@@ -836,7 +900,7 @@ body.People .subsection.Navbar .Link.People {
 /* semi-large screens */
 @media (min-width : 1420px) and (max-width : 1600px) {
     body{
-        background-color: lightskyblue;
+        /* background-color: lightskyblue; */
         font-size:16px;
     }
 
