@@ -84,10 +84,12 @@
                                             
                                             {{#if_eq SubsectionType 'Slide'}}
                                                 <img src="{{SubsectionImageLink}}">
-                                                {{#if SubsectionTitle}}
-                                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                                {{/if}}
-                                                <p>{{SubsectionDescription}}</p>
+                                                <div class="SlideContent">
+                                                    {{#if SubsectionTitle}}
+                                                        <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                                    {{/if}}
+                                                    <p>{{SubsectionDescription}}</p>
+                                                </div>
                                             {{/if_eq}}
                                                                     
                                             {{#if_eq SubsectionType 'List'}}

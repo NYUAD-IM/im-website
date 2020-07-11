@@ -204,14 +204,23 @@ a:hover {
 }
 
 .section.Slides .subsection.Slide {
-    /* flex-grow: 1; 
-    height: 100%; */
-    padding-left: 19%;
-    width: 400px; /* responsive: change according to image width change*/
-    border: 2px solid #6A6893;
+    /* padding: 0 12%; */
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 400px;
 }
 
-.section.Slides .sectionTitle {
+.section.Slides .SlideContent {
+    width: 400px;
+}
+
+.section.Slides .SlideContent p, .section.Slides .SlideContent .subsectionTitle {
+    margin: 1% 0;
+}
+
+.section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
     width: 80%; 
     align-self: center;
 }
@@ -221,22 +230,6 @@ a:hover {
 }
 
 /****** Horizontical Behavior ******/
-
-.h-wrapper, .h-wrapper-text {
-box-sizing: border-box;
-border: 10px dashed red;
-}
-
-.h-viewport, .h-viewport-text {
-box-sizing: border-box;
-border: 10px dashed blue;
-}
-
-.h-container, .h-container-text {
-box-sizing: border-box;
-border: 10px dashed green;
-}
-
 .h-viewport {
     height: 100vh;
     display: flex;
@@ -244,10 +237,9 @@ border: 10px dashed green;
 }
 
 .h-container {
-    width: 200vw;
+    width: 300vw;
     /* height: 70vh; */
     display: flex;
-    /*margin: 0 23em; responsive: reduce margin */
 }
 
 /****** Section: People, Projects ******/
@@ -639,6 +631,36 @@ body.People .subsection.Navbar .Link.People {
 /****** Responsive Layout ******/
 /* mobile/small screens */
 @media (max-width: 736px){
+    
+
+    body {
+        font-size: 16px;
+        /* background-color:lightgoldenrodyellow; */
+    }
+
+    .section {
+        width: 90%;
+    }
+
+    p {
+        margin: 5px 0;
+        font-size: 0.8em;
+    }
+
+    .Button {
+        padding: 5.5% 9%;
+        width: 45%;
+    }
+
+    .subsection.Links .Button {
+        font-size: 1em;
+    }
+
+    .sectionSubtitle {
+        width: auto;
+    }
+
+    /* Navigation */
     nav .subsection.Toggle {
         display: block;
         flex: 1;
@@ -678,27 +700,31 @@ body.People .subsection.Navbar .Link.People {
         display:none;
     }
 
-    body {
-        font-size: 16px;
-        /* background-color:lightgoldenrodyellow; */
+    /* Footer */
+    footer {
+        flex-flow: row wrap;
     }
 
-    .section {
-        width: 90%;
+    .Footer {
+        margin: 12px;
     }
 
-    p {
-        margin: 5px 0;
-        font-size: 0.8em;
+    footer .subsection.Main {
+        order: 4 !important;
     }
 
-    .Button {
-        padding: 5.5% 9%;
-        width: 45%;
+    footer .subsection.Links {
+        order: 1 !important;
+        flex: 1;
     }
 
-    .subsection.Links .Button {
-        font-size: 1em;
+    footer .Link {
+        padding: 3px;
+    }
+
+    footer .Main p {
+        margin: 0; 
+        padding: 3px;
     }
 
     /*Resources: Subsection: Block */
@@ -782,7 +808,7 @@ body.People .subsection.Navbar .Link.People {
         width: 80%; 
     }
 
-    .sectionSubtitle {
+    .section.Lists .sectionSubtitle {
         width: 100%;
     }
 
