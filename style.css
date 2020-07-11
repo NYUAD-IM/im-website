@@ -17,12 +17,13 @@ body{
 }
 
 .page {
+    position:relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1 0 auto; 
-    z-index: -1;
+    z-index: 0;
 }
 
 .section {
@@ -196,27 +197,57 @@ a:hover {
     text-align: left;
 }
 
-/****** Section: Slides ******/
+/* Section: Slides */
 .section.Slides {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh; 
-}
-
-.section.Slides .contentContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section.Slides .subsection.Slide img {
-    max-width: 100%;
-    height: auto;
+    height: 100vh;
+    width: 100%;
 }
 
 .section.Slides .subsection.Slide {
-    width: 65%;
+    /* flex-grow: 1; 
+    height: 100%; */
+    padding-left: 19%;
+    width: 400px; /* responsive: change according to image width change*/
+    border: 2px solid #6A6893;
+}
+
+.section.Slides .sectionTitle {
+    width: 80%; 
+    align-self: center;
+}
+
+.subsection.Slide img {
+    width: 400px; /* responsive: change according to image width chagne*/
+}
+
+/****** Horizontical Behavior ******/
+
+.h-wrapper, .h-wrapper-text {
+box-sizing: border-box;
+border: 10px dashed red;
+}
+
+.h-viewport, .h-viewport-text {
+box-sizing: border-box;
+border: 10px dashed blue;
+}
+
+.h-container, .h-container-text {
+box-sizing: border-box;
+border: 10px dashed green;
+}
+
+.h-viewport {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.h-container {
+    width: 200vw;
+    /* height: 70vh; */
+    display: flex;
+    /*margin: 0 23em; responsive: reduce margin */
 }
 
 /****** Section: People, Projects ******/
@@ -229,8 +260,6 @@ a:hover {
 
 /****** Subsection: Person & Project ******/
 .section.Projects .subsection.Project, .section.People .subsection.Person {
-    /*flex:0 0 350px;   change once image size has been set */ /* RESPONSIVE: CHANGE PIXEL DIMENSIONS*/
-    /* potential fix: do the same as the resources grid: set percentages, make them flex:1 100% as the screen goes smaller, make them smaller as the screen becomes smaller too (experiment) */
     margin: 10px;
     display: flex;
     flex-direction: column-reverse;
@@ -283,7 +312,7 @@ a:hover {
     -o-transition: .3s;
     -ms-transition: .3s;
     transition: .3s;
-    z-index: 10;
+    z-index: 1;
     height: 0;
     padding-bottom: 100%;
 }
@@ -313,7 +342,7 @@ a:hover {
 .gridTextContainer {
     height: 20%;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
 }
 
 /****** Section: List ******/
@@ -337,6 +366,26 @@ a:hover {
 
 .section.Lists li a {
     color: white;
+}
+
+.section.Lists li a:hover {
+    text-decoration: underline;
+}
+
+.subsection.List .one li{
+    background-color: #655092;
+}
+
+.subsection.List .two li{
+    background-color: #6A6893;
+}
+
+.subsection.List .three li{
+    background-color: #6788B0;
+}
+
+.contentContainer ul li:nth-of-type(1) {
+    /* background-color: red; */
 }
 
 .section.Lists .subsection.Links {
@@ -463,6 +512,10 @@ footer {
     flex-direction: column;
 }
 
+.Footer.Main p {
+    margin: 0;
+}
+
 .Footer.Links.subsection {
     display: flex;
     flex-direction: column;
@@ -477,11 +530,15 @@ footer {
     color: white;
     font-size: 1.75em;
     text-transform: uppercase;
-    padding: 0.5%;
 }
 
 .Footer .Image {
-    padding: 0.5%
+    width: 150px;
+    margin-left: -9px;
+}
+
+.Footer .Social {
+    width: 22px;
 }
 
 .Footer .Link {
@@ -514,6 +571,10 @@ nav .subsection.Toggle {
     cursor: pointer;
 }
 
+nav .subsection.Logo img{
+    width: 150px;
+}
+
 .nav-overlay {
     position:absolute;
 	top:0;
@@ -521,12 +582,12 @@ nav .subsection.Toggle {
 	bottom:0;
 	left:0;
 	background-color:rgba(0,0,0,0.5);
-	z-index:1;
 	opacity:0;
-	visibility:hidden;
+	display:none;
 }
 
 .nav-overlay.active{
+    z-index:9999;
 	opacity:1;
 	visibility:visible;
 }
@@ -602,6 +663,8 @@ body.People .subsection.Navbar .Link.People {
         align-items: flex-start;
         background-color: white;
         font-size: 3em;
+        position: absolute;
+        z-index: 1; 
     }
 
     nav .Navbar.subsection.Links a {
@@ -784,6 +847,15 @@ body.People .subsection.Navbar .Link.People {
         flex: 0;
     }
 
+    /****** Page: Error ******/
+    .page.Error .sectionTitle {
+        font-size: 12em;
+    } 
+
+    .page.Error .Button {
+        margin-top: 5%;
+    }
+
 }
 
 /* tablets */
@@ -893,7 +965,7 @@ body.People .subsection.Navbar .Link.People {
 
     /* Home: Section: Lists */
     .section.Lists li {
-        width: 185px; /* RESPONSIVE: REDUCE SIZE. MOBILE: 100% */
+        width: 185px;
     }
 }
 
@@ -906,7 +978,7 @@ body.People .subsection.Navbar .Link.People {
 
     /* Home: Section: Lists */
     .section.Lists li {
-        width: 250px; /* RESPONSIVE: REDUCE SIZE. MOBILE: 100% */
+        width: 250px;
         height: 50px;
     }
 }
@@ -924,7 +996,7 @@ body.People .subsection.Navbar .Link.People {
 
     /* Home: Section: Lists */
     .section.Lists li {
-        width: 250px; /* RESPONSIVE: REDUCE SIZE. MOBILE: 100% */
+        width: 250px;
     }
 }
 

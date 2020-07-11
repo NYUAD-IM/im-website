@@ -36,7 +36,11 @@
                                 {{#each Subsections}}
                                     <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
                                         {{#each SubsectionItems}}
-                                            <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                            {{#if_eq ItemStyle 'Main'}}
+                                                <p><a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}> {{#if ItemName}}{{ItemName}}{{/if}}</a></p>
+                                            {{else}}
+                                                <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}}{{#if_eq ItemStyle 'Social'}}<img src="{{ItemImageLink}}" class="social">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                            {{/if_eq}}
                                         {{/each}}
                                     </div>
                                 {{/each}}
@@ -54,7 +58,7 @@
                                 <div class="contentContainer" {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                                 {{#each Subsections}}
-                                    <div {{#if SubsectionStyle}}class="subsection {{SubsectionType}} {{SubsectionStyle}}"{{else}}class="subsection {{SubsectionType}}"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                                    <div {{#if SubsectionStyle}}class="subsection {{SubsectionType}} {{SubsectionStyle}}"{{else}}class="subsection {{SubsectionType}}"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}} {{#if_eq SubsectionType 'Event'}} id="{{SubsectionType}}"{{/if_eq}}>
 
                                         {{#if_eq SubsectionType 'Sketch'}}
                                             <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
@@ -230,6 +234,7 @@
         var currentPage = "Resources";
     </script>
     
+    <script type="text/javascript" src="../horizontical.js"></script>
     <script type="text/javascript" src="../script.js"></script>
 </body>
 </html>
