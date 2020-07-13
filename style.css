@@ -22,12 +22,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1 0 auto; 
+    flex: 1 0 auto;
     z-index: 0;
 }
 
 .section {
-    margin: 10px;
+    margin: 4% 0;
     width: 80%;
 }
 
@@ -50,8 +50,8 @@ ul {
 }
 
 .sectionTitle {
-    color: #655092; 
-    font-size: 2.75em; 
+    color: #655092;
+    font-size: 2.75em;
     text-transform: uppercase;
     margin: 1% 0 1% 0;
     text-align: left;
@@ -60,7 +60,7 @@ ul {
 
 .sectionSubtitle {
     margin: 0 0 3% 0;
-    width: 400px; /* responsive (mobile):full width */ 
+    width: 400px; /* responsive (mobile):full width */
     align-self:flex-start;
 }
 
@@ -126,7 +126,7 @@ a:hover {
 /****** Page: Error ******/
 .page.Error .sectionTitle {
     font-size: 12em;
-} 
+}
 
 /****** Section: Sketches ******/
 .section.Sketches {
@@ -207,7 +207,7 @@ a:hover {
     /* padding: 0 12%; */
     flex: 1;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     width: 400px;
 }
@@ -221,12 +221,13 @@ a:hover {
 }
 
 .section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
-    width: 80%; 
+    width: 80%;
     align-self: center;
 }
 
 .subsection.Slide img {
-    width: 400px; /* responsive: change according to image width chagne*/
+    width: 100%;
+    height: auto;
 }
 
 /****** Horizontical Behavior ******/
@@ -234,10 +235,12 @@ a:hover {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .h-container {
-    width: 300vw;
+    /* background-color: white; */
+    width: 200vw;
     /* height: 70vh; */
     display: flex;
 }
@@ -255,7 +258,7 @@ a:hover {
     margin: 10px;
     display: flex;
     flex-direction: column-reverse;
-    width: calc(33.3% - 20px); 
+    width: calc(33.3% - 20px);
     position:relative;
  }
 
@@ -338,9 +341,15 @@ a:hover {
 }
 
 /****** Section: List ******/
+.section.Lists {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .section.Lists ul {
     display: flex;
-    flex-flow: row nowrap; 
+    flex-flow: row nowrap;
     margin-top:10px;
 }
 
@@ -396,12 +405,12 @@ a:hover {
 
 .section.Calendar iframe {
     width: 100%;
-    height: 700px; 
+    height: 700px;
 }
 
 /****** Section: Event ******/
 .section.Events .contentContainer {
-    width: 75%; 
+    width: 75%;
     flex: 1 100%;
 }
 
@@ -412,7 +421,7 @@ a:hover {
 }
 
 .section.Events .subsection.Event .dateTime {
-    flex: 1 0%;   
+    flex: 1 0%;
     margin: 0 1% 0 0;
     display: flex;
     flex-direction: column;
@@ -613,25 +622,25 @@ a.CurrentPage {
 }
 
 body.Home .subsection.Navbar .Link.Home {
-    color: #655092; 
+    color: #655092;
 }
 
 body.Gallery .subsection.Navbar .Link.Gallery {
-    color: #655092; 
+    color: #655092;
 }
 
 body.Resources .subsection.Navbar .Link.Resources {
-    color: #655092; 
+    color: #655092;
 }
 
 body.People .subsection.Navbar .Link.People {
-    color: #655092; 
+    color: #655092;
 }
 
 /****** Responsive Layout ******/
 /* mobile/small screens */
 @media (max-width: 736px){
-    
+
 
     body {
         font-size: 16px;
@@ -685,9 +694,16 @@ body.People .subsection.Navbar .Link.People {
         align-items: flex-start;
         background-color: white;
         font-size: 3em;
-        position: absolute;
-        z-index: 1; 
+        position: fixed;
+        z-index: 1;
     }
+
+    nav.active {
+        z-index: 2;
+        background-color: white; 
+        width: 100vw; 
+        position: fixed;
+    } 
 
     nav .Navbar.subsection.Links a {
         margin: 15px;
@@ -723,7 +739,7 @@ body.People .subsection.Navbar .Link.People {
     }
 
     footer .Main p {
-        margin: 0; 
+        margin: 0;
         padding: 3px;
     }
 
@@ -772,7 +788,7 @@ body.People .subsection.Navbar .Link.People {
         flex-direction: column;
     }
 
-    .gridHoverContainer { 
+    .gridHoverContainer {
         position: static;
     }
 
@@ -799,13 +815,13 @@ body.People .subsection.Navbar .Link.People {
     /* Home: Section: Lists */
     .section.Lists ul {
         display: flex;
-        flex-flow: row wrap; 
+        flex-flow: row wrap;
         justify-content: center;
         margin-top:10px;
     }
 
     .section.Lists li {
-        width: 80%; 
+        width: 80%;
     }
 
     .section.Lists .sectionSubtitle {
@@ -826,7 +842,7 @@ body.People .subsection.Navbar .Link.People {
         flex-flow: row wrap; /* RESPONSIVE (MOBILE): WRAP*/
         margin: 15px 0;
     }
-    
+
     .subsection.Tile .image {
         flex: 1 100%; /* RESPONSIVE: flex: 1 100%*/
         margin: 0;
@@ -843,6 +859,20 @@ body.People .subsection.Navbar .Link.People {
 
     .section.Tiles .subsection.Links {
         margin: 15px 0;
+    }
+
+    /* Home: Section: Slides */
+    .subsection.Slide img {
+      max-width: 350px;
+    }
+
+    .section.Slides .SlideContent {
+      width: 350px;
+    }
+
+    .h-container {
+        margin-left: 40%;
+        width: 600vw;
     }
 
     /* Resources: Section: Banner */
@@ -866,7 +896,7 @@ body.People .subsection.Navbar .Link.People {
     }
 
     .section.Events .subsection.Event .dateTime {
-        flex: 1 38px;   
+        flex: 1 38px;
     }
 
     .section.Events .subsection.Event .month {
@@ -876,7 +906,7 @@ body.People .subsection.Navbar .Link.People {
     /****** Page: Error ******/
     .page.Error .sectionTitle {
         font-size: 12em;
-    } 
+    }
 
     .page.Error .Button {
         margin-top: 5%;
@@ -916,7 +946,7 @@ body.People .subsection.Navbar .Link.People {
         flex-direction: column;
     }
 
-    .gridHoverContainer { 
+    .gridHoverContainer {
         position: static;
     }
 
@@ -968,13 +998,26 @@ body.People .subsection.Navbar .Link.People {
     }
 
     .section.Events .subsection.Event .dateTime {
-        flex: 1;   
+        flex: 1;
     }
 
     .section.Events .subsection.Event .month {
         flex: 0;
     }
 
+    /* Home: Section: Slides */
+    .subsection.Slide img {
+      max-width: 340px;
+    }
+
+    .section.Slides .SlideContent {
+      width: 340px;
+    }
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
 }
 
 /* medium-sized screens */
@@ -986,12 +1029,26 @@ body.People .subsection.Navbar .Link.People {
 
     /* Resources: Subsection: Block */
     .Block.subsection.Wide {
-        margin-right:5%; 
+        margin-right:5%;
     }
 
     /* Home: Section: Lists */
     .section.Lists li {
         width: 185px;
+    }
+
+    /* Home: Section: Slides */
+    .subsection.Slide img {
+      max-width: 400px;
+    }
+
+    .section.Slides .SlideContent {
+      width: 400px;
+    }
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
     }
 }
 
@@ -1007,24 +1064,70 @@ body.People .subsection.Navbar .Link.People {
         width: 250px;
         height: 50px;
     }
+
+    /* Home: Section: Slides */
+    .subsection.Slide img {
+      max-width: 500px;
+    }
+
+    .section.Slides .SlideContent {
+      width: 500px;
+    }
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
 }
 
 /* large screen */
 @media (min-width : 1600px) {
     body{
-        background-color: lightpink;
-        font-size:16px;
+        /* background-color: lightpink; */
+        font-size:17px;
     }
+
+    nav {
+      padding: 0.75%;
+      width: 1280px;
+      align-self: center;
+    }
+
+    body.Resources nav .subsection {
+      margin: 10px 0;
+    }
+
     .section{ /*max content size: 1200px (subject to change)*/
         /* background-color:gray; */
         max-width:1280px;
+    }
+
+    .section.Sketches {
+        max-width: 100%;
     }
 
     /* Home: Section: Lists */
     .section.Lists li {
         width: 250px;
     }
-}
 
+    /* Home: Section: Slides */
+    .section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
+      width: 100%;
+    }
+
+    .subsection.Slide img {
+      max-width: 700px;
+    }
+
+    .section.Slides .SlideContent {
+      width: 700px;
+    }
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
+}
 
 
