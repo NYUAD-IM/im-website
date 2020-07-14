@@ -1,3 +1,4 @@
+//checking server
 $(document).ready(function() {
     // Registering Handlebars helper to do conditionals 
     Handlebars.registerHelper('if_eq', function(a, b, opts) {
