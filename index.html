@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">        
 </head>
 
-<body> 
+<body class="Home"> 
     <script id="template" type="text/x-handlebars-template">
         {{#each objects}}
 
@@ -53,8 +53,7 @@
 
                     <div class="page {{PageType}}"> 
                         {{#each PageSections}} 
-                        
-                            <div {{#if SectionTitle}} {{#if_eq SectionType 'Slides'}}class="section {{SectionType}} h-wrapper" {{else}} class="section {{SectionType}}"{{/if_eq}} {{else}} {{#if_eq SectionType 'Slides'}} class="section noTitle {{SectionType}} h-wrapper" {{else}} class="section noTitle {{SectionType}}"{{/if_eq}} {{/if}}  {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                        <div {{#if SectionTitle}} {{#if_eq SectionType 'Slides'}}class="section {{SectionType}} h-wrapper" {{else}} class="section {{SectionType}}"{{/if_eq}} {{else}} {{#if_eq SectionType 'Slides'}} class="section noTitle {{SectionType}} h-wrapper" {{else}} class="section noTitle {{SectionType}}"{{/if_eq}} {{/if}}  {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                             {{#if_eq SectionType 'Slides'}}<div class="h-viewport">{{/if_eq}}
 
@@ -238,12 +237,9 @@
     <!-- including jquery, handlebars, and script.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
-
-    <!-- setting the current page -->
-    <script>
-        var currentPage = "Home";
-    </script>
-    
+    <script type="text/javascript" src="Navbar.js"></script>
+    <script type="text/javascript" src="Footer.js"></script>
+    <script type="text/javascript" src="Home.js"></script>
     <script type="text/javascript" src="horizontical.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
