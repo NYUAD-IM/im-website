@@ -135,10 +135,8 @@
                                                 </div>
                                                 <div class="gridHoverText">
                                                     <p class="hoverBody">{{SubsectionBio}}</p>
-                                                    {{#if SubsectionCourses}}
-                                                        <p class="hoverBody">{{SubsectionCourses}}</p>
-                                                    {{/if}}
-                                                    <p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>
+                                                    {{#if SubsectionCourses}}<p class="hoverBody">{{SubsectionCourses}}</p>{{/if}}
+                                                    {{#if SubsectionEmail}}<p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>{{/if}}
                                                 </div>
                                             {{/if_eq}} 
                     
@@ -152,7 +150,9 @@
                                                 {{/if}}
                                                 {{#each SubsectionItems}}
                                                     {{#if ItemName}}
+                                                        {{#if_eq ItemStyle 'Link'}}<p>{{/if_eq}}
                                                         <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
+                                                        {{#if_eq ItemStyle 'Link'}}</p>{{/if_eq}}
                                                     {{/if}}
                                                 {{/each}}                      
                                             {{/if_eq}}
