@@ -34,7 +34,6 @@ $(document).ready(function() {
             $('.Links').toggleClass('active');
             $('nav').toggleClass('active');
             $('.Main').toggleClass('active');
-            $('.Toggle').toggleClass('active');
         })
     })(jQuery);
 
