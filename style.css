@@ -4,6 +4,7 @@
 /* Third- gradients #6788B0 */
 /* Gray- #A2A2A2 */
 
+/****** Overall body/sections ******/
 html, body {
     height: 100%;
     width:100%;
@@ -90,14 +91,14 @@ a {
     transition: .3s;
 }
 
+a:hover {
+    color:#655092;
+}
+
 .Link {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     text-decoration: underline;
-}
-
-a:hover {
-    color:#655092;
 }
 
 .Button {
@@ -129,8 +130,8 @@ a:hover {
 }
 
 /****** Page: Error ******/
-.page.Error .sectionTitle {
-    font-size: 12em;
+.page.Error .section.Banner .sectionTitle {
+    font-size: 12em !important;
 }
 
 /****** Section: Sketches ******/
@@ -168,7 +169,7 @@ a:hover {
 }
 
 .section.Tiles .contentContainer {
-    width:80%; /* RESPONSIVE (MOBILE): width:100%*/
+    width:80%; 
     display:flex;
     flex-flow:column;
 }
@@ -258,7 +259,6 @@ a:hover {
     align-items: center;
 }
 
-/****** Subsection: Person & Project ******/
 .section.Projects .subsection.Project, .section.People .subsection.Person {
     margin: 10px;
     display: flex;
@@ -291,11 +291,6 @@ a:hover {
     padding-bottom: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    -ms-transition: .3s;
-    transition: .3s;
     position: absolute;
     top: 0;
     right: 0;
@@ -307,14 +302,18 @@ a:hover {
 
 .gridHoverText {
     opacity: 0;
+    z-index: 1;
+    height: 0;
+    padding-bottom: 100%;
+    -webkit-transition-property: color;
+    -moz-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
     -ms-transition: .3s;
     transition: .3s;
-    z-index: 1;
-    height: 0;
-    padding-bottom: 100%;
 }
 
 .gridHoverText:hover {
@@ -326,13 +325,8 @@ a:hover {
 .hoverBody {
     color: white;
     font-size: 0.8em;
-    padding: 2%;
+    padding: 2.5% 2.5% 0 2.5%;
     margin: 1% 1% 0 1%;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    -ms-transition: .3s;
-    transition: .3s;
 }
 
 .hoverBody a, .hoverBody a:hover {
@@ -497,6 +491,7 @@ a:hover {
 
 .subsection.Links .Button {
     font-size: 1.5em;
+    width: auto;
 }
 
 /****** Navbar ******/
@@ -580,6 +575,22 @@ a.CurrentPage {
     text-transform: uppercase;
 }
 
+body.Home .subsection.Navbar .Link.Home {
+    color: #655092;
+}
+
+body.Gallery .subsection.Navbar .Link.Gallery {
+    color: #655092;
+}
+
+body.Resources .subsection.Navbar .Link.Resources {
+    color: #655092;
+}
+
+body.People .subsection.Navbar .Link.People {
+    color: #655092;
+}
+
 /****** Footer ******/
 footer {
     background-color: black;
@@ -638,27 +649,11 @@ footer {
     color: white;
 }
 
-body.Home .subsection.Navbar .Link.Home {
-    color: #655092;
-}
-
-body.Gallery .subsection.Navbar .Link.Gallery {
-    color: #655092;
-}
-
-body.Resources .subsection.Navbar .Link.Resources {
-    color: #655092;
-}
-
-body.People .subsection.Navbar .Link.People {
-    color: #655092;
-}
-
 /****** Responsive Layout ******/
 /* smallest screens */
 @media (max-width : 300px){
     body {
-        font-size: 12px !important;
+        font-size: 14px !important;
     }
 
     .sectionTitle {
@@ -696,6 +691,10 @@ body.People .subsection.Navbar .Link.People {
 
     .section {
         width: 90%;
+    }
+
+    .section.People.mobile a, .section.Projects.mobile a {
+        text-decoration: underline;
     }
 
     p {
@@ -772,7 +771,7 @@ body.People .subsection.Navbar .Link.People {
         display:none;
     }
 
-    /* Footer */
+     /* Footer */
     footer {
         flex-flow: row wrap;
     }
@@ -832,27 +831,28 @@ body.People .subsection.Navbar .Link.People {
         width: calc(100% - 20px);
     }
 
-    .gridHoverText:hover {
+    /* Mobile-only layout */
+    .gridHoverText.mobile:hover {
         -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
         -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
         box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
     }
 
-    .hoverBody, .hoverBody a, .hoverBody a:hover {
+    .hoverBody.mobile, .hoverBody.mobile a, .hoverBody.mobile a:hover {
         color: black;
         padding: 2% 0;
         margin: 1% 0;
     }
 
-    .section.Projects .subsection.Project, .section.People .subsection.Person {
+    .section.Projects .subsection.Project.mobile, .section.People .subsection.Person.mobile {
         flex-direction: column;
     }
 
-    .gridHoverContainer {
+    .gridHoverContainer.mobile {
         position: static;
     }
 
-    .gridHoverText {
+    .gridHoverText.mobile {
         opacity: 1;
         height: 100%;
         padding-bottom: 0;
@@ -860,13 +860,13 @@ body.People .subsection.Navbar .Link.People {
         flex-direction: column;
     }
 
-    .gridHoverText .email {
+    .gridHoverText.mobile .email {
         order: -1;
         margin: 0;
         padding: 0;
     }
 
-    .gridHoverText .semester {
+    .gridHoverText.mobile .semester {
         order: -1;
         margin: 0;
         padding: 0;
@@ -971,9 +971,6 @@ body.People .subsection.Navbar .Link.People {
     .page.Error .Button {
         margin-top: 5%;
     }
-
-    
-
 }
 
 /* tablets */
@@ -993,45 +990,51 @@ body.People .subsection.Navbar .Link.People {
         width: calc(50% - 20px);
     }
 
-    .gridHoverText:hover {
+    /* Mobile-only layout */
+    .gridHoverText.mobile:hover {
         -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
         -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
         box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
     }
 
-    .hoverBody, .hoverBody a, .hoverBody a:hover {
+    .hoverBody.mobile, .hoverBody.mobile a, .hoverBody.mobile a:hover {
         color: black;
         padding: 2% 0;
         margin: 1% 0;
     }
 
-    .section.Projects .subsection.Project, .section.People .subsection.Person {
+    .section.Projects .subsection.Project.mobile, .section.People .subsection.Person.mobile {
         flex-direction: column;
     }
 
-    .gridHoverContainer {
+    .gridHoverContainer.mobile {
         position: static;
     }
 
-    .gridHoverText {
+    .gridHoverText.mobile {
         opacity: 1;
         height: 100%;
         padding-bottom: 0;
         display: flex;
         flex-direction: column;
+        -webkit-transition-property: none;
+        -moz-transition-property: none;
+        -o-transition-property: none;
+        transition-property: none;
     }
 
-    .gridHoverText .email {
+    .gridHoverText.mobile .email {
         order: -1;
         margin: 0;
         padding: 0;
     }
 
-    .gridHoverText .semester {
+    .gridHoverText.mobile .semester {
         order: -1;
         margin: 0;
         padding: 0;
     }
+    /* End of mobile-only layout */
 
     /* Home: Section: Lists */
     .section.Lists ul {
@@ -1143,6 +1146,38 @@ body.People .subsection.Navbar .Link.People {
     }
 }
 
+@media (min-width : 1600px) and (max-width : 2000px) {
+    body{
+        /* background-color: lightgreen; */
+        font-size:17px;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists li {
+        width: 250px;
+        height: 50px;
+    }
+
+    /* Home: Section: Slides */
+    .subsection.Slide img {
+      max-width: 500px;
+    }
+
+    .section.Slides .SlideContent {
+      width: 500px;
+    }
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
+
+    /* People/Gallery */
+    p.hoverBody {
+        margin: 3% 3% 0 3%;
+    }
+}
+
 /* large screen */
 @media (min-width : 2000px) {
     body{
@@ -1190,6 +1225,11 @@ body.People .subsection.Navbar .Link.People {
     .h-container {
       margin-left: 40%;
       width: 200vw;
+    }
+
+    /* People/Gallery */
+    p.hoverBody {
+        margin: 4% 4% 0 4%;
     }
 }
 

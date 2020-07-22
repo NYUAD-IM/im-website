@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     // Registering Handlebars helper to do conditionals 
     Handlebars.registerHelper('if_eq', function(a, b, opts) {
         if (a == b) {
@@ -26,6 +27,19 @@ $(document).ready(function() {
 
     // Initializing horizontical.js (for Slides section)
     horizontical.init();
+
+    // Checking if user is on mobile browser
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        console.log("User is on mobile");
+        $('.gridHoverText').toggleClass('mobile');
+        $('.hoverBody').toggleClass('mobile');
+        $('.Project').toggleClass('mobile');
+        $('.Person').toggleClass('mobile');
+        $('.gridHoverContainer').toggleClass('mobile');
+        $('.section').toggleClass('mobile');
+    } else{
+        console.log("User is not on mobile");
+    }
 
     // Navbar mobile overlay toggle
     (function($){
