@@ -693,10 +693,6 @@ footer {
         width: 90%;
     }
 
-    .section.People.mobile a, .section.Projects.mobile a {
-        text-decoration: underline;
-    }
-
     p {
         /* margin: 5px 0; */
         font-size: 0.8em; 
@@ -831,47 +827,6 @@ footer {
         width: calc(100% - 20px);
     }
 
-    /* Mobile-only layout */
-    .gridHoverText.mobile:hover {
-        -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
-        -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
-        box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
-    }
-
-    .hoverBody.mobile, .hoverBody.mobile a, .hoverBody.mobile a:hover {
-        color: black;
-        padding: 2% 0;
-        margin: 1% 0;
-    }
-
-    .section.Projects .subsection.Project.mobile, .section.People .subsection.Person.mobile {
-        flex-direction: column;
-    }
-
-    .gridHoverContainer.mobile {
-        position: static;
-    }
-
-    .gridHoverText.mobile {
-        opacity: 1;
-        height: 100%;
-        padding-bottom: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .gridHoverText.mobile .email {
-        order: -1;
-        margin: 0;
-        padding: 0;
-    }
-
-    .gridHoverText.mobile .semester {
-        order: -1;
-        margin: 0;
-        padding: 0;
-    }
-
     /* Home: Section: Lists */
     .section.Lists ul {
         display: flex;
@@ -973,7 +928,7 @@ footer {
     }
 }
 
-/* tablets */
+/* tablet-sized */
 @media (min-width : 736px) and (max-width : 1100px){
     body{
         /* background-color:turquoise; */
@@ -989,52 +944,6 @@ footer {
     .section.Projects .subsection.Project, .section.People .subsection.Person {
         width: calc(50% - 20px);
     }
-
-    /* Mobile-only layout */
-    .gridHoverText.mobile:hover {
-        -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
-        -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
-        box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
-    }
-
-    .hoverBody.mobile, .hoverBody.mobile a, .hoverBody.mobile a:hover {
-        color: black;
-        padding: 2% 0;
-        margin: 1% 0;
-    }
-
-    .section.Projects .subsection.Project.mobile, .section.People .subsection.Person.mobile {
-        flex-direction: column;
-    }
-
-    .gridHoverContainer.mobile {
-        position: static;
-    }
-
-    .gridHoverText.mobile {
-        opacity: 1;
-        height: 100%;
-        padding-bottom: 0;
-        display: flex;
-        flex-direction: column;
-        -webkit-transition-property: none;
-        -moz-transition-property: none;
-        -o-transition-property: none;
-        transition-property: none;
-    }
-
-    .gridHoverText.mobile .email {
-        order: -1;
-        margin: 0;
-        padding: 0;
-    }
-
-    .gridHoverText.mobile .semester {
-        order: -1;
-        margin: 0;
-        padding: 0;
-    }
-    /* End of mobile-only layout */
 
     /* Home: Section: Lists */
     .section.Lists ul {
@@ -1230,6 +1139,58 @@ footer {
     /* People/Gallery */
     p.hoverBody {
         margin: 4% 4% 0 4%;
+    }
+}
+
+/* checking for touch devices */
+@media (pointer: coarse) {
+    /* small */
+    .section.People a, .section.Projects a {
+        text-decoration: underline;
+    }
+
+    .gridHoverText:hover {
+        -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+        -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+        box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+    }
+
+    .hoverBody, .hoverBody a, .hoverBody a:hover {
+        color: black;
+        padding: 2% 0;
+        margin: 1% 0;
+    }
+
+    .section.Projects .subsection.Project, .section.People .subsection.Person {
+        flex-direction: column;
+    }
+
+    .gridHoverContainer {
+        position: static;
+    }
+
+    .gridHoverText {
+        opacity: 1;
+        height: 100%;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        -webkit-transition-property: none;
+        -moz-transition-property: none;
+        -o-transition-property: none;
+        transition-property: none;
+    }
+
+    .gridHoverText .email {
+        order: -1;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gridHoverText .semester {
+        order: -1;
+        margin: 0;
+        padding: 0;
     }
 }
 
