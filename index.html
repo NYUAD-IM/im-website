@@ -135,9 +135,11 @@
                                                     <p class="subsectionSubtitle">{{SubsectionPosition}}</p>
                                                 </div>
                                                 <div class="gridHoverText">
-                                                    <p class="hoverBody">{{SubsectionBio}}</p>
-                                                    {{#if SubsectionCourses}}<p class="hoverBody">{{SubsectionCourses}}</p>{{/if}}
-                                                    {{#if SubsectionEmail}}<p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>{{/if}}
+                                                    <div class="gridHoverScroll">
+                                                        <p class="hoverBody">{{SubsectionBio}}</p>
+                                                        {{#if SubsectionCourses}}<p class="hoverBody">{{SubsectionCourses}}</p>{{/if}}
+                                                        {{#if SubsectionEmail}}<p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>{{/if}}
+                                                    </div>
                                                 </div>
                                             {{/if_eq}} 
                     
@@ -204,9 +206,11 @@
                                                     </p>
                                                 </div>
                                                 <div class="gridHoverText">
-                                                    <p class="hoverBody">{{SubsectionProjectDescription}}</p>
-                                                    <p class="hoverBody">{{SubsectionProjectClass}}</p>
-                                                    <p class="hoverBody semester">{{SubsectionProjectTerm}}</p>
+                                                    <div class="gridHoverScroll">
+                                                        <p class="hoverBody">{{SubsectionProjectDescription}}</p>
+                                                        <p class="hoverBody">{{SubsectionProjectClass}}</p>
+                                                        <p class="hoverBody semester">{{SubsectionProjectTerm}}</p>
+                                                    </div>
                                                 </div>
                                             {{/if_eq}}
 
