@@ -1150,7 +1150,7 @@ footer {
 
 /* checking for touch devices */
 @media (pointer: coarse) {
-    /* small */
+    /* People/Gallery */
     .section.People a, .section.Projects a {
         text-decoration: underline;
     }
@@ -1159,6 +1159,14 @@ footer {
         -moz-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
         -webkit-box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
         box-shadow: inset 0 0 0 100vmax rgba(39, 36, 36, 0);
+    }
+
+    .gridHoverText {
+        overflow: visible;
+    }
+
+    .gridHoverScroll {
+        margin-bottom: auto; 
     }
 
     .hoverBody, .hoverBody a, .hoverBody a:hover {
