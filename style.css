@@ -131,8 +131,12 @@ a:hover {
 }
 
 /****** Page: Error ******/
-.page.Error .section.Banner .sectionTitle {
-    font-size: 12em !important;
+.page.Error .Banner .sectionTitle {
+    font-size: 12em;
+}
+
+.page.Error .section.Banner .contentContainer {
+    margin-top: -40px;
 }
 
 /****** Section: Sketches ******/
@@ -192,8 +196,8 @@ a:hover {
     width: 24px;
     height: 24px;
     margin-left: -12px;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     -webkit-animation: sdb05 1.5s infinite;
@@ -521,9 +525,12 @@ a:hover {
 }
 
 /****** Section: Banner ******/
-.section.Banner .sectionTitle {
-    text-align: center;
+.page.Resources .section.Banner .sectionTitle {
     font-size: 2.25em;
+}
+
+.section.Banner .sectionTitle{
+    text-align: center;
 }
 
 /****** Section: Block ******/
@@ -754,6 +761,11 @@ footer {
         font-size: 1.25em !important;
     }
 
+    /* Error: Section: Banner */
+    .page.Error .section.Banner .sectionTitle {
+        font-size: 9em !important;
+    }
+
 }
 
 
@@ -965,9 +977,14 @@ footer {
         width: 600vw;
     }
 
+    /* Error: Section: Banner */
+    .page.Error .section.Banner .sectionTitle {
+        font-size: 9em !important;
+    }
+
     /* Resources: Section: Banner */
-    .section.Banner .sectionTitle {
-        font-size: 1.8em;
+    .page.Resources .section.Banner .sectionTitle {
+        font-size: 1.8em !important;
     }
 
     .section.Banner .subsection.Links {
@@ -995,7 +1012,7 @@ footer {
 
     /****** Page: Error ******/
     .page.Error .sectionTitle {
-        font-size: 12em;
+        font-size: 9em;
     }
 
     .page.Error .Button {
