@@ -55,7 +55,7 @@
 
                     <div class="page {{PageType}}"> 
                         {{#each PageSections}} 
-                        <div {{#if SectionTitle}} {{#if_eq SectionType 'Slides'}}class="section {{SectionType}} h-wrapper" {{else}} class="section {{SectionType}}"{{/if_eq}} {{else}} {{#if_eq SectionType 'Slides'}} class="section noTitle {{SectionType}} h-wrapper" {{else}} class="section noTitle {{SectionType}}"{{/if_eq}} {{/if}}  {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                        <div {{#if SectionTitle}} {{#if_eq SectionType 'Slides'}} id="slides" class="section {{SectionType}} h-wrapper" {{else}} class="section {{SectionType}}"{{/if_eq}} {{else}} {{#if_eq SectionType 'Slides'}}  id="slides" class="section noTitle {{SectionType}} h-wrapper" {{else}} class="section noTitle {{SectionType}}"{{/if_eq}} {{/if}}  {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                             {{#if_eq SectionType 'Slides'}}<div class="h-viewport">{{/if_eq}}
 
@@ -63,13 +63,14 @@
 
                             {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
 
-                            <div {{#if_eq SectionType 'Slides'}}class="contentContainer h-container" {{else}} class="contentContainer" {{/if_eq}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                            <div {{#if_eq SectionType 'Slides'}} class="contentContainer h-container" {{else}} class="contentContainer" {{/if_eq}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                                     {{#each Subsections}}
                                         <div {{#if SubsectionStyle}}class="subsection {{SubsectionType}} {{SubsectionStyle}}"{{else}}class="subsection {{SubsectionType}}"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
                                             {{#if_eq SubsectionType 'Sketch'}}
                                                 <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
+                                                <a class="arrow" href="#slides"><span></span></a> 
                                                 <div class="authors">
                                                     <p> Sketch credits: 
                                                         {{~#each SubsectionAuthors~}}
