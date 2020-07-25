@@ -712,7 +712,7 @@ footer {
 }
 
 .Footer .Image {
-    max-width: 150px;
+    width: 150px;
     margin-left: -9px;
 }
 
@@ -765,9 +765,71 @@ footer {
     .page.Error .section.Banner .sectionTitle {
         font-size: 9em !important;
     }
-
 }
 
+@media (max-width : 400px){
+    /* Footer */
+    footer {
+        flex-flow: row wrap;
+    }
+
+    .Footer {
+        margin: 12px;
+    }
+
+    footer .Main.subsection {
+        order: 4 !important;
+        flex: 1 100%;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+
+    footer .subsection.Links {
+        order: 1 !important;
+        flex: 1;
+    }
+
+    footer .Link {
+        padding: 3px;
+    }
+
+    footer .Main p {
+        margin: 0;
+        padding: 3px;
+        flex: 1 100%;
+    } 
+
+    .Footer {
+        margin: 6px;
+    }
+
+    footer .Link {
+        padding: 3px;
+    }
+
+    footer .Main p {
+        margin: 0;
+        padding: 3px;
+    }
+
+    footer a.Image {
+        flex: 1 80%;
+        max-width: auto;
+    }
+
+    footer a.Social {
+        align-self: center;
+        flex: 1;
+    }
+
+    footer .Image img {
+        width: 150px;
+    }
+
+    footer .Social img {
+        width: 22px;
+    }
+}
 
 /* mobile/small screens */
 @media (max-width : 736px){
@@ -852,33 +914,6 @@ footer {
 
     nav .subsection.Logo {
         display:none;
-    }
-
-     /* Footer */
-    footer {
-        flex-flow: row wrap;
-    }
-
-    .Footer {
-        margin: 12px;
-    }
-
-    footer .subsection.Main {
-        order: 4 !important;
-    }
-
-    footer .subsection.Links {
-        order: 1 !important;
-        flex: 1;
-    }
-
-    footer .Link {
-        padding: 3px;
-    }
-
-    footer .Main p {
-        margin: 0;
-        padding: 3px;
     }
 
     /*Resources: Subsection: Block */
