@@ -38,4 +38,9 @@ $(document).ready(function() {
         })
     })(jQuery);
 
+    $('.main-carousel').flickity({
+        // options
+        pageDots: false
+      });
+
 });
