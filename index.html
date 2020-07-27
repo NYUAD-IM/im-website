@@ -6,7 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Home</title>
     <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
-    <link rel="stylesheet" href="normalize.css"> 
+    <!-- <link rel="stylesheet" href="normalize.css">  -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="flickity.css" media="screen">
     <link rel="stylesheet" href="style.css">        
 </head>
 
@@ -14,42 +16,41 @@
     <script id="template" type="text/x-handlebars-template">
         {{#each objects}}
 
-            {{#if_eq PageType 'Navbar'}}
-                {{#each PageSections}}
-                    {{#if_eq SectionType 'Navbar'}}
-                    <nav>
-                        {{#each Subsections}}
-                            <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
-                                {{#each SubsectionItems}}
-                                    <a href="{{ItemLink}}" {{#if_eq ../SubsectionType 'Navbar Links'}}class="{{ItemStyle}} {{ItemName}}"{{else}}class="{{ItemStyle}}"{{/if_eq}} {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
-                                {{/each}}
-                                </div>
-                        {{/each}}
-                    </nav>
-                    {{/if_eq}}
-                {{/each}}
-                <div class="nav-overlay"></div>
+        {{#if_eq PageType 'Navbar'}}
+            {{#each PageSections}}
+                {{#if_eq SectionType 'Navbar'}}
+                <nav>
+                    {{#each Subsections}}
+                        <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                            {{#each SubsectionItems}}
+                                <a href="{{ItemLink}}" {{#if_eq ../SubsectionType 'Navbar Links'}}class="{{ItemStyle}} {{ItemName}}"{{else}}class="{{ItemStyle}}"{{/if_eq}} {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="data/{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                            {{/each}}
+                            </div>
+                    {{/each}}
+                </nav>
+                {{/if_eq}}
+            {{/each}}
 
-            {{else}}
-            
-                {{#if_eq PageType 'Footer'}}
-                    <footer>
-                        {{#each PageSections}}
-                            {{#if_eq SectionType 'Footer'}}
-                                {{#each Subsections}}
-                                    <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
-                                        {{#each SubsectionItems}}
-                                            {{#if_eq ItemStyle 'Main'}}
-                                                <p><a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}> {{#if ItemName}}{{ItemName}}{{/if}}</a></p>
-                                            {{else}}
-                                                <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="{{ItemImageLink}}">{{/if_eq}}{{#if_eq ItemStyle 'Social'}}<img src="{{ItemImageLink}}" class="social">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
-                                            {{/if_eq}}
-                                        {{/each}}
-                                    </div>
-                                {{/each}}
-                            {{/if_eq}}
-                        {{/each}}
-                    </footer>
+        {{else}}
+        
+            {{#if_eq PageType 'Footer'}}
+                <footer>
+                    {{#each PageSections}}
+                        {{#if_eq SectionType 'Footer'}}
+                            {{#each Subsections}}
+                                <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                                    {{#each SubsectionItems}}
+                                        {{#if_eq ItemStyle 'Main'}}
+                                            <p><a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}> {{#if ItemName}}{{ItemName}}{{/if}}</a></p>
+                                        {{else}}
+                                            <a href="{{ItemLink}}" class="{{ItemStyle}}" {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="data/{{ItemImageLink}}">{{/if_eq}}{{#if_eq ItemStyle 'Social'}}<img src="data/{{ItemImageLink}}" class="social">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                        {{/if_eq}}
+                                    {{/each}}
+                                </div>
+                            {{/each}}
+                        {{/if_eq}}
+                    {{/each}}
+                </footer>
                     
             {{else}}
 
@@ -86,7 +87,7 @@
                                             {{/if_eq}}
                                             
                                             {{#if_eq SubsectionType 'Slide'}}
-                                                <img src="{{SubsectionImageLink}}">
+                                                <img src="data/{{SubsectionImageLink}}">
                                                 <div class="SlideContent">
                                                     {{#if SubsectionTitle}}
                                                         <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
@@ -115,7 +116,7 @@
 
                                             {{#if_eq SubsectionType 'Tile'}}
                                                 <div class="image">
-                                                    <img src="{{SubsectionImageLink}}">
+                                                    <img src="data/{{SubsectionImageLink}}">
                                                 </div>
                                                 <div class="text">
                                                     <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
@@ -124,7 +125,7 @@
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Person'}}
-                                                <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
+                                                <div class="gridHoverContainer" style="background-image: url(data/{{SubsectionImageLink}});">
                                                 </div>
                                                 <div class="gridTextContainer">
                                                     <h2 class="subsectionTitle">
@@ -186,7 +187,7 @@
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Project'}}
-                                                <div class="gridHoverContainer" style="background-image: url({{SubsectionImageLink}})">
+                                                <div class="gridHoverContainer" style="background-image: url(data/{{SubsectionImageLink}});">
                                                 </div>
                                                 <div class="gridTextContainer">
                                                     <h2 class="subsectionTitle">
@@ -249,5 +250,6 @@
     <script type="text/javascript" src="data/Home.js"></script>
     <script type="text/javascript" src="horizontical.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script src="flickity.pkgd.min.js"></script>
 </body>
 </html>

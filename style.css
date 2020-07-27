@@ -104,7 +104,7 @@ a:hover {
 
 .Button {
     font-family: 'Open Sans Condensed', sans-serif;
-    border: 2px solid #6A6893;
+    border: 1.5px solid #6A6893;
     background-color: white;
     color: #6A6893;
     padding: 15px 30px;
@@ -581,6 +581,7 @@ nav {
     flex-direction: row;
     align-items: center;
     padding: 10px 20px;
+    flex-shrink: 0;
 }
 
 nav .subsection {
@@ -730,7 +731,7 @@ footer {
     color: white;
 }
 
-/****** Responsive Layout ******/
+/****** Responsive Layouts ******/
 /* smallest screens */
 @media (max-width : 300px){
     body {
@@ -767,8 +768,8 @@ footer {
     }
 }
 
-@media (max-width : 400px){
-    /* Footer */
+/* Mobile-only footer layout */
+@media (max-width : 450px){
     footer {
         flex-flow: row wrap;
     }
@@ -1052,6 +1053,11 @@ footer {
 
     .page.Error .Button {
         margin-top: 5%;
+    }
+
+    /* Footer */
+    .Footer.Links.subsection {
+        font-size: 0.8em;
     }
 }
 
