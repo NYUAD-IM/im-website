@@ -297,6 +297,9 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     width: 100%;
     display: flex; 
     flex-direction: column; 
+    padding-top: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .section.Slides .subsection.Slide .subsectionTitle {
@@ -555,7 +558,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 
 .section.Events .subsection.Event .month {
     margin: 0;
-    flex: 1;
+    flex: 0;
     font-size: 1.15em;
 }
 
@@ -598,10 +601,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 
 .subsection.Block p {
     display: block;
-}
-
-.subsection.Block p a {
-    margin: 4% 0 4% 0;
+    margin: 5px 0;
 }
 
 .subsection.Block .Button {
@@ -787,7 +787,7 @@ footer {
     }
 
     p {
-        /* margin: 5px 0; */
+        margin: 6px 0;
         font-size: 0.8em; 
     }
 
@@ -1243,6 +1243,9 @@ footer {
 
 @media (max-width : 450px){
     /* Home: Section: Slides */
+    .section.Slides {
+        padding-top: 39px;
+    }
 
     .flickity-button {
         color: black;
@@ -1361,7 +1364,7 @@ footer {
 
     /* Home: Section: Slides */
     .flickity-viewport {
-        height: 375px !important;
+        height: 325px !important;
     }
 
     .flickity-button {
