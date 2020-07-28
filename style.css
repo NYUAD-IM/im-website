@@ -130,6 +130,22 @@ a:hover {
     margin-bottom:0;
 }
 
+body.Home nav {
+    background-color: black;
+}
+
+body.Home .Navbar.Main a, body.Home .Navbar.subsection.Links a {
+    color: white; 
+}
+
+body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
+    color: #655092;
+}
+
+.whiteLogo{
+	content:url("data/nyuad_white.svg");
+}
+
 /****** Page: Error ******/
 .page.Error .Banner .sectionTitle {
     font-size: 12em;
@@ -155,6 +171,7 @@ a:hover {
 .section.Sketches .subsection.Sketch {
     height: 91vh;
     height: 91vm;
+    background-color: black;
 }
 
 .section.Sketches .subsection.Sketch .authors {
@@ -843,6 +860,18 @@ footer {
         display:none;
     }
 
+    body.Home nav {
+        background-color: white;
+    }
+    
+    body.Home .Navbar.Main a, body.Home .Navbar.subsection.Links a {
+        color: black; 
+    }
+    
+    body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
+        color: #655092;
+    }
+
     /*Resources: Subsection: Block */
     .subsection.Block {
         margin-top: 3%;
@@ -927,20 +956,15 @@ footer {
 
     /* Home: Section: Slides */
     .section.Slides .SlideContent {
-        width: 90%;
         margin-top: 3%;
     }
 
-    .section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
-        width: 90%;
+    .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
+        width: 80%;
     }
 
     .flickity-viewport {
-        height: 460px; 
-    }
-
-    .flickity-button {
-        background: transparent !important;
+        height: 460px !important; 
     }
 
     /* Error: Section: Banner */
@@ -1176,6 +1200,18 @@ footer {
         max-width: 100%;
     }
 
+    body.Home nav {
+        background-color: white;
+    }
+    
+    body.Home .Navbar.Main a, body.Home .Navbar.subsection.Links a {
+        color: black; 
+    }
+    
+    body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
+        color: #655092;
+    }
+
     /* Home: Section: Lists */
     .section.Lists li {
         width: 250px;
@@ -1205,8 +1241,30 @@ footer {
     }
 }
 
-/* Mobile-only footer layout */
 @media (max-width : 450px){
+    /* Home: Section: Slides */
+
+    .flickity-button {
+        color: black;
+    }
+
+     .flickity-button {
+        background: transparent !important;
+    }
+
+    .flickity-prev-next-button .flickity-button-icon {
+        width: 50%;
+        height: 50%;
+    }
+
+    .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
+        width: 69% !important;
+    }
+
+    .flickity-viewport {
+        height: 400px !important;
+    }
+
     footer {
         flex-flow: row wrap;
     }
@@ -1268,20 +1326,6 @@ footer {
         width: 22px;
     }
 
-    /* Home: Section: Slides */
-
-    .flickity-button {
-        color: white;
-    }
-
-    .flickity-prev-next-button .flickity-button-icon {
-        width: 50%;
-        height: 50%;
-    }
-
-    .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
-        width: 84%;
-    }
 }
 
 /* smallest screens */
@@ -1296,10 +1340,6 @@ footer {
 
     .Button {
         width: 45%;
-    }
-
-    nav .subsection {
-        margin: 10px !important;
     }
 
     nav .subsection.Main a {
@@ -1325,7 +1365,7 @@ footer {
     }
 
     .flickity-button {
-        color: white;
+        color: black;
     }
 
     .flickity-prev-next-button {
@@ -1333,7 +1373,7 @@ footer {
     }
 
     .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
-        width: 72% !important;
+        width: 55% !important;
     }
 }
 

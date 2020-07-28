@@ -23,7 +23,7 @@
                     {{#each Subsections}}
                         <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
                             {{#each SubsectionItems}}
-                                <a href="{{ItemLink}}" {{#if_eq ../SubsectionType 'Navbar Links'}}class="{{ItemStyle}} {{ItemName}}"{{else}}class="{{ItemStyle}}"{{/if_eq}} {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}<img src="data/{{ItemImageLink}}">{{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
+                                <a href="{{ItemLink}}" {{#if_eq ../SubsectionType 'Navbar Links'}}class="{{ItemStyle}} {{ItemName}}"{{else}}class="{{ItemStyle}}"{{/if_eq}} {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}}>{{#if_eq ItemStyle 'Image'}}{{#if_eq ../SubsectionType 'Navbar Logo'}}<img class="whiteLogo" src="data/{{ItemImageLink}}">{{else}} <img src="data/{{ItemImageLink}}"> {{/if_eq}} {{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}</a>
                             {{/each}}
                             </div>
                     {{/each}}
