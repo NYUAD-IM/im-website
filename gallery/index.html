@@ -20,6 +20,7 @@
                 {{#each PageSections}}
                     {{#if_eq SectionType 'Navbar'}}
                     <nav>
+                        <div class="navContent">
                         {{#each Subsections}}
                             <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
                                 {{#each SubsectionItems}}
@@ -27,6 +28,7 @@
                                 {{/each}}
                                 </div>
                         {{/each}}
+                        </div>
                     </nav>
                     {{/if_eq}}
                 {{/each}}

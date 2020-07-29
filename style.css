@@ -1,6 +1,7 @@
 /* Colors: */
 /* Main- section titles, navigation: #655092 */
 /* Secondary- buttons #6A6893 */
+/* potential new secondary: color: #7774aa; */
 /* Third- gradients #6788B0 */
 /* Gray- #A2A2A2 */
 
@@ -93,7 +94,7 @@ a {
 }
 
 a:hover {
-    color:#655092;
+    color:#7774aa;
 }
 
 .Link {
@@ -104,9 +105,9 @@ a:hover {
 
 .Button {
     font-family: 'Open Sans Condensed', sans-serif;
-    border: 1.5px solid #6A6893;
+    border: 1.5px solid #7774aa;
     background-color: white;
-    color: #6A6893;
+    color: #7774aa;
     padding: 15px 30px;
     cursor: pointer;
     display: inline-block;
@@ -116,9 +117,9 @@ a:hover {
 }
 
 .Button:hover {
-    background-color:#6A6893;
+    background-color:#7774aa;
     color:white;
-    border-color:#6A6893;
+    border-color:#7774aa;
 }
 
 /****** Page: Home ******/
@@ -139,11 +140,15 @@ body.Home .Navbar.Main a, body.Home .Navbar.subsection.Links a {
 }
 
 body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
-    color: #655092;
+    color: #7774aa;
 }
 
-.whiteLogo{
-	content:url("data/nyuad_white.svg");
+.whiteLogo {
+	content: url("data/nyuad_white.svg");
+}
+
+.whiteToggle {
+    content: url("data/hamburger_white.svg");
 }
 
 /****** Page: Error ******/
@@ -501,7 +506,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 }
 
 .subsection.List .two li{
-    background-color: #6A6893;
+    background-color: #7774aa;
 }
 
 .subsection.List .three li{
@@ -619,24 +624,34 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 }
 
 /****** Navbar ******/
-nav {
+.navContent {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px 20px;
     flex-shrink: 0;
+    width: 100%;
 }
 
-nav .subsection {
+nav {
+    display: flex; 
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.navContent .subsection {
     margin: 10px;
 }
 
-nav .subsection.Toggle {
+.navContent .subsection.Toggle {
     display: none;
 }
 
-nav .subsection.Toggle img {
+.navContent .subsection.Toggle img {
     width: 27px;
+}
+
+.navContent .subsection.Toggle a {
+    display: flex;
 }
 
 .Navbar.subsection.Logo {
@@ -644,7 +659,7 @@ nav .subsection.Toggle img {
     text-align: right;
 }
 
-nav .subsection.Logo img{
+.navContent .subsection.Logo img{
     width: 125px;
 }
 
@@ -692,7 +707,7 @@ nav .subsection.Logo img{
 }
 
 a.CurrentPage {
-    color: #655092;
+    color: #7774aa;
 }
 
 .Navbar.Main a {
@@ -701,19 +716,19 @@ a.CurrentPage {
 }
 
 body.Home .subsection.Navbar .Link.Home {
-    color: #655092;
+    color: #7774aa;
 }
 
 body.Gallery .subsection.Navbar .Link.Gallery {
-    color: #655092;
+    color: #7774aa;
 }
 
 body.Resources .subsection.Navbar .Link.Resources {
-    color: #655092;
+    color: #7774aa;
 }
 
 body.People .subsection.Navbar .Link.People {
-    color: #655092;
+    color: #7774aa;
 }
 
 /****** Footer ******/
@@ -775,10 +790,197 @@ footer {
 }
 
 /****** Responsive Layouts ******/
+/* large screen */
+@media (min-width : 2000px) {
+    body{
+        /* background-color: lightpink; */
+        /* background-color: #0059ff; */
+        font-size:17px;
+    }
+
+    .navContent {
+        width: 1280px;
+    }
+
+    body.Resources .navContent .subsection {
+      margin: 10px 0;
+    }
+
+    .section{ /*max content size: 1200px (subject to change)*/
+        /* background-color:gray; */
+        max-width:1280px;
+    }
+
+    .section.Sketches {
+        max-width: 100%;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists li {
+        width: 250px;
+    }
+
+    /* Home: Section: Slides */
+    .section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
+      width: 100%;
+    }
+/* 
+    .subsection.Slide img {
+      max-width: 700px;
+    } */
+
+    /* .section.Slides .SlideContent {
+      width: 700px;
+    } */
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
+
+    /* People/Gallery */
+    p.hoverBody {
+        margin: 4% 4% 0 4%;
+    }
+}
+
+@media (min-width : 1600px) and (max-width : 2000px) {
+    body{
+        /* background-color: lightgreen; */
+        /* background-color: #1c62e4; */
+        font-size:17px;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists li {
+        width: 250px;
+        height: 50px;
+    }
+
+    /* People/Gallery */
+    p.hoverBody {
+        margin: 3% 3% 0 3%;
+    }
+}
+
+/* semi-large screens */
+@media (min-width : 1420px) and (max-width : 1600px) {
+    body{
+        /* background-color: lightskyblue; */
+        /* background-color: #2969e0; */
+        font-size:16px;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists li {
+        width: 250px;
+        height: 50px;
+    }
+}
+
+/* medium-sized screens */
+@media (min-width : 1100px) and (max-width : 1420px){
+    body{
+        /* background-color:lightcoral; */
+        /* background-color: #477de0; */
+        font-size:14px;
+    }
+
+    /* Resources: Subsection: Block */
+    .Block.subsection.Wide {
+        margin-right:5%;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists li {
+        width: 185px;
+    }
+
+    /* Home: Section: Slides */
+    /* .subsection.Slide img {
+      max-width: 400px;
+    } */
+
+    /* .section.Slides .SlideContent {
+      width: 400px;
+    } */
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
+}
+
+
+/* tablet-sized */
+@media (min-width : 736px) and (max-width : 1100px){
+    body{
+        /* background-color:turquoise; */
+        /* background-color: #6d94dd; */
+        font-size:14px;
+    }
+
+    .Button {
+        width:100px;
+
+    }
+
+    /* Grids: 2 columns */
+    .section.Projects .subsection.Project, .section.People .subsection.Person {
+        width: calc(50% - 20px);
+        margin: 10px !important;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists ul {
+        display: flex;
+        flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
+        margin-top:10px;
+    }
+
+   .section.Lists li {
+        width: calc(100% * 1/4 - 40px);
+    }
+
+    /* Resources: Section: Calendar */
+    .section.Calendar iframe {
+        width: 100%;
+        height: 400px; /*RESPONSIVE: REDUCE HEIGHT */
+    }
+
+    /* Resources: Section: Events */
+    .section.Events .contentContainer {
+        width: 100%;
+    }
+
+    .section.Events .subsection.Event .dateTime {
+        flex: 1;
+    }
+
+    .section.Events .subsection.Event .month {
+        flex: 0;
+    }
+
+    /* Home: Section: Slides */
+    /* .subsection.Slide img {
+      max-width: 340px;
+    } */
+
+    /* .section.Slides .SlideContent {
+      width: 340px;
+    } */
+
+    .h-container {
+      margin-left: 40%;
+      width: 200vw;
+    }
+}
+
 /* mobile/small screens */
 @media (max-width : 736px){
     body {
         font-size: 16px;
+        /* background-color: #96b0e0; */
         /* background-color:lightgoldenrodyellow; */
     }
 
@@ -804,21 +1006,22 @@ footer {
         padding: 0;
     }
 
-    nav .subsection {
+    .navContent .subsection {
         margin: 15px;
     }
 
-    nav .subsection.Main a {
+    .navContent .subsection.Main a {
         font-size: 1.5em;
     }
 
-    nav .subsection.Toggle {
-        display: block;
+    .navContent .subsection.Toggle {
+        display: flex;
         flex: 1;
-        text-align: right;
+        justify-content: flex-end;
+        align-items: center;
     }
 
-    nav .subsection.Links {
+    .navContent .subsection.Links {
         position: absolute;
 		top: 50px;
 		width: 100%;
@@ -828,7 +1031,7 @@ footer {
         overflow: hidden;
     }
 
-    nav .subsection.Links.active {
+    .navContent .subsection.Links.active {
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -841,35 +1044,31 @@ footer {
         margin-left: 0;
     }
 
-    nav .Navbar.subsection.Links a {
+    body.active {
+        overflow: hidden;
+    }
+
+    body.Home .navContent .subsection.Links.active {
+        background-color: black;
+    }
+
+    .navContent .Navbar.subsection.Links a {
         margin: 15px;
     }
 
-    nav .Link:nth-of-type(1) {
+    .navContent .Link:nth-of-type(1) {
         margin-top: 35px !important;
     }
 
-    nav.active {
+    .navContent.active {
         z-index: 2;
         background-color: white; 
         width: 100%; 
         position: fixed;
     } 
 
-    nav .subsection.Logo {
+    .navContent .subsection.Logo {
         display:none;
-    }
-
-    body.Home nav {
-        background-color: white;
-    }
-    
-    body.Home .Navbar.Main a, body.Home .Navbar.subsection.Links a {
-        color: black; 
-    }
-    
-    body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
-        color: #655092;
     }
 
     /*Resources: Subsection: Block */
@@ -1015,234 +1214,11 @@ footer {
     }
 }
 
-/* tablet-sized */
-@media (min-width : 736px) and (max-width : 1100px){
-    body{
-        /* background-color:turquoise; */
-        font-size:14px;
-    }
-
-    .Button {
-        width:100px;
-
-    }
-
-    /* Grids: 2 columns */
-    .section.Projects .subsection.Project, .section.People .subsection.Person {
-        width: calc(50% - 20px);
-        margin: 10px !important;
-    }
-
-    /* Home: Section: Lists */
-    .section.Lists ul {
-        display: flex;
-        flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
-        margin-top:10px;
-    }
-
-   .section.Lists li {
-        width: calc(100% * 1/4 - 40px);
-    }
-
-    /* Reources: Section: Block */
-    /* .section.Blocks .subsection.Block .Button {
-        width: 33%;
-    } */
-
-    /* Resources: Section: Calendar */
-    .section.Calendar iframe {
-        width: 100%;
-        height: 400px; /*RESPONSIVE: REDUCE HEIGHT */
-    }
-
-    /* Resources: Section: Events */
-    .section.Events .contentContainer {
-        width: 100%;
-    }
-
-    .section.Events .subsection.Event .dateTime {
-        flex: 1;
-    }
-
-    .section.Events .subsection.Event .month {
-        flex: 0;
-    }
-
-    /* Home: Section: Slides */
-    /* .subsection.Slide img {
-      max-width: 340px;
-    } */
-
-    /* .section.Slides .SlideContent {
-      width: 340px;
-    } */
-
-    .h-container {
-      margin-left: 40%;
-      width: 200vw;
-    }
-}
-
-/* medium-sized screens */
-@media (min-width : 1100px) and (max-width : 1420px){
-    body{
-        /* background-color:lightcoral; */
-        font-size:14px;
-    }
-
-    /* Resources: Subsection: Block */
-    .Block.subsection.Wide {
-        margin-right:5%;
-    }
-
-    /* Home: Section: Lists */
-    .section.Lists li {
-        width: 185px;
-    }
-
-    /* Home: Section: Slides */
-    /* .subsection.Slide img {
-      max-width: 400px;
-    } */
-
-    /* .section.Slides .SlideContent {
-      width: 400px;
-    } */
-
-    .h-container {
-      margin-left: 40%;
-      width: 200vw;
-    }
-}
-
-/* semi-large screens */
-@media (min-width : 1420px) and (max-width : 1600px) {
-    body{
-        /* background-color: lightskyblue; */
-        font-size:16px;
-    }
-
-    /* Home: Section: Lists */
-    .section.Lists li {
-        width: 250px;
-        height: 50px;
-    }
-
-    /* Home: Section: Slides */
-    /* .subsection.Slide img {
-      max-width: 500px;
-    } */
-
-    /* .section.Slides .SlideContent {
-      width: 500px;
-    } */
-
-    .h-container {
-      margin-left: 40%;
-      width: 200vw;
-    }
-}
-
-@media (min-width : 1600px) and (max-width : 2000px) {
-    body{
-        /* background-color: lightgreen; */
-        font-size:17px;
-    }
-
-    /* Home: Section: Lists */
-    .section.Lists li {
-        width: 250px;
-        height: 50px;
-    }
-
-    /* Home: Section: Slides */
-    /* .subsection.Slide img {
-      max-width: 500px;
-    } */
-
-    /* .section.Slides .SlideContent {
-      width: 500px;
-    } */
-
-    .h-container {
-      margin-left: 40%;
-      width: 200vw;
-    }
-
-    /* People/Gallery */
-    p.hoverBody {
-        margin: 3% 3% 0 3%;
-    }
-}
-
-/* large screen */
-@media (min-width : 2000px) {
-    body{
-        /* background-color: lightpink; */
-        font-size:17px;
-    }
-
-    nav {
-      padding: 0.75%;
-      width: 1280px;
-      align-self: center;
-    }
-
-    body.Resources nav .subsection {
-      margin: 10px 0;
-    }
-
-    .section{ /*max content size: 1200px (subject to change)*/
-        /* background-color:gray; */
-        max-width:1280px;
-    }
-
-    .section.Sketches {
-        max-width: 100%;
-    }
-
-    body.Home nav {
-        background-color: white;
-    }
-    
-    body.Home .Navbar.Main a, body.Home .Navbar.subsection.Links a {
-        color: black; 
-    }
-    
-    body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
-        color: #655092;
-    }
-
-    /* Home: Section: Lists */
-    .section.Lists li {
-        width: 250px;
-    }
-
-    /* Home: Section: Slides */
-    .section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
-      width: 100%;
-    }
-/* 
-    .subsection.Slide img {
-      max-width: 700px;
-    } */
-
-    /* .section.Slides .SlideContent {
-      width: 700px;
-    } */
-
-    .h-container {
-      margin-left: 40%;
-      width: 200vw;
-    }
-
-    /* People/Gallery */
-    p.hoverBody {
-        margin: 4% 4% 0 4%;
-    }
-}
-
 @media (max-width : 450px){
+    body {
+        /* background-color: #bccbe7; */
+    }
+
     /* Home: Section: Slides */
     .section.Slides {
         padding-top: 39px;
@@ -1335,27 +1311,33 @@ footer {
 /* smallest screens */
 @media (max-width : 330px){
     body {
-        font-size: 14px !important;
+        font-size: 14px;
+        /* background-color: #dfe2e8; */
     }
 
     .sectionTitle {
-        font-size: 1.85em !important;
+        font-size: 1.85em;
     }
 
     .Button {
         width: 45%;
     }
 
-    nav .subsection.Main a {
-        font-size: 1.25em !important;
+    .navContent .subsection.Main a {
+        font-size: 1.25em;
+        min-width: 137px;
     }
 
-    nav .subsection.Toggle img {
-        width: 20px !important;
+    .navContent .subsection.Toggle img {
+        width: 16px;
     }
 
-    nav .subsection.Links.active {
-        font-size: 1.25em !important;
+    .navContent .subsection.Links.active {
+        font-size: 1.25em;
+    }
+
+    .navContent .subsection {
+        margin: 6px;
     }
 
     /* Error: Section: Banner */
