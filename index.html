@@ -65,8 +65,8 @@
 
                             <div {{#if_eq SectionType 'Slides'}} class="contentContainer main-carousel" {{else}} class="contentContainer" {{/if_eq}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
-                                    {{#each Subsections}}
-                                        <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                                {{#each Subsections}}
+                                    <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
                                             {{#if_eq SubsectionType 'Sketch'}}
                                                 <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
@@ -86,10 +86,10 @@
                                             {{/if_eq}}
                                             
                                             {{#if_eq SubsectionType 'Slide'}}
-                                                    {{#if SubsectionTitle}}
-                                                        <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                                    {{/if}}
-                                                <img src="data/{{SubsectionImageLink}}">
+                                                {{#if SubsectionTitle}}
+                                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                                {{/if}}
+                                                <img src="data/{{SubsectionImageName}}">
                                                 <div class="SlideContent">
                                                     <p>{{SubsectionDescription}}</p>
                                                 </div>
@@ -115,7 +115,7 @@
 
                                             {{#if_eq SubsectionType 'Tile'}}
                                                 <div class="image">
-                                                    <img src="data/{{SubsectionImageLink}}">
+                                                    <img src="data/{{SubsectionImageName}}">
                                                 </div>
                                                 <div class="text">
                                                     <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
@@ -124,7 +124,7 @@
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Person'}}
-                                                <div class="gridHoverContainer" style="background-image: url(data/{{SubsectionImageLink}});">
+                                                <div class="gridHoverContainer" style="background-image: url(data/{{SubsectionImageName}});">
                                                 </div>
                                                 <div class="gridTextContainer">
                                                     <h2 class="subsectionTitle">
@@ -139,7 +139,7 @@
                                                 <div class="gridHoverText">
                                                     <div class="gridHoverScroll">
                                                         <p class="hoverBody">{{SubsectionBio}}</p>
-                                                        {{#if SubsectionCourses}}<p class="hoverBody">{{SubsectionCourses}}</p>{{/if}}
+                                                        {{#if SubsectionCourses}}<p class="hoverBody">Courses: {{SubsectionCourses}}</p>{{/if}}
                                                         {{#if SubsectionEmail}}<p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>{{/if}}
                                                     </div>
                                                 </div>
@@ -176,7 +176,7 @@
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Calendar'}}
-                                                <iframe src="{{SubsectionLink}}" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                                                <iframe src="{{SubsectionLink}}" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Banner'}}
@@ -186,7 +186,7 @@
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Project'}}
-                                                <div class="gridHoverContainer" style="background-image: url(data/{{SubsectionImageLink}});">
+                                                <div class="gridHoverContainer" style="background-image: url(data/{{SubsectionImageName}});">
                                                 </div>
                                                 <div class="gridTextContainer">
                                                     <h2 class="subsectionTitle">
@@ -210,7 +210,7 @@
                                                 <div class="gridHoverText">
                                                     <div class="gridHoverScroll">
                                                         <p class="hoverBody">{{SubsectionProjectDescription}}</p>
-                                                        <p class="hoverBody">{{SubsectionProjectClass}}</p>
+                                                        <p class="hoverBody">Course: {{SubsectionProjectClass}}</p>
                                                         <p class="hoverBody semester">{{SubsectionProjectTerm}}</p>
                                                     </div>
                                                 </div>

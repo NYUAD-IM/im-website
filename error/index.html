@@ -56,18 +56,17 @@
 
                     <div class="page {{PageType}}"> 
                         {{#each PageSections}} 
-                        <div {{#if SectionTitle}} {{#if_eq SectionType 'Slides'}} id="slides" class="section {{SectionType}} h-wrapper" {{else}} class="section {{SectionType}}"{{/if_eq}} {{else}} {{#if_eq SectionType 'Slides'}}  id="slides" class="section noTitle {{SectionType}} h-wrapper" {{else}} class="section noTitle {{SectionType}}"{{/if_eq}} {{/if}}  {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
-                            {{#if_eq SectionType 'Slides'}}<div class="h-viewport">{{/if_eq}}
+                        <div {{#if SectionTitle}} class="section {{SectionType}}" {{#if_eq SectionType 'Slides'}} id="slides" {{/if_eq}} {{else}} {{#if_eq SectionType 'Slides'}} id="slides" {{/if_eq}} class="section noTitle {{SectionType}}" {{/if}}  {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                             {{#if SectionTitle}}<h2 class="sectionTitle" {{#if_eq SectionType 'Events'}} id="{{SectionType}}"{{/if_eq}}>{{SectionTitle}}</h2>{{/if}}
 
                             {{#if SectionSubtitle}}<p class="sectionSubtitle">{{SectionSubtitle}}</p>{{/if}}
 
-                            <div {{#if_eq SectionType 'Slides'}}class="contentContainer h-container" {{else}} class="contentContainer" {{/if_eq}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
+                            <div {{#if_eq SectionType 'Slides'}} class="contentContainer main-carousel" {{else}} class="contentContainer" {{/if_eq}} {{#if SectionOrder}}style="order:{{SectionOrder}}"{{/if}}>
 
                                 {{#each Subsections}}
-                                    <div {{#if SubsectionStyle}}class="subsection {{SubsectionType}} {{SubsectionStyle}}"{{else}}class="subsection {{SubsectionType}}"{{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
+                                    <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
                                         {{#if_eq SubsectionType 'Sketch'}}
                                             <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
@@ -87,11 +86,11 @@
                                         {{/if_eq}}
                                         
                                         {{#if_eq SubsectionType 'Slide'}}
-                                            <img src="../data/{{SubsectionImageLink}}">
+                                            {{#if SubsectionTitle}}
+                                                <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                            {{/if}}
+                                            <img src="../data/{{SubsectionImageName}}">
                                             <div class="SlideContent">
-                                                {{#if SubsectionTitle}}
-                                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                                {{/if}}
                                                 <p>{{SubsectionDescription}}</p>
                                             </div>
                                         {{/if_eq}}
@@ -116,7 +115,7 @@
 
                                         {{#if_eq SubsectionType 'Tile'}}
                                             <div class="image">
-                                                <img src="../data/{{SubsectionImageLink}}">
+                                                <img src="../data/{{SubsectionImageName}}">
                                             </div>
                                             <div class="text">
                                                 <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
@@ -125,7 +124,7 @@
                                         {{/if_eq}}
 
                                         {{#if_eq SubsectionType 'Person'}}
-                                            <div class="gridHoverContainer" style="background-image: url(../data/{{SubsectionImageLink}});">
+                                            <div class="gridHoverContainer" style="background-image: url(../data/{{SubsectionImageName}});">
                                             </div>
                                             <div class="gridTextContainer">
                                                 <h2 class="subsectionTitle">
@@ -140,7 +139,7 @@
                                             <div class="gridHoverText">
                                                 <div class="gridHoverScroll">
                                                     <p class="hoverBody">{{SubsectionBio}}</p>
-                                                    {{#if SubsectionCourses}}<p class="hoverBody">{{SubsectionCourses}}</p>{{/if}}
+                                                    {{#if SubsectionCourses}}<p class="hoverBody">Courses: {{SubsectionCourses}}</p>{{/if}}
                                                     {{#if SubsectionEmail}}<p class="hoverBody email"><a href="mailto:{{SubsectionEmail}}">{{SubsectionEmail}}</a></p>{{/if}}
                                                 </div>
                                             </div>
@@ -187,7 +186,7 @@
                                         {{/if_eq}}
 
                                         {{#if_eq SubsectionType 'Project'}}
-                                            <div class="gridHoverContainer" style="background-image: url(../data/{{SubsectionImageLink}});">
+                                            <div class="gridHoverContainer" style="background-image: url(../data/{{SubsectionImageName}});">
                                             </div>
                                             <div class="gridTextContainer">
                                                 <h2 class="subsectionTitle">
@@ -211,7 +210,7 @@
                                             <div class="gridHoverText">
                                                 <div class="gridHoverScroll">
                                                     <p class="hoverBody">{{SubsectionProjectDescription}}</p>
-                                                    <p class="hoverBody">{{SubsectionProjectClass}}</p>
+                                                    <p class="hoverBody">Course: {{SubsectionProjectClass}}</p>
                                                     <p class="hoverBody semester">{{SubsectionProjectTerm}}</p>
                                                 </div>
                                             </div>
