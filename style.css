@@ -1007,7 +1007,7 @@ footer {
     }
 
     .navContent .subsection {
-        margin: 15px;
+        margin: 20px 35px;
     }
 
     .navContent .subsection.Main a {
@@ -1053,7 +1053,7 @@ footer {
     }
 
     .navContent .Navbar.subsection.Links a {
-        margin: 15px;
+        margin: 20px 35px;
     }
 
     .navContent .Link:nth-of-type(1) {
