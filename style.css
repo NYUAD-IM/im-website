@@ -618,6 +618,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 .subsection.Block .flexButtons {
     display: flex; 
     flex-flow: row wrap; 
+    width: 100%;
 }
 
 .subsection.Block p {
@@ -628,7 +629,16 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 
 .subsection.Block .Button {
     margin: 2% 2% 2% 0;
+}
+
+/* 3 buttons */
+.Block .Button:first-child:nth-last-child(3), .Block .Button:first-child:nth-last-child(3)  ~ .Button {    
     flex: 1;
+}
+
+/* even number of buttons */
+.Block .Button:first-child:nth-last-child(2n), .Block .Button:first-child:nth-last-child(2n)  ~ .Button {
+    width: 100px;
 }
 
 /****** Subsection: Links ******/
@@ -1301,8 +1311,15 @@ footer {
         align-items: center;
     }
 
-    .subsection.Block .Button {
+    /* 3 buttons */
+    .Block .Button:first-child:nth-last-child(3), .Block .Button:first-child:nth-last-child(3)  ~ .Button {
         flex: 1 100%;
+    }
+
+    /* even number of buttons */
+    .Block .Button:first-child:nth-last-child(2n), .Block .Button:first-child:nth-last-child(2n)  ~ .Button {
+        background-color:rgb(159, 216, 144);    
+        flex: 1 25%;
     }
 
     footer {
