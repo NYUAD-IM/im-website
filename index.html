@@ -92,7 +92,7 @@
                                     <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
                                             {{#if_eq SubsectionType 'Sketch'}}
-                                                <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
+                                                <!-- <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe> -->
                                                 <a class="arrow" href="#slides"><span></span></a> 
                                                 <div class="authors">
                                                     <p> Sketch credits: 
@@ -109,11 +109,11 @@
                                             {{/if_eq}}
                                             
                                             {{#if_eq SubsectionType 'Slide'}}
-                                                {{#if SubsectionTitle}}
-                                                    <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
-                                                {{/if}}
                                                 <img src="data/{{SubsectionImageName}}">
                                                 <div class="SlideContent">
+                                                    {{#if SubsectionTitle}}
+                                                        <h2 class="subsectionTitle">{{SubsectionTitle}}</h2>
+                                                    {{/if}}
                                                     <p>{{SubsectionDescription}}</p>
                                                 </div>
                                             {{/if_eq}}
@@ -176,13 +176,15 @@
                                                 {{#if SubsectionDescription}}
                                                     <p>{{SubsectionDescription}}</p>
                                                 {{/if}}
+                                                {{#if_eq SubsectionStyle 'Wide Buttons'}}<div class="flexButtons">{{/if_eq}}
                                                 {{#each SubsectionItems}}
                                                     {{#if ItemName}}
                                                         {{#if_eq ItemStyle 'Link'}}<p>{{/if_eq}}
                                                         <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
                                                         {{#if_eq ItemStyle 'Link'}}</p>{{/if_eq}}
                                                     {{/if}}
-                                                {{/each}}                      
+                                                {{/each}}    
+                                                {{#if_eq SubsectionStyle 'Wide Buttons'}} </div>{{/if_eq}}                       
                                             {{/if_eq}}
 
                                             {{#if_eq SubsectionType 'Event'}}

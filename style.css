@@ -57,14 +57,13 @@ ul {
     color: #655092;
     font-size: 2.75em;
     text-transform: uppercase;
-    margin: 1% 0 1% 0;
     text-align: left;
     align-self:flex-start;
 }
 
 .sectionSubtitle {
-    margin: 0 0 3% 0;
-    width: 400px; /* responsive (mobile):full width */
+    margin: 0 0 20px 0;
+    width: 400px; 
     align-self:flex-start;
 }
 
@@ -125,10 +124,6 @@ a:hover {
 /****** Page: Home ******/
 .page.Home {
     margin-top: 0;
-}
-
-.page.Home .sectionTitle {
-    margin-bottom:0;
 }
 
 body.Home nav {
@@ -429,10 +424,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     padding: 0;
     flex-flow: row wrap;
     width: 100%;
-}
-
-.section.Projects .sectionTitle, .section.People .sectionTitle {
-    margin-left: 10px
+    margin-left: -10px; /*taking out left margin of grid elements*/
 }
 
 .section.Projects .subsectionTitle, .section.People .subsectionTitle {
@@ -572,7 +564,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 
 .section.Events .subsection.Event {
     flex: 1 100%;
-    margin-top:4%;
+    margin: 15px 0 30px 0;
     display: flex;
 }
 
@@ -1152,8 +1144,8 @@ footer {
         margin: 10px; 
     }
 
-    .section.People .contentContainer, .section.Projects .contentContainer {
-        width: 85%;
+    .section.People, .section.Projects {
+        width: 75%;
     }
 
     /* Home: Section: Lists */
@@ -1348,8 +1340,8 @@ footer {
     }
 
     /* Gallery/People: Section: Project/Person */
-    .section.People .contentContainer, .section.Projects .contentContainer {
-        width: 100%;
+    .section.People, .section.Projects {
+        width: 90%;
     }
 
     /* Resources: Section: Block  */
