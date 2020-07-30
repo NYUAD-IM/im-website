@@ -143,11 +143,27 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     color: #7774aa;
 }
 
-.whiteLogo {
+.subsection.Navbar .whiteLogo {
 	content: url("data/nyuad_white.svg");
 }
 
+.subsection.Navbar.whiteLogo::before {
+    content: url("data/nyuad_white.svg");
+}
+
+.subsection.Navbar.whiteLogo::after {
+    content: url("data/nyuad_white.svg");
+}
+
 .whiteToggle {
+    content: url("data/hamburger_white.svg");
+}
+
+.whiteToggle::before {
+    content: url("data/hamburger_white.svg");
+}
+
+.whiteToggle:after {
     content: url("data/hamburger_white.svg");
 }
 
@@ -263,7 +279,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 }
 
 .section.Tiles .contentContainer {
-    width:80%; 
+    width:85%; 
     display:flex;
     flex-flow:column;
 }
@@ -512,6 +528,10 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     text-decoration: underline;
 }
 
+.section.Lists .subsection.List {
+    margin: 15px 0 30px 0;
+}
+
 .subsection.List .one li{
     background-color: #655092;
 }
@@ -527,10 +547,6 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 .section.Lists .subsection.Links {
     display: flex;
     justify-content: flex-end;
-}
-
-.section.Lists .subsection.List .subsectionTitle {
-    margin-top: 1%;
 }
 
 /****** Section: Calendar ******/
@@ -965,6 +981,11 @@ footer {
         width: calc(100% * 1/4 - 40px);
     }
 
+    /* Home: Section: Tiles */
+    .section.Tiles .contentContainer {
+        width: 100%;
+    }
+
     /* Resources: Section: Calendar */
     .section.Calendar iframe {
         width: 100%;
@@ -1092,7 +1113,7 @@ footer {
 
     /*Resources: Subsection: Block */
     .subsection.Block {
-        margin-top: 3%;
+        margin: 15px 0;
     }
 
     .subsection.Block.Wide {
@@ -1139,7 +1160,7 @@ footer {
     }
 
     .section.Lists li {
-        width: 80%;
+        width: 60%;
     }
 
     .section.Lists .sectionSubtitle {
@@ -1149,11 +1170,12 @@ footer {
     .section.Lists .subsection.Links {
         display: flex;
         justify-content: flex-end;
+        margin-top: 10px;
     }
 
     /* Home: Section: Tiles */
     .section.Tiles .contentContainer {
-        width: 100%; /* RESPONSIVE (MOBILE): width:100%*/
+        width: 65%; /* RESPONSIVE (MOBILE): width:100%*/
     }
 
     .subsection.Tile {
@@ -1250,10 +1272,15 @@ footer {
     .Footer.Links.subsection {
         font-size: 0.8em;
     }
+
+    footer .Main p {
+        min-width: 176px;
+    }
 }
 
 @media (max-width : 450px){
     body {
+        font-size: 15px;
         /* background-color: #bccbe7; */
     }
 
@@ -1297,6 +1324,16 @@ footer {
 
     .flickity-viewport {
         height: 400px !important;
+    }
+
+    /* Home: Section: Tiles */
+    .section.Tiles .contentContainer {
+        width: 85%;
+    }
+
+    /* Home: Section: Lists */
+    .section.Lists li {
+        width: 80%;
     }
 
     /* Gallery/People: Section: Project/Person */
@@ -1360,11 +1397,6 @@ footer {
         padding: 3px;
     }
 
-    footer .Main p {
-        margin: 0;
-        padding: 3px;
-    }
-
     footer a.Image {
         flex: 1 80%;
         max-width: auto;
@@ -1388,7 +1420,7 @@ footer {
 /* smallest screens */
 @media (max-width : 330px){
     body {
-        font-size: 14px;
+        font-size: 15px;
         /* background-color: #dfe2e8; */
     }
 
