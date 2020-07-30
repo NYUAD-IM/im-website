@@ -1,11 +1,6 @@
-/* Colors: */
-/* Main- section titles, navigation: #655092 */
-/* Secondary- buttons #6A6893 */
-/* potential new secondary: color: #7774aa; */
-/* Third- gradients #6788B0 */
-/* Gray- #A2A2A2 */
+/****** Color Guide: Main (section titles): #655092, Secondary (buttons, navigation): #7774aa, Tertiary: #6788B0, Gray: #A2A2A2  ******/
 
-/****** Overall body/sections ******/
+/****** GENERAL STYLES ******/
 html, body {
     height: 100%;
     width:100%;
@@ -35,11 +30,11 @@ body{
     width: 80%;
 }
 
-.noTitle {
+.noTitle { /* extra top margin for sections with no title*/
     margin: 20px 10px;
 }
 
-/****** Type ******/
+/****** TYPOGRAPHY ******/
 p {
     font-family: 'Open Sans', sans-serif;
 }
@@ -77,7 +72,7 @@ ul {
     margin: 0;
 }
 
-/****** Buttons/Links ******/
+/****** BUTTONS/LINKS ******/
 a {
     color: black;
     text-decoration: none;
@@ -121,11 +116,110 @@ a:hover {
     border-color:#7774aa;
 }
 
-/****** Page: Home ******/
+/****** Navbar ******/
+.navContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+nav {
+    display: flex; 
+    justify-content: center;
+    padding: 10px 20px;
+    flex-shrink: 0;
+}
+
+.navContent .subsection {
+    margin: 10px;
+}
+
+.navContent .subsection.Toggle {
+    display: none;
+}
+
+.navContent .subsection.Toggle img {
+    width: 27px;
+}
+
+.navContent .subsection.Toggle a {
+    height: 32px;
+}
+
+.subsection.Navbar .Main {
+    font-size: 1.75em; 
+    text-transform: uppercase;
+    display:flex;
+    align-items: center;
+}
+
+.subsection.Navbar.Logo {
+    flex:1;
+    text-align: right;
+}
+
+.navContent .subsection.Logo img{
+    width: 125px;
+}
+
+.Navbar a{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
+    -webkit-transition-property: color;
+    -moz-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
+}
+
+.Navbar.subsection.Links {
+    margin-left: 10px;
+    display:flex;
+    align-items: center;
+}
+
+.Navbar.subsection.Links a {
+    margin: 15px;
+}
+
+.Navbar.Main a {
+    font-size: 1.75em; 
+    text-transform: uppercase;
+}
+
+.nav-overlay {
+    position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	opacity:0;
+	display:none;
+}
+
+.nav-overlay.active{
+    z-index:9999;
+	opacity:1;
+	visibility:visible;
+}
+
+/* Coloring current page user is in */
+a.CurrentPage {
+    color: #7774aa;
+}
+
+body.Home .subsection.Navbar .Link.Home, body.Gallery .subsection.Navbar .Link.Gallery, body.Resources .subsection.Navbar .Link.Resources, body.People .subsection.Navbar .Link.People  {
+    color: #7774aa;
+}
+
+/****** PAGE: HOME ******/
+/* specific styes for home page */
 .page.Home {
     margin-top: 0;
 }
 
+/* Coloring navbar black */
 body.Home nav {
     background-color: black;
 }
@@ -142,27 +236,12 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 	content: url("data/nyuad_white.svg");
 }
 
-.subsection.Navbar.whiteLogo::before {
-    content: url("data/nyuad_white.svg");
-}
-
-.subsection.Navbar.whiteLogo::after {
-    content: url("data/nyuad_white.svg");
-}
-
 .whiteToggle {
     content: url("data/hamburger_white.svg");
 }
 
-.whiteToggle::before {
-    content: url("data/hamburger_white.svg");
-}
-
-.whiteToggle:after {
-    content: url("data/hamburger_white.svg");
-}
-
-/****** Page: Error ******/
+/****** PAGE: ERROR ******/
+/* specific styes for error page */
 .page.Error .Banner .sectionTitle {
     font-size: 12em;
 }
@@ -171,7 +250,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     margin-top: -40px;
 }
 
-/****** Section: Sketches ******/
+/****** SECTION: SKETCHES ******/
 .section.Sketches {
     /* width: 100%; */
     margin-top:0;
@@ -214,7 +293,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     transition: opacity .3s;
 }
 
-.section.Sketches  .arrow:hover {
+.section.Sketches .arrow:hover {
     opacity: .5;
 }
 
@@ -238,6 +317,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     box-sizing: border-box;
 }
 
+/* animating arrow on top of sketch */
 @-webkit-keyframes sdb05 {
     0% {
         -webkit-transform: rotate(-45deg) translate(0, 0);
@@ -266,49 +346,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     }
 }
 
-/****** Section: Tiles ******/
-.section.Tiles {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section.Tiles .contentContainer {
-    width:85%; 
-    display:flex;
-    flex-flow:column;
-}
-
-.subsection.Tile {
-    display:flex;
-    flex-flow:row-reverse nowrap; /* RESPONSIVE (MOBILE): WRAP*/
-    align-items:center;
-}
-
-.subsection.Tile img {
-    max-width: 100%; /* RESPONSIVE(large screens): images don't get larger*/
-}
-
-.subsection.Tile .image {
-    flex: 1; /* RESPONSIVE: flex: 1 100%*/
-    margin: 4%;
-}
-
-.subsection.Tile .text {
-    flex: 1;
-    text-align: right;
-    padding:15px;
-}
-
-.subsection.Tile:nth-of-type(2n) {
-    flex-direction: row;
-}
-
-.subsection.Tile:nth-of-type(2n) .text {
-    text-align: left;
-}
-
-/* Section: Slides */
+/****** SECTION: SLIDES ******/
 .section.Slides {
     width: 100%;
     display: flex; 
@@ -322,44 +360,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     width: 100%;
 }
 
-.main-carousel {
-    width: 100%;
-    height: 50%;
-}
-
-.carousel-cell {
-    /* RESPONSIVE DECIDE */
-    width: 100%; /* full width */
-    margin-right: 40%;
-    /* margin-right: 10px; */
-}
-
-.flickity-viewport {
-    height: 510px !important;
-}
-
-.flickity-button {
-    background: transparent;
-}
-
-.flickity-button:hover {
-    background: transparent;
-}
-
-.flickity-prev-next-button {
-    top: 44% !important;
-}
-
-.flickity-prev-next-button.previous {
-    left: 70px;
-}
-
-.flickity-prev-next-button.next {
-    right: 70px;
-}
-
 .section.Slides .subsection.Slide {
-    /* padding: 0 12%; */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -386,22 +387,85 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     height: auto;
 }
 
-/****** Horizontical Behavior ******/
-.h-viewport {
-    height: 100vh;
-    display: flex;
+/* Editing Flickity library  */
+.main-carousel {
+    width: 100%;
+    height: 50%;
+}
+
+.carousel-cell {
+    width: 100%;
+    margin-right: 40%;
+}
+
+.flickity-viewport {
+    height: 510px !important;
+}
+
+.flickity-button {
+    background: transparent;
+}
+
+.flickity-button:hover {
+    background: transparent;
+}
+
+.flickity-prev-next-button {
+    top: 44% !important;
+}
+
+.flickity-prev-next-button.previous {
+    left: 70px;
+}
+
+.flickity-prev-next-button.next {
+    right: 70px;
+}
+
+/****** SECTION: TILES ******/
+.section.Tiles {
+    display:flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
-.h-container {
-    /* background-color: white; */
-    width: 200vw;
-    /* height: 70vh; */
-    display: flex;
+.section.Tiles .contentContainer {
+    width:85%; 
+    display:flex;
+    flex-flow:column;
 }
 
-/****** Section: People, Projects ******/
+.subsection.Tile {
+    display:flex;
+    flex-flow:row-reverse nowrap; 
+    align-items:center;
+}
+
+.subsection.Tile img {
+    max-width: 100%; 
+}
+
+.subsection.Tile .image {
+    flex: 1; 
+    margin: 4%;
+}
+
+.subsection.Tile .text {
+    flex: 1;
+    text-align: right;
+    padding:15px;
+}
+
+/* When new events are added, they automatically interchange alignments */
+.subsection.Tile:nth-of-type(2n) {
+    flex-direction: row;
+}
+
+.subsection.Tile:nth-of-type(2n) .text {
+    text-align: left;
+}
+
+/****** SECTION: PEOPLE/PROJECTS ******/
 .section.People, .section.Projects {
     display: flex;
     justify-content: center;
@@ -448,7 +512,6 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 }
 
 .gridHoverText {
-    /* background-color:red; */
     opacity: 0;
     z-index: 3;
     height: 0;
@@ -492,7 +555,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     z-index: 1;
 }
 
-/****** Section: List ******/
+/****** SECTION: LIST ******/
 .section.Lists {
     display: flex;
     flex-direction: column;
@@ -546,7 +609,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     justify-content: flex-end;
 }
 
-/****** Section: Calendar ******/
+/****** SECTION: CALENDAR ******/
 .section.Calendar {
     text-align: center;
 }
@@ -556,7 +619,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     height: 700px;
 }
 
-/****** Section: Event ******/
+/****** SECTION: EVENTS ******/
 .section.Events .contentContainer {
     width: 75%;
     flex: 1 100%;
@@ -599,7 +662,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     margin: 0;
 }
 
-/****** Section: Banner ******/
+/****** SECTION: BANNER ******/
 .page.Resources .section.Banner .sectionTitle {
     font-size: 2.25em;
 }
@@ -608,7 +671,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     text-align: center;
 }
 
-/****** Section: Block ******/
+/****** SECTION: BLOCK ******/
 .section.Blocks .contentContainer {
     display: flex;
     flex-flow: row wrap;
@@ -644,17 +707,17 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     margin: 2% 2% 2% 0;
 }
 
-/* 3 buttons */
+/* Button Wide Subsection: 3 buttons style */
 .Block .Button:first-child:nth-last-child(3), .Block .Button:first-child:nth-last-child(3)  ~ .Button {    
     flex: 1;
 }
 
-/* even number of buttons */
+/* Button Wide Subsection: even # of buttons style */
 .Block .Button:first-child:nth-last-child(2n), .Block .Button:first-child:nth-last-child(2n)  ~ .Button {
     width: 100px;
 }
 
-/****** Subsection: Links ******/
+/****** SUBSECTION: LINKS ******/
 .subsection.Links {
     text-align: center;
 }
@@ -664,115 +727,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     width: auto;
 }
 
-/****** Navbar ******/
-.navContent {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-}
-
-nav {
-    display: flex; 
-    justify-content: center;
-    padding: 10px 20px;
-    flex-shrink: 0;
-}
-
-.navContent .subsection {
-    margin: 10px;
-}
-
-.navContent .subsection.Toggle {
-    display: none;
-}
-
-.navContent .subsection.Toggle img {
-    width: 27px;
-}
-
-.navContent .subsection.Toggle a {
-    height: 32px;
-}
-
-.Navbar.subsection.Logo {
-    flex:1;
-    text-align: right;
-}
-
-.navContent .subsection.Logo img{
-    width: 125px;
-}
-
-.nav-overlay {
-    position:absolute;
-	top:0;
-	right:0;
-	bottom:0;
-	left:0;
-	background-color:rgba(0,0,0,0.5);
-	opacity:0;
-	display:none;
-}
-
-.nav-overlay.active{
-    z-index:9999;
-	opacity:1;
-	visibility:visible;
-}
-
-.Navbar a{
-    font-family: 'Open Sans Condensed', sans-serif;
-    text-decoration: none;
-    -webkit-transition-property: color;
-    -moz-transition-property: color;
-    -o-transition-property: color;
-    transition-property: color;
-}
-
-.Navbar .Main {
-    font-size: 1.75em; 
-    text-transform: uppercase;
-    display:flex;
-    align-items: center;
-}
-
-.Navbar.subsection.Links {
-    margin-left: 10px;
-    display:flex;
-    align-items: center;
-}
-
-.Navbar.subsection.Links a {
-    margin: 15px;
-}
-
-a.CurrentPage {
-    color: #7774aa;
-}
-
-.Navbar.Main a {
-    font-size: 1.75em; 
-    text-transform: uppercase;
-}
-
-body.Home .subsection.Navbar .Link.Home {
-    color: #7774aa;
-}
-
-body.Gallery .subsection.Navbar .Link.Gallery {
-    color: #7774aa;
-}
-
-body.Resources .subsection.Navbar .Link.Resources {
-    color: #7774aa;
-}
-
-body.People .subsection.Navbar .Link.People {
-    color: #7774aa;
-}
-
-/****** Footer ******/
+/****** FOOTER ******/
 footer {
     background-color: black;
     display: flex;
@@ -786,9 +741,15 @@ footer {
 }
 
 .Footer.Main.subsection {
-    flex-grow: 1; /* RESPONSIVE: CHANGE */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
+}
+
+.Footer .Main {
+    color: white;
+    font-size: 1.75em;
+    text-transform: uppercase;
 }
 
 .Footer.Main p {
@@ -805,10 +766,8 @@ footer {
     text-decoration: none;
 }
 
-.Footer .Main {
+.Footer a:hover {
     color: white;
-    font-size: 1.75em;
-    text-transform: uppercase;
 }
 
 .Footer .Image {
@@ -826,46 +785,42 @@ footer {
     text-align: left;
 }
 
-.Footer a:hover {
-    color: white;
-}
 
-/****** Responsive Layouts ******/
-/* large screen */
+/****** RESPONSIVE LAYOUTS ******/
+/* Largest screens */
 @media (min-width : 2000px) {
     body{
-        /* background-color: lightpink; */
-        /* background-color: #0059ff; */
         font-size:17px;
+    }
+
+    .section{ 
+        max-width:1280px;
     }
 
     .sectionSubtitle {
         width: 460px; 
     }
 
+    /* Navbar */
     .navContent {
         width: 1280px;
     }
 
-    body.Resources .navContent .subsection {
+    .navContent .subsection {
       margin: 10px 0;
     }
 
-    .section{ /*max content size: 1200px (subject to change)*/
-        /* background-color:gray; */
-        max-width:1280px;
-    }
-
+    /* Section: Sketches */
     .section.Sketches {
         max-width: 100%;
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists li {
         width: 250px;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides .sectionTitle, .section.Slides .sectionSubtitle {
       width: 100%;
     }
@@ -881,10 +836,9 @@ footer {
     }
 }
 
+/* Large screens */
 @media (min-width : 1600px) and (max-width : 2000px) {
     body{
-        /* background-color: lightgreen; */
-        /* background-color: #1c62e4; */
         font-size:17px;
     }
 
@@ -892,13 +846,13 @@ footer {
         width: 430px; 
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists li {
         width: 250px;
         height: 50px;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides .sectionSubtitle {
         width: 400px; 
         margin-left: 10%; 
@@ -911,21 +865,19 @@ footer {
     }
 }
 
-/* semi-large screens */
+/* Semi-large screens */
 @media (min-width : 1420px) and (max-width : 1600px) {
     body{
-        /* background-color: lightskyblue; */
-        /* background-color: #2969e0; */
         font-size:16px;
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists li {
         width: 250px;
         height: 50px;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides .sectionSubtitle {
         width: 400px; 
         margin-left: 10%; 
@@ -933,25 +885,23 @@ footer {
     }
 }
 
-/* medium-sized screens */
+/* Medium-sized screens */
 @media (min-width : 1100px) and (max-width : 1420px){
     body{
-        /* background-color:lightcoral; */
-        /* background-color: #477de0; */
         font-size:14px;
     }
 
-    /* Resources: Subsection: Block */
+    /* Subsection: Block */
     .Block.subsection.Wide {
         margin-right:5%;
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists li {
         width: 185px;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides .sectionSubtitle {
         width: 400px; 
         margin-left: 10%; 
@@ -960,24 +910,22 @@ footer {
 }
 
 
-/* tablet-sized */
+/* Tablet-sized */
 @media (min-width : 736px) and (max-width : 1100px){
     body{
-        /* background-color:turquoise; */
-        /* background-color: #6d94dd; */
         font-size:14px;
     }
 
-    /* Grids: 2 columns */
+    /* People/Gallery: 2 column grid */
     .section.Projects .subsection.Project, .section.People .subsection.Person {
         width: calc(50% - 20px);
         margin: 10px !important;
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists ul {
         display: flex;
-        flex-flow: row nowrap; /* RESPONSIVE (MOBILE): WRAP*/
+        flex-flow: row nowrap; 
         margin-top:10px;
     }
 
@@ -985,18 +933,18 @@ footer {
         width: calc(100% * 1/4 - 40px);
     }
 
-    /* Home: Section: Tiles */
+    /* Section: Tiles */
     .section.Tiles .contentContainer {
         width: 100%;
     }
 
-    /* Resources: Section: Calendar */
+    /* Section: Calendar */
     .section.Calendar iframe {
         width: 100%;
-        height: 400px; /*RESPONSIVE: REDUCE HEIGHT */
+        height: 400px; 
     }
 
-    /* Resources: Section: Events */
+    /* Section: Events */
     .section.Events .contentContainer {
         width: 100%;
     }
@@ -1009,7 +957,7 @@ footer {
         flex: 0;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides .sectionSubtitle {
         width: 400px; 
         margin-left: 10%; 
@@ -1017,16 +965,10 @@ footer {
     }
 }
 
-/* mobile/small screens */
+/* Mobile/smaller screens */
 @media (max-width : 736px){
     body {
         font-size: 16px;
-        /* background-color: #96b0e0; */
-        /* background-color:lightgoldenrodyellow; */
-    }
-
-    .section {
-        width: 90%;
     }
 
     p {
@@ -1034,15 +976,15 @@ footer {
         font-size: 0.8em; 
     }
 
-    .subsection.Links .Button {
-        font-size: 1em;
+    .section {
+        width: 90%;
     }
 
     .sectionSubtitle {
         width: auto;
     }
 
-    /* Navigation */
+    /* Navigation: creating navbar overlay */
     nav {
         padding: 0;
     }
@@ -1094,7 +1036,7 @@ footer {
     }
 
     .navContent .Link:nth-of-type(1) {
-        margin-top: 35px !important;
+        margin-top: 35px !important; /* larger top margin for first navbar link */
     }
 
     .navContent.active {
@@ -1108,7 +1050,12 @@ footer {
         display:none;
     }
 
-    /*Resources: Subsection: Block */
+    /* Subsection: Links */
+    .subsection.Links .Button {
+        font-size: 1em;
+    }
+
+    /* Subsection: Block */
     .subsection.Block {
         margin: 15px 0;
     }
@@ -1134,7 +1081,7 @@ footer {
         font-size: 0.8em;
     }
 
-    /* Grids: 1 column */
+    /* People/Gallery: 1 column grid layout */
     .section.Projects .subsection.Project, .section.People .subsection.Person {
         width: calc(100% - 20px);
         margin: 10px 10px 40px 10px;
@@ -1148,7 +1095,7 @@ footer {
         width: 75%;
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists ul { 
         display: flex;
         flex-flow: row wrap;
@@ -1170,18 +1117,18 @@ footer {
         margin-top: 10px;
     }
 
-    /* Home: Section: Tiles */
+    /* Section: Tiles */
     .section.Tiles .contentContainer {
-        width: 65%; /* RESPONSIVE (MOBILE): width:100%*/
+        width: 65%;
     }
 
     .subsection.Tile {
-        flex-flow: row wrap; /* RESPONSIVE (MOBILE): WRAP*/
+        flex-flow: row wrap; 
         margin: 15px 0 30px 0;
     }
 
     .subsection.Tile .image {
-        flex: 1 100%; /* RESPONSIVE: flex: 1 100%*/
+        flex: 1 100%; 
         margin: 0;
     }
 
@@ -1199,7 +1146,7 @@ footer {
         margin: 15px 0;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides .SlideContent {
         margin-top: 2%;
     }
@@ -1243,13 +1190,13 @@ footer {
         margin: 15px 0;
     }
 
-    /* Resources: Section: Calendar */
+    /* Section: Calendar */
     .section.Calendar iframe {
         width: 100%;
         height: 400px; /*RESPONSIVE: REDUCE HEIGHT */
     }
 
-    /* Resources: Section: Events */
+    /* Section: Events */
     .section.Events .contentContainer {
         width: 100%;
     }
@@ -1262,7 +1209,7 @@ footer {
         flex: 0;
     }
 
-    /****** Page: Error ******/
+    /* Page: Error */
     .page.Error .sectionTitle {
         font-size: 9em;
     }
@@ -1281,12 +1228,13 @@ footer {
     }
 }
 
+/* Smaller screens */
 @media (max-width : 450px){
     body {
         font-size: 15px;
-        /* background-color: #bccbe7; */
     }
 
+    /* Navbar */
     .navContent .subsection, .navContent .Navbar.subsection.Links a {
         margin: 15px 25px;
     }
@@ -1295,7 +1243,7 @@ footer {
         margin-top: 25px !important;
     }
 
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .section.Slides {
         padding-top: 39px;
     }
@@ -1329,39 +1277,39 @@ footer {
         height: 400px !important;
     }
 
-    /* Home: Section: Tiles */
+    /* Section: Tiles */
     .section.Tiles .contentContainer {
         width: 85%;
     }
 
-    /* Home: Section: Lists */
+    /* Section: Lists */
     .section.Lists li {
         width: 80%;
     }
 
-    /* Gallery/People: Section: Project/Person */
+    /* Gallery/People */
     .section.People, .section.Projects {
         width: 90%;
     }
 
-    /* Resources: Section: Block  */
+    /* Section: Block  */
     .subsection.Block {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    /* 3 buttons */
+    /* Styling 3 buttons */
     .Block .Button:first-child:nth-last-child(3), .Block .Button:first-child:nth-last-child(3)  ~ .Button {
         flex: 1 100%;
     }
 
-    /* even number of buttons */
-    .Block .Button:first-child:nth-last-child(2n), .Block .Button:first-child:nth-last-child(2n)  ~ .Button {
-        background-color:rgb(159, 216, 144);    
+    /* Styling even number of buttons */
+    .Block .Button:first-child:nth-last-child(2n), .Block .Button:first-child:nth-last-child(2n)  ~ .Button {    
         flex: 1 25%;
     }
 
+    /* Footer */
     footer {
         flex-flow: row wrap;
     }
@@ -1417,14 +1365,12 @@ footer {
     footer .Social img {
         width: 22px;
     }
-
 }
 
-/* smallest screens */
+/* Smallest screens */
 @media (max-width : 330px){
     body {
         font-size: 15px;
-        /* background-color: #dfe2e8; */
     }
 
     .sectionTitle {
@@ -1435,6 +1381,7 @@ footer {
         width: 45%;
     }
 
+    /* Navbar */
     .navContent .subsection, .navContent .Navbar.subsection.Links a {
         margin: 15px 10px;
     }
@@ -1460,12 +1407,7 @@ footer {
         margin-top: 15px !important;
     }
 
-    /* Error: Section: Banner */
-    .page.Error .section.Banner .sectionTitle {
-        font-size: 9em !important;
-    }
-
-    /* Home: Section: Slides */
+    /* Section: Slides */
     .flickity-viewport {
         height: 325px !important;
     }
@@ -1481,9 +1423,14 @@ footer {
     .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
         width: 55% !important;
     }
+
+    /* Error: Section: Banner */
+    .page.Error .section.Banner .sectionTitle {
+        font-size: 9em !important;
+    }
 }
 
-/* checking for touch devices */
+/* Touch device-specific layouts. Determining behavior of description text on Gallery and People pages */
 @media (pointer: coarse) {
     /* People/Gallery */
     .section.People a, .section.Projects a {
