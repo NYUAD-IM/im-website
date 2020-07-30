@@ -155,13 +155,15 @@
                                             {{#if SubsectionDescription}}
                                                 <p>{{SubsectionDescription}}</p>
                                             {{/if}}
+                                            {{#if_eq SubsectionStyle 'Wide Buttons'}} <div class="flexButtons">{{/if_eq}}
                                             {{#each SubsectionItems}}
                                                 {{#if ItemName}}
                                                     {{#if_eq ItemStyle 'Link'}}<p>{{/if_eq}}
                                                     <a {{#if_eq ItemType 'External'}}target="_blank"{{/if_eq}} class="{{ItemStyle}}" href="{{ItemLink}}">{{ItemName}}</a>
                                                     {{#if_eq ItemStyle 'Link'}}</p>{{/if_eq}}
                                                 {{/if}}
-                                            {{/each}}                      
+                                            {{/each}}    
+                                            {{#if_eq SubsectionStyle 'Wide Buttons'}} </div>{{/if_eq}}                  
                                         {{/if_eq}}
 
                                         {{#if_eq SubsectionType 'Event'}}

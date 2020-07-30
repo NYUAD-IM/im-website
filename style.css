@@ -112,7 +112,7 @@ a:hover {
     cursor: pointer;
     display: inline-block;
     margin: 2%;
-    width: 150px;
+    /* width: 150px; CHANGE LATER */
     text-align: center;
 }
 
@@ -319,8 +319,8 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 .carousel-cell {
     /* RESPONSIVE DECIDE */
     width: 100%; /* full width */
-    /* margin-right: 40%; */
-    margin-right: 30px;
+    margin-right: 40%;
+    /* margin-right: 10px; */
 }
 
 .flickity-viewport {
@@ -328,12 +328,23 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 }
 
 .flickity-button {
-    /* if full width: have buttons be transparent */
-    /* background: transparent !important; */
+    background: transparent;
+}
+
+.flickity-button:hover {
+    background: transparent;
 }
 
 .flickity-prev-next-button {
     top: 44% !important;
+}
+
+.flickity-prev-next-button.previous {
+    left: 70px;
+}
+
+.flickity-prev-next-button.next {
+    right: 70px;
 }
 
 .section.Slides .subsection.Slide {
@@ -604,13 +615,20 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     flex: 1 20%;
 }
 
+.subsection.Block .flexButtons {
+    display: flex; 
+    flex-flow: row wrap; 
+}
+
 .subsection.Block p {
+    width: 100%;
     display: block;
     margin: 5px 0;
 }
 
 .subsection.Block .Button {
     margin: 2% 2% 2% 0;
+    flex: 1;
 }
 
 /****** Subsection: Links ******/
@@ -628,7 +646,6 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-shrink: 0;
     width: 100%;
 }
 
@@ -636,6 +653,7 @@ nav {
     display: flex; 
     justify-content: center;
     padding: 10px 20px;
+    flex-shrink: 0;
 }
 
 .navContent .subsection {
@@ -651,7 +669,7 @@ nav {
 }
 
 .navContent .subsection.Toggle a {
-    display: flex;
+    height: 32px;
 }
 
 .Navbar.subsection.Logo {
@@ -920,11 +938,6 @@ footer {
         font-size:14px;
     }
 
-    .Button {
-        width:100px;
-
-    }
-
     /* Grids: 2 columns */
     .section.Projects .subsection.Project, .section.People .subsection.Person {
         width: calc(50% - 20px);
@@ -1006,7 +1019,7 @@ footer {
         padding: 0;
     }
 
-    .navContent .subsection {
+    .navContent .subsection, .navContent .Navbar.subsection.Links a {
         margin: 20px 35px;
     }
 
@@ -1023,7 +1036,7 @@ footer {
 
     .navContent .subsection.Links {
         position: absolute;
-		top: 50px;
+		top: 60px;
 		width: 100%;
 		height: 0;
         padding: 0;
@@ -1052,10 +1065,6 @@ footer {
         background-color: black;
     }
 
-    .navContent .Navbar.subsection.Links a {
-        margin: 20px 35px;
-    }
-
     .navContent .Link:nth-of-type(1) {
         margin-top: 35px !important;
     }
@@ -1077,10 +1086,7 @@ footer {
     }
 
     .subsection.Block.Wide {
-        display: flex;
-        flex-direction: column;
         margin-right: 0;
-        align-items: center;
     }
 
     .section.Blocks .subsection.Block .subsectionTitle, .section.Blocks .subsection.Block .subsectionSubtitle {
@@ -1097,15 +1103,25 @@ footer {
         -moz-transition-property: color;
         -o-transition-property: color;
         transition-property: color;
+        font-size: 0.8em;
     }
 
     /* Grids: 1 column */
     .section.Projects .subsection.Project, .section.People .subsection.Person {
         width: calc(100% - 20px);
+        margin: 10px 10px 40px 10px;
+    }
+
+    .section.People .subsection.Person:last-of-type,  .section.Projects .subsection.Project:last-of-type{
+        margin: 10px; 
+    }
+
+    .section.People .contentContainer, .section.Projects .contentContainer {
+        width: 85%;
     }
 
     /* Home: Section: Lists */
-    .section.Lists ul {
+    .section.Lists ul { 
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -1155,7 +1171,7 @@ footer {
 
     /* Home: Section: Slides */
     .section.Slides .SlideContent {
-        margin-top: 3%;
+        margin-top: 2%;
     }
 
     .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
@@ -1164,6 +1180,18 @@ footer {
 
     .flickity-viewport {
         height: 460px !important; 
+    }
+
+    .flickity-prev-next-button.previous {
+        left: 20px;
+    }
+    
+    .flickity-prev-next-button.next {
+        right: 20px;
+    }
+
+    .flickity-prev-next-button {
+        top: 38% !important;
     }
 
     /* Error: Section: Banner */
@@ -1219,6 +1247,14 @@ footer {
         /* background-color: #bccbe7; */
     }
 
+    .navContent .subsection, .navContent .Navbar.subsection.Links a {
+        margin: 15px 25px;
+    }
+
+    .navContent .Link:nth-of-type(1) {
+        margin-top: 25px !important;
+    }
+
     /* Home: Section: Slides */
     .section.Slides {
         padding-top: 39px;
@@ -1232,6 +1268,14 @@ footer {
         background: transparent !important;
     }
 
+    .flickity-prev-next-button.previous {
+        left: 0px;
+    }
+    
+    .flickity-prev-next-button.next {
+        right: 0px;
+    }
+
     .flickity-prev-next-button .flickity-button-icon {
         width: 50%;
         height: 50%;
@@ -1243,6 +1287,22 @@ footer {
 
     .flickity-viewport {
         height: 400px !important;
+    }
+
+    /* Gallery/People: Section: Project/Person */
+    .section.People .contentContainer, .section.Projects .contentContainer {
+        width: 100%;
+    }
+
+    /* Resources: Section: Block  */
+    .subsection.Block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subsection.Block .Button {
+        flex: 1 100%;
     }
 
     footer {
@@ -1323,6 +1383,10 @@ footer {
         width: 45%;
     }
 
+    .navContent .subsection, .navContent .Navbar.subsection.Links a {
+        margin: 15px 10px;
+    }
+
     .navContent .subsection.Main a {
         font-size: 1.25em;
         min-width: 137px;
@@ -1332,12 +1396,16 @@ footer {
         width: 16px;
     }
 
+    .navContent .subsection.Toggle a {
+        height: 18px;
+    }
+
     .navContent .subsection.Links.active {
         font-size: 1.25em;
     }
 
-    .navContent .subsection {
-        margin: 6px;
+    .navContent .Link:nth-of-type(1) {
+        margin-top: 15px !important;
     }
 
     /* Error: Section: Banner */
@@ -1355,7 +1423,7 @@ footer {
     }
 
     .flickity-prev-next-button {
-        top: 42% !important;
+        top: 39% !important;
     }
 
     .section.Slides .SlideContent, .section.Slides .subsection.Slide .subsectionTitle, .subsection.Slide img {
@@ -1392,7 +1460,6 @@ footer {
 
     .section.Projects .subsection.Project, .section.People .subsection.Person {
         flex-direction: column;
-        margin: 10px 10px 40px 10px;
     }
 
     .gridHoverContainer {
