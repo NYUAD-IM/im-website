@@ -92,7 +92,7 @@
                                     <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
                                             {{#if_eq SubsectionType 'Sketch'}}
-                                                <!-- <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe> -->
+                                                <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
                                                 <a class="arrow" href="#slides"><span></span></a> 
                                                 <div class="authors">
                                                     <p> Sketch credits: 
