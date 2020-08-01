@@ -25,9 +25,6 @@ $(document).ready(function() {
     // Insert the HTML code directly into the body
     $(document.body).append(html);
 
-    // Initializing horizontical.js (for Slides section)
-    horizontical.init();
-
     // Navbar mobile overlay toggle
     (function($){
         $('.Toggle .Image').click(function(e){
