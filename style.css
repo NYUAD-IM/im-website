@@ -34,6 +34,12 @@ body{
     margin: 20px 10px;
 }
 
+video {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+}
+
 /****** TYPOGRAPHY ******/
 p {
     font-family: 'Open Sans', sans-serif;
@@ -250,36 +256,21 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     margin-top: -40px;
 }
 
-/****** SECTION: SKETCHES ******/
-.section.Sketches {
+/****** SECTION: Videos ******/
+.section.Videos {
     /* width: 100%; */
     margin-top:0;
     position: relative;
     width: 100%;
 }
 
-.section.Sketches iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.section.Sketches .subsection.Sketch {
+.section.Videos .subsection.Video {
     height: 91vh;
     height: 91vm;
     background-color: black;
 }
 
-.section.Sketches .subsection.Sketch .authors {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.section.Sketches .subsection.Sketch p {
-    margin: 0.5% 1.25%;
-    font-size: 0.75em;
-}
-
-.section.Sketches .arrow {
+.section.Videos .arrow {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -293,20 +284,20 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     transition: opacity .3s;
 }
 
-.section.Sketches .arrow:hover {
+.section.Videos .arrow:hover {
     opacity: .5;
 }
 
-.section.Sketches a {
+.section.Videos a {
     padding-top: 70px;
 }
 
-.section.Sketches a span {
+.section.Videos a span {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     margin-left: -12px;
     border-left: 2px solid #fff;
     border-bottom: 2px solid #fff;
@@ -317,7 +308,7 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
     box-sizing: border-box;
 }
 
-/* animating arrow on top of sketch */
+/* animating arrow on top of Video */
 @-webkit-keyframes sdb05 {
     0% {
         -webkit-transform: rotate(-45deg) translate(0, 0);
@@ -810,8 +801,8 @@ footer {
       margin: 10px 0;
     }
 
-    /* Section: Sketches */
-    .section.Sketches {
+    /* Section: Videos */
+    .section.Videos {
         max-width: 100%;
     }
 

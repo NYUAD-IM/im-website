@@ -13,6 +13,7 @@
 </head>
 
 <body class="Home"> 
+
     <script id="template" type="text/x-handlebars-template">
         {{#each objects}}
 
@@ -24,7 +25,6 @@
                     {{#each Subsections}}
                         <div class="subsection {{SubsectionType}}" {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
                             {{#each SubsectionItems}}
-                                            {{/if_eq}}
                                 <a href="{{ItemLink}}" {{#if_eq ../SubsectionType 'Navbar Links'}} class="{{ItemStyle}} {{ItemName}}" {{else}} class="{{ItemStyle}}" {{/if_eq}} {{#if_eq ItemType 'External'}} target="_blank" {{/if_eq}}> {{#if_eq ItemStyle 'Image'}} {{#if_eq ../SubsectionType 'Navbar Logo'}} <img class="whiteLogo" src="data/{{ItemImageLink}}"> {{else}} {{#if_eq ../SubsectionType 'Navbar Toggle'}} <img class="whiteToggle" src="data/{{ItemImageLink}}"> {{else}} <img src="data/{{ItemImageLink}}"> {{/if_eq}} {{/if_eq}} {{/if_eq}} {{#if ItemName}}{{ItemName}}{{/if}}
                                 </a>
                             {{/each}}
@@ -72,21 +72,11 @@
                                 {{#each Subsections}}
                                     <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
-                                            {{#if_eq SubsectionType 'Sketch'}}
-                                                <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
+                                            {{#if_eq SubsectionType 'Video'}}
+                                                <video autoplay muted loop>
+                                                    <source src="data/{{SubsectionVideoName}}" type="video/mp4">
+                                                </video>
                                                 <a class="arrow" href="#slides"><span></span></a> 
-                                                <div class="authors">
-                                                    <p> Sketch credits: 
-                                                        {{~#each SubsectionAuthors~}}
-                                                            {{#if @index}},{{/if}}
-                                                            {{#if AuthorPortfolio~}}
-                                                                <span><a href="{{AuthorPortfolio}}" target="_blank">{{AuthorName}}</a></span>
-                                                            {{~else~}}
-                                                                <span>{{AuthorName}}</span>
-                                                            {{~/if}}
-                                                        {{~/each~}}
-                                                    </p>
-                                                </div>
                                             {{/if_eq}}
                                             
                                             {{#if_eq SubsectionType 'Slide'}}

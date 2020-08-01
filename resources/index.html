@@ -70,21 +70,11 @@
                                 {{#each Subsections}}
                                     <div {{#if SubsectionStyle}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} {{SubsectionStyle}} carousel-cell" {{else}} class="subsection {{SubsectionType}} {{SubsectionStyle}}" {{/if_eq}} {{else}} {{#if_eq SubsectionType 'Slide'}} class="subsection {{SubsectionType}} carousel-cell" {{else}} class="subsection {{SubsectionType}}" {{/if_eq}} {{/if}} {{#if SubsectionOrder}}style="order:{{SubsectionOrder}}"{{/if}}>
 
-                                        {{#if_eq SubsectionType 'Sketch'}}
-                                            <iframe src="{{SubsectionSketchLink}}"  frameBorder="0" scrolling="no"></iframe>
+                                        {{#if_eq SubsectionType 'Video'}}
+                                            <video autoplay muted loop>
+                                                <source src="../data/{{SubsectionVideoName}}" type="video/mp4">
+                                            </video>
                                             <a class="arrow" href="#slides"><span></span></a> 
-                                            <div class="authors">
-                                                <p> Sketch credits: 
-                                                    {{~#each SubsectionAuthors~}}
-                                                        {{#if @index}},{{/if}}
-                                                        {{#if AuthorPortfolio~}}
-                                                            <span><a href="{{AuthorPortfolio}}" target="_blank">{{AuthorName}}</a></span>
-                                                        {{~else~}}
-                                                            <span>{{AuthorName}}</span>
-                                                        {{~/if}}
-                                                    {{~/each~}}
-                                                </p>
-                                            </div>
                                         {{/if_eq}}
                                         
                                         {{#if_eq SubsectionType 'Slide'}}
