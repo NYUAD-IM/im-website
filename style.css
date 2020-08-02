@@ -239,11 +239,19 @@ body.Home .Navbar.subsection.Links a:hover, body.Home .Navbar.Main a:hover {
 }
 
 .subsection.Navbar .whiteLogo {
-	content: url("data/nyuad_white.svg");
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url(data/nyuad_white.svg) no-repeat;
+    height: 46px;
+    padding-left: 110px;
 }
 
 .whiteToggle {
-    content: url("data/hamburger_white.svg");
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url(data/hamburger_white.svg) no-repeat;
+    height: 30.85px;
+    padding-left: 27px;
 }
 
 /****** PAGE: ERROR ******/
